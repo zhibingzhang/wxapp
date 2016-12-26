@@ -1,0 +1,34 @@
+一、安装Sublime Text3 
+	1.安装必备的包管理：Package Control,用来安装插件。
+		安装指导：Ctrl+~打开命令控制面板-->https://sublime.wbond.net/installation复制SUBLIME TEXT3内容-->按回车键
+	2.安装必备插件步骤：Ctrl+Shift+P打开命令窗口-->输入install Package==（简写ip）按回车键-->搜索插件按回车。
+		有关前端插件分类：
+			1，Emment插件用于开发HTML及CSS
+			2，AutoFileName插件用于提示引入文件格式及名称
+			3，SublimeCodeIntel插件用于js只能提示
+			4，Sidebar Enhancements插件增强左侧栏功能
+			5，ConvertToUTF8插件用于编码格式
+			6，JsFormat插件用于Ctrl+Alt+f 对Js格式化
+	3，安装html运行快捷键步骤：
+		安装View In Browser插件
+			1，Ctrl+Shift+P-->输入ip回车-->输入View-->选择View In Browser安装。
+			2，设置Chrome快捷键:Preferences-->Package Sessings-->Slide Bar-->Key Bindings-User-->
+				[
+					{
+        					"keys": ["f5"],
+        					"command": "side_bar_files_open_with",
+        					"args": {
+           					 	"paths": [],
+            						"application": "xxx.exe(注意本地可执行浏览器地址如：C:\\User\\chrome.exe)",
+            						"extensions": ".*"
+        					}
+    					}
+				]
+	4,失去焦点自动保存步骤：
+		Preferences-->Sessings-->在弹出的窗口中添加一个属性"save_on_focus_lost": true保存即可。
+	5，配置less步骤：
+		1，安装node.js并配置环境变量
+		2，安装LESS 和 less2Css插件
+		3，打开cmd-->npm install -g less-->npm install less-plugin-clean-css -g-->从新启动sublime text3。
+	6，删除插件步骤：
+		Ctrl+Shift+P-->输入RP-->选择要删除的插件按回车即可。
