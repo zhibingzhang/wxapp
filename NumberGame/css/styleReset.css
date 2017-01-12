@@ -10,7 +10,7 @@ html,body,.swiper-container {
 	height: 100%;
 }
 body{
-	font: normal 12px/1.5 'Microsoft Yahei', 微软雅黑,'Segoe UI', STXihei, 华文细黑, Helvetica, Arial, Tahoma, sans-serif;
+	font: normal 12px 'Microsoft Yahei', 微软雅黑,'Segoe UI', STXihei, 华文细黑, Helvetica, Arial, Tahoma, sans-serif;
 	color: #666;
 }
 .container{

@@ -1,8 +1,150 @@
 /********************************************/
 /******************公共样式******************/
 /********************************************/
-
-
+.header{
+  position: relative;
+  background: transparent url(../images/headerbg.png) no-repeat center top;
+  .header_img,.header_simg{
+      position: absolute;
+  }
+  .header_img{
+    left: 0;
+    top: -42px;
+  }
+}
+// 第一屏
+.public-screen01{
+  background: transparent url(../images/bg.png) no-repeat;
+  .public-screen01-header{
+    height: 306px;
+    .header_simg{
+      bottom: 0;
+      right: 46px;
+    }
+  }
+  .public-screen01-title{
+    position: relative;
+    width: 495px;
+    height: 124px;
+    margin: 0 auto;
+    background: transparent url(../images/title.png) no-repeat;
+    margin-top: -14px;
+    .title_img{
+      position: absolute;
+      top: -142px;
+      left: 132px;
+    }
+  }
+  .txt_office{
+    text-align: center;
+    font-size: 36.96/16rem;
+    color: #e44f25;
+    margin-top: 35px;
+  }
+  .start_btn{
+    display: block;
+    width: 245px;
+    height: 74px;
+    text-align: center;
+    line-height: 74px;
+    background: transparent url(../images/start_btn.png) no-repeat;
+    font-size: 37.96/16rem;
+    color: #fff;
+    margin: 0 auto;
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+  .public-screen01-footer{
+    position: relative;
+    height: 478px;
+    .footer-l-img{
+      position: absolute;
+      left: 33px;
+      bottom: 0;
+    }
+    .footer-r-img{
+      position: absolute;
+      right: 33px;
+      top: 0;
+      width: 286px;
+      height: 270px;
+      background: transparent url(../images/promptbox.png) no-repeat;
+      font-size: 20.92/16rem;
+      color: #2d2d2d;
+      p{
+        width: 190px;
+        margin: 72px auto;
+        text-align: center;
+      }
+    }
+  }
+  .logo{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+  }
+}
+//第二屏
+.public-screen02{
+  background: transparent url(../images/pages_bg.png) no-repeat;
+  .public-screen02-header{
+    height: 245px;
+    margin-bottom: 48px;
+    .grade{
+      width: 230px;
+      height: 144px;
+      position: absolute;
+      right: 52px;
+      bottom: 0;
+      text-align: right;
+      span{
+        margin-top: 12px;
+        display: inline-block;
+        background: transparent url(../images/clock.png) no-repeat 20px center;
+        width: 206px;
+        height: 56px;
+        line-height: 56px;
+        background-color: #e44f25;
+        color: #FFF;
+        font-size: 1.8rem;
+        border-radius: 28px;
+        text-align: left;
+        padding-left: 65px;
+      }
+    }
+  }
+  .public-screen02-content,.intelligent-prompt{
+    width: 600px;
+    margin: 0 auto;
+  }
+  .public-screen02-content{
+    height: 600px;
+    background: rgba(255,255,255,0.6);
+  }
+  .intelligent-prompt{
+    position: relative;
+    height: 132px;
+    border: 3px dashed #e3896b;
+    font-size: 29.89/16rem;
+    font-weight: bold;
+    color: #c03928;
+    padding-left: 42px;
+    p{
+      height: 61px;
+      line-height: 61px;
+      .col-txt,.row-txt{
+        font-weight: normal;
+      }
+    }
+    .bschicken{
+      position: absolute;
+      right: 20px;
+      top: 12px;
+      width: 131px;
+      height: 153px;
+    }
+  }
+}
 
 
 
