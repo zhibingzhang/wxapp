@@ -1,4 +1,21 @@
-﻿// 动态添加meta标签及去掉微信刷新栏
+﻿// 配置文件
+$.ajax({
+    url: "http://event.anruichina.com/wechat/token",
+    dataType: 'jsonp',
+    data: {
+        url: window.location.href
+    },
+    jsonp: 'jsonpcallback',
+    success: function(data) {
+        try {
+            var wxConfig = eval(data);
+            wx.config(wxConfig);
+        } catch (e) {
+            alert(e.message);
+        }
+    }
+});
+// 添加meta元素及去掉微信分享框
 (function() {
     if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
         var version = parseFloat(RegExp.$1);
@@ -18,44 +35,14 @@
         });
     }
 }());
-// 微信配置文件信息
-$.ajax({
-    url: "http://event.anruichina.com/wechat/token",
-    dataType: 'jsonp',
-    data: {
-        url: window.location.href
-    },
-    jsonp: 'jsonpcallback',
-    success: function(data) {
-        try {
-            var wxConfig = eval(data);
-            wx.config(wxConfig);
-        } catch (e) {
-            alert(e.message);
-        }
-    }
-});
-// 微信提供接口调用
+// 接口调用
 wx.ready(function() {
-    //wx.checkJsApi({
-    //    jsApiList: [
-    //      'onMenuShareTimeline',
-    //      'onMenuShareAppMessage'
-    //    ],
-    //    success: function (res) {
-    //         //alert(JSON.stringify(res));
-    //    }
-    //});
     function getShareData(shareType) {
         return shareData = {
-            title: 'Mac4Me 教育优惠红包摇一摇',
-            desc: '秋高气爽却心气不畅？莫慌，Mac4Me 用上万红包治愈你！',
-            link: 'http://event.anruichina.com/zzbh5/test/',
-            //link: 'http://wechat.anruichina.com/AppleWatch/',
-            imgUrl: 'http://wechat.anruichina.com/apple-watch/images/weixin.jpg',
-            complete: function(res) {
-                //alert(JSON.stringify(res));
-            },
+            title: '',
+            desc: '',
+            link: '',
+            imgUrl: '',
             success: function(res) {
                 shareConfirm(shareType);
             },
@@ -67,12 +54,15 @@ wx.ready(function() {
             }
         };
     }
+
     function shareCancel(type) {
 
     }
+
     function shareFail(type) {
 
     }
+
     function shareConfirm(type) {
         $.ajax({
             url: "home/share",
@@ -94,7 +84,7 @@ wx.ready(function() {
     wx.onMenuShareTimeline(getShareData(2));
     wx.onMenuShareQQ(getShareData(3));
 });
-// 微信接口请求失败
+// 接口调用失败
 wx.error(function(res) {
-     console.log(res.errMsg);
+    console.log(res.errMsg);
 });
