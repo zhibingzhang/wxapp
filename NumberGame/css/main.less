@@ -120,6 +120,20 @@
   .public-screen02-content{
     height: 600px;
     background: rgba(255,255,255,0.6);
+    position: relative;
+    .txt_box{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border: 1px solid #e44f25;
+      font-size: 36.96/16rem;
+      color: #000;
+      text-align: center;
+    }
+    .active{
+      border-color: blue!important;
+    }
   }
   .intelligent-prompt{
     position: relative;
@@ -142,6 +156,23 @@
       top: 12px;
       width: 131px;
       height: 153px;
+    }
+  }
+
+  .key_box{
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 38px;
+    .key{
+      float: left;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      border: 1px solid #e44f25;
+      font-size: 36.96/16rem;
+      color: #000;
+      text-align: center;
+      border-radius: 6px;
     }
   }
 }
