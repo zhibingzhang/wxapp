@@ -112,92 +112,144 @@ var cache = [];
                 direction: 'vertical',
                 loop: false,
                 noSwiping: true,
-                preloadImages:false,
+                preloadImages: false,
             });
+
+            //添加背景音乐
+            music();
             // 开始游戏
-            $(".start_btn").click(function() {
-                mySwiper.slideNext();
-                cache = group[Math.floor(Math.random() * group.length)].split(',');
-                NumberGame.init(cache[NumberGame.count]); //初始化
-                // 时间计数
-                timer();
+            if(window.location.href.indexOf('?type') != -1){
+                setTimeout(function() {
+                    $(".count_down_mak").show();
+                    var num = 0;
+                    var t = setInterval(function() {
+                        num++;
+                        if (num == 1) {
+                            $(".count img").attr('src', 'images/ready.png').css({
+                                'padding-top': '40px'
+                            });
+                        }
+                        if (num == 2) {
+                            $(".count img").attr('src', 'images/go.png').css({
+                                'padding-top': '40px'
+                            });
+                        }
+                        if (num == 3) {
+                            $(".count_down_mak").hide();
+                            clearInterval(t);
+                            cache = group[Math.floor(Math.random() * group.length)].split(',');
+                            NumberGame.init(cache[NumberGame.count]); //初始化
+                            // 时间计数
+                            timer();
+                        }
+                    }, 1000);
+
+                }, 1000);
+            }
+            //排行榜
+            $("#ranking_btn").click(function(){
+                window.location.href='WinningList.html';
+            });
+            //分享
+            $('#share').click(function(){
+                $('.wx-share').show();
+            });
+            //关闭分享弹框
+            $('.wx-share').click(function(){
+                $('.wx-share').hide();
             });
         }
     }
 }());
 var NumberGame = {
-        CR: 0,
-        _me: null,
-        answer: null,
-        count: 0,
-        init: function(type) {
-            var t = this;
-            t.CR = data[cache[t.count]].length;
-            t.update_page(type);
+    CR: 0,
+    _me: null,
+    answer: null,
+    count: 0,
+    init: function(type) {
+        var t = this;
+        t.CR = data[cache[t.count]].length;
+        t.update_page(type);
 
-            $(".public-screen02-content").on('click', '.txt_box', function(e) {
-                t._me = $(this);
-                t.start(t._me);
-                $(this).attr('data-i') == 'true' ? ($(this).html($(this).attr('data-error') == 'true' ? '' : $(this).html())) : '';
+        $(".public-screen02-content").on('click', '.txt_box', function(e) {
+            t._me = $(this);
+            t.start(t._me);
+            $(this).attr('data-i') == 'true' ? ($(this).html($(this).attr('data-error') == 'true' ? '' : $(this).html())) : '';
 
-            });
-            $(".key_box").on('click', '.key', function(e) {
-                $('.txt_box').removeAttr('data-state');
-                $('.active').html($(this).html()).attr('data-state', '1');
-                t.count < 2 ? (t.answer == 1 ? t.start(t._me) : '', t.answer == 0 ? t.update_page(cache[++NumberGame.count]) : '') : '';
-            });
-        },
-        start: function(me) {
-            var t = this;
-            if (me.attr('data-i') != "false") {
-                $(".txt_box").removeClass('active');
-                me.addClass('active');
-
-
-                if ($('.txt_box[data-state="1"]').length != '0' && $('.txt_box[data-state="1"]').attr('data-i') =='true') {
-                    var this_top = $('.txt_box[data-state="1"]').position().top / 60;
-                    var this_left = $('.txt_box[data-state="1"]').position().left / 60;
-                    var this_txt = $('.txt_box[data-state="1"]');
-                    console.log(mydata[cache[t.count]][this_top][this_left])
-                    console.log(this_txt.html())
-                    if (mydata[cache[t.count]][this_top][this_left] == this_txt.html()) {
-                        this_txt.css('border-color', '#e44f25').attr('data-i', 'false');
-                        t.answer--;
-                        console.log(t.answer)
-                    } else {
-                        this_txt.css('border-color', 'yellow').attr('data-error', 'true');
-                    }
+        });
+        $(".key_box").on('click', '.key', function(e) {
+            $('.txt_box').removeAttr('data-state');
+            $('.active').html($(this).html()).attr('data-state', '1');
+            t.count < 2 ? (t.answer == 1 ? t.start(t._me) : '', t.answer == 0 ? t.update_page(cache[++NumberGame.count]) : '') : '';
+        });
+    },
+    start: function(me) {
+        var t = this;
+        if (me.attr('data-i') != "false") {
+            $(".txt_box").removeClass('active');
+            me.addClass('active');
+            if ($('.txt_box[data-state="1"]').length != '0' && $('.txt_box[data-state="1"]').attr('data-i') == 'true') {
+                var this_top = parseInt($('.txt_box[data-state="1"]').position().top / 60);
+                var this_left = parseInt($('.txt_box[data-state="1"]').position().left / 60);
+                var this_txt = $('.txt_box[data-state="1"]');
+                console.log(mydata[cache[t.count]][this_top][this_left])
+                console.log(this_txt.html())
+                if (mydata[cache[t.count]][this_top][this_left] == this_txt.html()) {
+                    this_txt.css({
+                        'border-color': '#e44f25',
+                        'background-color': '#FFF'
+                    }).attr('data-i', 'false');
+                    t.answer--;
+                    console.log(t.answer)
+                } else {
+                    this_txt.css('background-color', '#ec8366').attr('data-error', 'true');
                 }
             }
-        },
-        update_page: function(GroupName) {
-            $(".public-screen02-content").html('');
-            $(".key_box").html('');
-            for (var i = 0; i < this.CR; i++) {
-                for (var j = 0; j < this.CR; j++) {
-                    if (data[GroupName][i][j] != '0') {
-                        $(".public-screen02-content").append('<div data-i="true" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
-                    }
-                    if (data[GroupName][i][j].split(',')[1] == "false") {
-                        $('.' + i + j).css({
-                            background: '#fadcd3'
-                        }).attr('data-i', 'false');
-                    }
-                    $('.' + i + j).css({
-                        top: i * 60,
-                        left: j * 60
-                    });
-
-                }
-            }
-            this.answer = $(".txt_box[data-i='true']").length;
-            console.log(this.answer)
-                //备用字
-            var spare_words = ['智', '障', '带', '我', '装', '逼', '带', '我', '飞', '开', '黑'];
-            result(GroupName, spare_words);
         }
+    },
+    update_page: function(GroupName) {
+        $(".public-screen02-content").html('');
+        $(".key_box").html('');
+        for (var i = 0; i < this.CR; i++) {
+            for (var j = 0; j < this.CR; j++) {
+                if (data[GroupName][i][j] != '0') {
+                    $(".public-screen02-content").append('<div data-i="true" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
+                }
+                if (data[GroupName][i][j].split(',')[1] == "false") {
+                    $('.' + i + j).css({
+                        background: '#fadcd3'
+                    }).attr('data-i', 'false');
+                }
+                $('.' + i + j).css({
+                    top: i * 60,
+                    left: j * 60
+                });
+
+            }
+        }
+        this.answer = $(".txt_box[data-i='true']").length;
+        console.log(this.answer)
+            //备用字
+        var spare_words = ['智', '障', '带', '我', '装', '逼', '带', '我', '飞', '开', '黑'];
+        result(GroupName, spare_words);
     }
-    //计数时间函数
+}
+
+
+$(function() {
+    //活动介绍
+    $("#activity_btn").click(function() {
+        $('.activity_mak').show();
+    });
+    // 关闭活动介绍
+    $("#close").click(function() {
+        $('.activity_mak').hide();
+    });
+
+
+
+});
+//计数时间函数
 function timer() {
     var HH = 0,
         mm = 0,
@@ -223,6 +275,7 @@ function timer() {
         if (NumberGame.count == 2) {
             clearInterval(tim);
             when_long = HH * 3600 + mm * 60 + ss;
+            window.location.href='GameResult.html';
             alert('恭喜你通关');
             console.log(when_long);
         }
@@ -253,11 +306,30 @@ function result(GroupName, spare_words) {
     }
 }
 Array.prototype.shuffle = function() {
-    let m = this.length,
-        i;
-    while (m) {
-        i = (Math.random() * m--) >>> 0;
-        [this[m], this[i]] = [this[i], this[m]]
+        let m = this.length,
+            i;
+        while (m) {
+            i = (Math.random() * m--) >>> 0;
+            [this[m], this[i]] = [this[i], this[m]]
+        }
+        return this;
     }
-    return this;
+    //背景音乐
+function music() {
+    var a = document.createElement('AUDIO');
+    a.setAttribute('src', 'images/music.mp3');
+    a.setAttribute('loop', true);
+    a.setAttribute('autoplay', true);
+    a.setAttribute('id', 'myaudio');
+    document.body.appendChild(a);
+    var my_music = document.getElementById('myaudio');
+    $(document).on('click', '#music', function() {
+        if ($(this).hasClass('mysic_active')) {
+            $(this).removeClass('mysic_active');
+            my_music.pause();
+        } else {
+            $(this).addClass('mysic_active');
+            my_music.play();
+        };
+    });
 }

@@ -7,6 +7,7 @@ $.ajax({
     },
     jsonp: 'jsonpcallback',
     success: function(data) {
+        console.log(data)
         try {
             var wxConfig = eval(data);
             wx.config(wxConfig);
@@ -65,18 +66,18 @@ wx.ready(function() {
 
     function shareConfirm(type) {
         $.ajax({
-            url: "home/share",
+            url: "http://eventhub04.anruichina.com/o365-puzzles/home/ShareFriend",
             type: 'post',
             datatype: 'json',
             data: {
-                type: type
+                shareType: type, url: window.location.href
             },
             success: function(data) {
-
-                config.leftCount = data.Status;
-                if (data.Status > 0) {
-                    location.reload();
-                }
+                console.log(data);
+                // config.leftCount = data.Status;
+                // if (data.Status > 0) {
+                //     location.reload();
+                // }
             }
         });
     }
