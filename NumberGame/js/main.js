@@ -53,7 +53,7 @@ var mydata = {
         ['0', '厉', '0', '0', '0', '0', '泥', '石,false', '流', '0'],
         ['0', '害,false', '0', '宝', '0', '0', '0', '化', '0', '友'],
         ['0', '了', '0', '宝', '0', '0', '总', '0', '0', '谊,false'],
-        ['0', '我', '内', '心,false', '几', '乎', '是', '崩', '溃', '的'],
+        ['0', 'Word', '内', '心,false', '几', '乎', '是', '崩', '溃', '的'],
         ['0', '的', '0', '里', '0', '0', '套,false', '0', '0', '小'],
         ['0', '哥', '0', '苦', '0', '0', '路', '0', '0', '船'],
         ['0', '0', '0', '0', '0', '0', '得', '0', '阿', '0'],
@@ -114,49 +114,50 @@ var cache = [];
                 noSwiping: true,
                 preloadImages: false,
             });
-
             //添加背景音乐
             music();
             // 开始游戏
-            if(window.location.href.indexOf('?type') != -1){
+            if (window.location.href.indexOf('?type') != -1) {
                 setTimeout(function() {
                     $(".count_down_mak").show();
-                    var num = 0;
+                    var num = -1;
                     var t = setInterval(function() {
                         num++;
+                        if (num == 0) {
+                            $('.count').html('<img src="images/bigchicken.png" />');
+                        }
                         if (num == 1) {
-                            $(".count img").attr('src', 'images/ready.png').css({
-                                'padding-top': '40px'
-                            });
+                            $('.count').html('<img src="images/ready.png" class="imgt" />');
                         }
                         if (num == 2) {
-                            $(".count img").attr('src', 'images/go.png').css({
-                                'padding-top': '40px'
-                            });
+                            $('.count').html('<img src="images/go.png" class="imgt" />');
                         }
                         if (num == 3) {
-                            $(".count_down_mak").hide();
                             clearInterval(t);
+                            $(".count_down_mak").hide();
                             cache = group[Math.floor(Math.random() * group.length)].split(',');
                             NumberGame.init(cache[NumberGame.count]); //初始化
                             // 时间计数
                             timer();
                         }
-                    }, 1000);
-
-                }, 1000);
+                    }, 600);
+                }, 500);
             }
             //排行榜
-            $("#ranking_btn").click(function(){
-                window.location.href='WinningList.html';
+            $("#ranking_btn").click(function() {
+                window.location.href = 'WinningList.html';
             });
             //分享
-            $('#share').click(function(){
+            $('#share').click(function() {
                 $('.wx-share').show();
             });
             //关闭分享弹框
-            $('.wx-share').click(function(){
+            $('.wx-share').click(function() {
                 $('.wx-share').hide();
+            });
+            //关闭from弹框
+            $('.form_close').click(function() {
+                $('.from_mak').hide();
             });
         }
     }
@@ -170,31 +171,36 @@ var NumberGame = {
         var t = this;
         t.CR = data[cache[t.count]].length;
         t.update_page(type);
-
         $(".public-screen02-content").on('click', '.txt_box', function(e) {
-            t._me = $(this);
-            t.start(t._me);
-            $(this).attr('data-i') == 'true' ? ($(this).html($(this).attr('data-error') == 'true' ? '' : $(this).html())) : '';
-
+            if ($(this).attr('data-i') == "true") {
+                t._me = $(this);
+                $('.txt_box').removeClass('active');
+                $(this).addClass('active');
+                t.start(t._me);
+                $(this).attr('data-i') == 'true' ? ($(this).html($(this).attr('data-error') == 'true' ? '' : $(this).html())) : '';
+            }
         });
         $(".key_box").on('click', '.key', function(e) {
+            $(this).html() == 'Word' ? $('.active').addClass('word') : $('.active').removeClass('word');
+            $('.active').eq(0).attr('data-switch', 'false');
             $('.txt_box').removeAttr('data-state');
             $('.active').html($(this).html()).attr('data-state', '1');
-            t.count < 2 ? (t.answer == 1 ? t.start(t._me) : '', t.answer == 0 ? t.update_page(cache[++NumberGame.count]) : '') : '';
+            t.count < 2 ? (t.answer == 1 ? t.start($('.txt_box[data-state="1"]')) : '', t.answer == 0 ? time() : '') : '';
         });
     },
     start: function(me) {
         var t = this;
+        console.log(t.count)
         if (me.attr('data-i') != "false") {
             $(".txt_box").removeClass('active');
             me.addClass('active');
             if ($('.txt_box[data-state="1"]').length != '0' && $('.txt_box[data-state="1"]').attr('data-i') == 'true') {
-                var this_top = parseInt($('.txt_box[data-state="1"]').position().top / 60);
-                var this_left = parseInt($('.txt_box[data-state="1"]').position().left / 60);
+                var tl = $('.txt_box[data-state="1"]').attr('data-coordinate').split('');
+                var this_top = tl[0];
+                var this_left = tl[1];
                 var this_txt = $('.txt_box[data-state="1"]');
-                console.log(mydata[cache[t.count]][this_top][this_left])
-                console.log(this_txt.html())
                 if (mydata[cache[t.count]][this_top][this_left] == this_txt.html()) {
+                    delete_key(this_txt.html());
                     this_txt.css({
                         'border-color': '#e44f25',
                         'background-color': '#FFF'
@@ -213,12 +219,15 @@ var NumberGame = {
         for (var i = 0; i < this.CR; i++) {
             for (var j = 0; j < this.CR; j++) {
                 if (data[GroupName][i][j] != '0') {
-                    $(".public-screen02-content").append('<div data-i="true" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
+                    $(".public-screen02-content").append('<div data-i="true" data-switch="true" data-coordinate="' + i + j + '" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
                 }
                 if (data[GroupName][i][j].split(',')[1] == "false") {
                     $('.' + i + j).css({
                         background: '#fadcd3'
-                    }).attr('data-i', 'false');
+                    }).attr({
+                        'data-i': 'false',
+                        'data-switch': 'false'
+                    });
                 }
                 $('.' + i + j).css({
                     top: i * 60,
@@ -228,8 +237,7 @@ var NumberGame = {
             }
         }
         this.answer = $(".txt_box[data-i='true']").length;
-        console.log(this.answer)
-            //备用字
+        //备用字
         var spare_words = ['智', '障', '带', '我', '装', '逼', '带', '我', '飞', '开', '黑'];
         result(GroupName, spare_words);
     }
@@ -245,9 +253,6 @@ $(function() {
     $("#close").click(function() {
         $('.activity_mak').hide();
     });
-
-
-
 });
 //计数时间函数
 function timer() {
@@ -274,10 +279,8 @@ function timer() {
         $(".grade>span").html(str);
         if (NumberGame.count == 2) {
             clearInterval(tim);
-            when_long = HH * 3600 + mm * 60 + ss;
-            window.location.href='GameResult.html';
-            alert('恭喜你通关');
-            console.log(when_long);
+            when_long = HH * 3600 + mm * 60 + ss + ',' + str;
+            window.location.href = 'GameResult.html?when_long=' + when_long;
         }
     }, 1000);
 }
@@ -289,9 +292,7 @@ function result(GroupName, spare_words) {
         for (var j = 0; j < NumberGame.CR; j++) {
             //可选文字
             if (mydata[GroupName][i][j] != '0' && mydata[GroupName][i][j].split(',').length != 2) {
-                if (arr.indexOf(mydata[GroupName][i][j]) == -1) {
-                    arr.push(mydata[GroupName][i][j]);
-                }
+                arr.push(mydata[GroupName][i][j]);
             }
         }
     }
@@ -302,7 +303,12 @@ function result(GroupName, spare_words) {
     }
     arr = arr.concat(arradd).shuffle();
     for (var d = 0; d < arr.length; d++) {
-        $(".key_box").append('<span class="key">' + arr[d] + '</span>');
+
+        if (arr[d] == 'Word') {
+            $(".key_box").append('<span class="key word">' + arr[d] + '</span>');
+        } else {
+            $(".key_box").append('<span class="key">' + arr[d] + '</span>');
+        }
     }
 }
 Array.prototype.shuffle = function() {
@@ -323,13 +329,64 @@ function music() {
     a.setAttribute('id', 'myaudio');
     document.body.appendChild(a);
     var my_music = document.getElementById('myaudio');
-    $(document).on('click', '#music', function() {
+    $('#music').click(function() {
         if ($(this).hasClass('mysic_active')) {
             $(this).removeClass('mysic_active');
             my_music.pause();
+            $("#music").css('background', 'url(images/music.png)');
         } else {
             $(this).addClass('mysic_active');
             my_music.play();
+            $("#music").css('background', 'url(images/music2.png)');
         };
     });
+}
+//预加载
+function time() {
+    console.log(NumberGame.count)
+    if (NumberGame.count == 0) {
+        setTimeout(function() {
+            $(".count_head img").attr('src', 'images/shut2.png')
+            $('.count').html('');
+            $(".count_down_mak").show();
+            var num = -1;
+            var t = setInterval(function() {
+                num++;
+                if (num == 0) {
+                    $('.count').html('<img src="images/bigchicken.png" />');
+                }
+                if (num == 1) {
+                    $('.count').html('<img src="images/ready.png" class="imgt" />');
+                }
+                if (num == 2) {
+                    $('.count').html('<img src="images/go.png" class="imgt" />');
+                }
+                if (num == 3) {
+                    clearInterval(t);
+                    $(".count_down_mak").hide();
+                    NumberGame.update_page(cache[++NumberGame.count]);
+                    addborder();
+                }
+            }, 600);
+        }, 500);
+    }
+    NumberGame.count == 1 ? ++NumberGame.count : '';
+}
+
+function addborder() {
+    var txt_box_switch = $('.txt_box[data-switch="true"]');
+    $('.txt_box').removeClass('active');
+    txt_box_switch.eq(0).addClass('active');
+    NumberGame._me = $('.active');
+    NumberGame.start(NumberGame._me);
+    $('.active').attr('data-i') == 'true' ? ($(this).html($(this).attr('data-error') == 'true' ? '' : $(this).html())) : '';
+}
+//删除按键
+function delete_key(keyhtml) {
+    for (var i = 0; i < $('.key').length; i++) {
+        if ($('.key').eq(i).html() == keyhtml) {
+            $('.key').eq(i).remove();
+            return false;
+        }
+    }
 }

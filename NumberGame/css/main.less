@@ -10,7 +10,7 @@
   right: 18px;
   width: 85px;
   height: 85px;
-  background: transparent url(../images/music.png) no-repeat;
+  background: transparent url(../images/music2.png) no-repeat;
   z-index: 9999;
 }
 .mysic_active{
@@ -109,6 +109,9 @@
         img{
           display: inline-block;
         }
+        .imgt{
+          margin-top: 60px;
+        }
       }
     }
   }
@@ -117,12 +120,16 @@
     display: none;
     img{
       position: absolute;
-      top: 160px;
+      top: 16px;
       right: 90px;
     }
   }
   .activity_mak{
     display: none;
+  }
+  .word{
+    font-size: 20px!important;
+    font-weight: bold!important;
   }
 // 第一屏
 .public-screen01{
@@ -256,6 +263,7 @@
     height: 600px;
     background: rgba(255,255,255,0.6);
     position: relative;
+    margin-bottom: 3px;
     .txt_box{
       position: absolute;
       width: 60px;
@@ -318,7 +326,7 @@
 }
 //第三屏
 .public-screen03{
-  background: transparent url(../images/pages_bg.png) no-repeat;
+  background: transparent url(../images/pages.png) no-repeat;
   .public-screen03-header{
     height: 134px;
   }
@@ -480,10 +488,11 @@
       line-height: 200%;
     }
     .from{
-      margin-top: 47px;
+      margin-top: 27px;
       .group{
         font-size: 23.91/16rem;
-        margin-bottom: 20px;
+        margin-bottom: 36px;
+        position: relative;
         span{
           color: #FFF;
         }
@@ -493,6 +502,12 @@
           height: 44px;
           border: 1px solid #7d7d7d;
           padding-left: 6px;
+        }
+        .error{
+          position: absolute;
+          color: yellow;
+          left: 70px;
+          top: 40px;
         }
       }
     }
@@ -509,7 +524,7 @@
 }
 // 第四屏
 .public-screen04{
-  background: transparent url(../images/pages_bg.png) no-repeat;
+  background: transparent url(../images/pages.png) no-repeat;
   .public-screen04-header{
     height: 180px;
     position: relative;
@@ -542,7 +557,7 @@
       padding: 52px;
       text-align: center;
       overflow: auto;
-      max-height: 700px;
+      max-height: 646px;
       li{
         border-bottom: 1px solid #FFF;
         span.tit{

@@ -5,8 +5,8 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta http-equiv="expires" content="0">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="鸡智如我，office 365，成就你的下个365天">
+    <meta name="description" content="鸡智如我，office 365，成就你的下个365天">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +15,7 @@
     <meta http-equiv="pragram" content="no-cache">
     <meta name="sharecontent" data-msg-img="" data-msg-title="" data-msg-content="" data-msg-callback=""
           data-line-img="" data-line-title="" data-line-callback="">
-    <title></title>
+    <title>鸡智如我，Office 365，成就你的下个365天</title>
     <link href="css/swiper-3.4.1.min.css" type="text/css" rel="stylesheet"/>
     <link href="css/animate.css" type="text/css" rel="stylesheet"/>
     <link href="css/styleReset.css" type="text/css" rel="stylesheet"/>
@@ -39,7 +39,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <!--第四屏-->
-                <div class="swiper-slide public-screen04">
+                <div class="swiper-slide public-screen04 swiper-no-swiping">
                     <div class="public-screen04-header header">
                         <img src="images/tree-l.png" />
                         <img src="images/tree-r.png" />
@@ -48,17 +48,7 @@
                         <div class="content_header">
                             <img src="images/off365-m.png" />
                         </div>
-                        <ul>
-                            <li>
-                                <span class="tit">排名</span>
-                                <span class="tit">姓名</span>
-                                <span class="tit">时长</span>
-                            </li>
-                            <li>
-                                <span>1</span>
-                                <span>人生初见</span>
-                                <span>00:00:00</span>
-                            </li>
+                        <ul id='prize_list'>
                         </ul>
                         <p class="last_btn">
                             <a href="index.html"></a>
@@ -77,21 +67,24 @@
     <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
+        var html ='<li><span class="tit">排名</span><span class="tit">姓名</span><span class="tit">时长</span></li>'
         $.ajax({
-                    url: "http://eventhub04.anruichina.com/o365-puzzles/home/GetUser",
-                    type: 'post',
-                    datatype: 'json',
-                    data: {
-                        
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        // config.leftCount = data.Status;
-                        // if (data.Status > 0) {
-                        //     location.reload();
-                        // }
-                    }
-                });
+            url: "http://eventhub04.anruichina.com/o365-puzzles/home/GetUser",
+            type: 'post',
+            datatype: 'json',
+            data: {
+                
+            },
+            success: function(data) {
+                console.log(data.Data.length)
+                for(var i=0,str='',j; i<data.Data.length; i++){
+                    j=i;
+                    str+='<li><span>'+(++j)+'</span><span>'+data.Data[i].Name+'</span><span>'+data.Data[i].UseTime+'</span></li>';
+                }
+                html+=str;
+                $('#prize_list').append(html);
+            }
+        });
     </script>
 </body>
 </html>

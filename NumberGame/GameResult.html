@@ -5,8 +5,8 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta http-equiv="expires" content="0">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="鸡智如我，office 365，成就你的下个365天">
+    <meta name="description" content="鸡智如我，office 365，成就你的下个365天">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +15,7 @@
     <meta http-equiv="pragram" content="no-cache">
     <meta name="sharecontent" data-msg-img="" data-msg-title="" data-msg-content="" data-msg-callback=""
           data-line-img="" data-line-title="" data-line-callback="">
-    <title></title>
+    <title>鸡智如我，Office 365，成就你的下个365天</title>
     <link href="css/swiper-3.4.1.min.css" type="text/css" rel="stylesheet"/>
     <link href="css/animate.css" type="text/css" rel="stylesheet"/>
     <link href="css/styleReset.css" type="text/css" rel="stylesheet"/>
@@ -49,7 +49,7 @@
                             <a class="introduce" id="activity_btn"><span>活动介绍</span></a>
                             <a class="ranking" id='ranking_btn'><span>游戏排名</span></a>
                             <h3>恭喜你，闯关成功！</h3>
-                            <p>用时<span class="time">01:00</span></p>
+                            <p>用时<span class="time"></span></p>
                         </div>
                         <p class="btns">
                             <a href="index.html" class="again"></a>
@@ -86,9 +86,11 @@
             <div class="from">
                 <div class="group">
                     <span>姓名：</span><input type="text" id="nuser_name" />
+                    <p class="error"></p>
                 </div>
                 <div class="group">
-                    <span>电话：</span><input type="number" id="nuser_name" />
+                    <span>电话：</span><input type="number" id="phone" />
+                    <p class="error"></p>
                 </div>
             </div>
             <a id="submit"></a>
@@ -123,5 +125,47 @@
     <script type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    var id = '';
+    var url = window.location.href.split('?')[1].split('=')[1].split(',');
+    $('.time').html(url[1]);
+    $.ajax({
+        url: "http://eventhub04.anruichina.com/o365-puzzles/home/SubTime",
+        type: 'post',
+        datatype: 'json',
+        data: {
+            'UseTimeSeconds':url[0], 'UseTime':url[1]
+        },
+        success: function(data) {
+            id=data.Message;
+            if(data.Status == 1){
+                $('.from_mak').show();
+            }
+        }
+    });
+    $("#submit").click(function(){
+        var nuser_name = $("#nuser_name").val();
+        var phone = $("#phone").val();
+        $("#nuser_name").next().html(nuser_name == ''?'姓名不能为空！':'');
+        $("#phone").next().html(phone == ''?'电话不能为空！':(!(/^1[34578]\d{9}$/.test(phone))==true?"电话有误，请重填！":''));
+
+        for(var i=0,str=''; i<$('.error').length;i++){
+            str+=$('.error').eq(i).html();
+        }
+        if(str ==''){
+            $.ajax({
+                url: "http://eventhub04.anruichina.com/o365-puzzles/home/SubUserInfo",
+                type: 'post',
+                datatype: 'json',
+                data: {
+                    'Id':id,'Name':nuser_name,'Phone':phone
+                },
+                success: function(data) {
+                    data.Status == 1? $('.from_mak').hide():'';
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
