@@ -8,6 +8,7 @@ html,body, p, ul, li, ol, h1, h2, h3, h4, h5, h6, form, input, dl, dt, dd {
 html,body,.swiper-container {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 body{
 	font: normal 12px 'Microsoft Yahei', 微软雅黑,'Segoe UI', STXihei, 华文细黑, Helvetica, Arial, Tahoma, sans-serif;

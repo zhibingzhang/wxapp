@@ -5,8 +5,8 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta http-equiv="expires" content="0">
-    <meta name="keywords" content="鸡智如我，office 365，成就你的下个365天">
-    <meta name="description" content="鸡智如我，office 365，成就你的下个365天">
+    <meta name="keywords" content="时下最 IN 网络流行语你都知道吗？">
+    <meta name="description" content="时下最 IN 网络流行语你都知道吗？">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +15,7 @@
     <meta http-equiv="pragram" content="no-cache">
     <meta name="sharecontent" data-msg-img="" data-msg-title="" data-msg-content="" data-msg-callback=""
           data-line-img="" data-line-title="" data-line-callback="">
-    <title>鸡智如我，Office 365，成就你的下个365天</title>
+    <title>时下最 IN 网络流行语你都知道吗？</title>
     <link href="css/swiper-3.4.1.min.css" type="text/css" rel="stylesheet"/>
     <link href="css/animate.css" type="text/css" rel="stylesheet"/>
     <link href="css/styleReset.css" type="text/css" rel="stylesheet"/>
@@ -35,7 +35,7 @@
         </ul>
     </div>
     <div class="container">
-    <div id="music"></div>
+    <div id="music" class="mysic_active"></div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <!--第一屏-->
@@ -52,9 +52,7 @@
                         <span class="tit">Crosswords Puzzle</a>
                     </div>
                     <p class="txt_office">Office 365，成就你的下个365天</p>
-                    <div class="public-screen01-footer">
-                        <a href="Game.html?type" class="start_btn"></a>
-                    </div>
+                    <a id='start_btn' href="Game.html?type" class="public-screen01-footer"></a>
                     <div class="logo">
                         <img src="images/logo.png" />
                     </div>
@@ -84,8 +82,15 @@
             </div>
         </div>
     </div>
+    <video autoplay="autoplay" src="images/music.mp3"></video>
     <script type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
     <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        $("#start_btn").click(function(){
+            $(this).addClass('active');
+        });
+    </script>
+    <script src="http://s11.cnzz.com/z_stat.php?id=1261168686&web_id=1261168686" language="JavaScript"></script>
 </body>
 </html>
