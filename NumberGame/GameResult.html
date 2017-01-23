@@ -63,9 +63,10 @@
                         </div>
                         <ul>
                             <li><i></i><span>完整全套的正版 Office 2016 应用程序</span></li>
-                            <li><i></i><span>1TB 云端存储空间，支持随时随地访问、在线编辑和保存</span></li>
+                            <li><i></i><span>1TB 云端存储空间</span></li>
                             <li><i></i><span>支持 PC、Mac 桌面办公和手机、平板电脑上的移动办公</span></li>
-                            <li><i></i><span>通过常规更新，及时享用每月推出的全新 Office 功能</span></li>
+                            <li><i></i><span>通过常规更新，随时随地享用每月推出的全新 Office 功能</span></li>
+                            <li><span style="display: inline-block;text-align:center;width:524px;">鸡年大吉 Office 365 助你"鸡"智满满</span></li>
                         </ul>
                     </div>
                 </div>
@@ -107,13 +108,13 @@
             <div class="mak-content">
                 <ul>
                     <li>
-                        <span>1. 活动时间：</span> 2017 年 1 月 26 日 00:00 至 2017 年 2 月 3 日 24:00。
+                        <span>1. 活动时间：</span> 2017 年 1 月 25 日 00:00 至 2017 年 2 月 2 日 24:00。
                     </li>
                     <li>
                         <span>2. 游戏玩法：</span>点击空白格，选择下方字库中的文字，点击即可填空，红框提示错误，无变化即为正确，可继续重复以上动作，直到完成所有题目。
                     </li>
                     <li>
-                        <span>3. 获奖机制：</span>2017 年 2 月 3 日 24 时，位列游戏排名前 50 名的玩家，可获得由Office 365 特别定制的 “鸡”智宝宝——小 O 一枚！为取得最好成绩，可重复多次玩本游戏。
+                        <span>3. 获奖机制：</span>2017 年 2 月 2 日 24 时，位列游戏排名前 50 名的玩家，可获得由Office 365 特别定制的 “鸡”智宝宝——小 O 一枚！为取得最好成绩，可重复多次玩本游戏。
                     </li>
                     <li>
                         <span>4. 奖品发放：</span>活动结束后 15 个工作日内，会由工作人员根据获奖者提供的信息进行电话确认，之后派发奖品。
@@ -128,22 +129,29 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
     var id = '';
-    var url = window.location.href.split('?')[1].split('=')[1].split(',');
-    $('.time').html(url[1]);
-    $.ajax({
-        url: "http://eventhub04.anruichina.com/o365-puzzles/home/SubTime",
-        type: 'post',
-        datatype: 'json',
-        data: {
-            'UseTimeSeconds':url[0], 'UseTime':url[1]
-        },
-        success: function(data) {
-            id=data.Message;
-            if(data.Status == 1){
-                $('.from_mak').show();
+    var url = window.location.href;
+    if(url.indexOf('false') == -1){
+        var urllist = url.split('=')[1].split(',');
+        $.ajax({
+            url: "http://eventhub04.anruichina.com/o365-puzzles/home/SubTime",
+            type: 'post',
+            datatype: 'json',
+            data: {
+                'UseTimeSeconds':urllist[0], 'UseTime':urllist[1]
+            },
+            success: function(data) {
+                id=data.Message;
+                if(data.Status == 1){
+                    $('.time').html(url.split('=')[1].split(',')[1]);
+                    $('.from_mak').show();
+                }
             }
-        }
-    });
+        });
+    }else{
+        $('.time').html(url.split('=')[1].split(',')[1]);
+        $(".blocks h3").html('很遗憾,闯关失败');
+    }
+    
     $("#submit").click(function(){
         var nuser_name = $("#nuser_name").val();
         var phone = $("#phone").val();

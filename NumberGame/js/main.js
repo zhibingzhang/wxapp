@@ -1,38 +1,38 @@
 var data = {
     "0": [
         ['0', '', '0', '0', '0', '0', '', '石,false', '', '0'],
-        ['0', '害,false', '0', '', '0', '0', '0', '', '0', ''],
-        ['0', '', '0', '', '0', '0', '', '0', '0', '谊,false'],
-        ['0', '', '', '心,false', '', '', '', '', '溃,false', ''],
-        ['0', '', '0', '', '0', '0', '套,false', '0', '0', ''],
-        ['0', '0', '0', '', '0', '0', '', '0', '0', ''],
+        ['0', '', '0', '宝,false', '0', '0', '0', '', '0', ''],
+        ['0', '', '0', '', '0', '0', '总,false', '0', '0', '谊,false'],
+        ['0', 'Word,false', '', '心,false', '', '', '', '崩,false', '', ''],
+        ['0', '', '0', '', '0', '0', '套,false', '0', '0', '小,false'],
+        ['0', '0', '0', '', '0', '0', '路,false', '0', '0', ''],
         ['0', '0', '0', '0', '0', '0', '', '0', '', '0'],
         ['', '0', '0', '0', '', '渡,false', '', '0', '尔,false', '0'],
-        ['', '0', '0', '0', '0', '0', '', '0', '', '0'],
+        ['', '0', '0', '0', '0', '0', '心,false', '0', '', '0'],
         ['躺,false', '', '0', '0', '0', '0', '0', '0', '狗,false', '']
     ],
     "1": [
-        ['0', '', '0', '套,false', '0', '0', '0', '', '', '感,false'],
-        ['0', '智,false', '0', '', '', '群,false', '', '0', '0', ''],
+        ['0', '鸡,false', '0', '套,false', '0', '0', '0', '第,false', '', ''],
+        ['0', '', '0', '', '', '群,false', '', '0', '0', '觉,false'],
         ['0', '', '0', '0', '0', '0', '0', '0', '0', ''],
-        ['0', '', '', '', '他,false', '', '', '亿,false', '0', ''],
+        ['0', '我,false', '', '', '他,false', '', '', '亿,false', '0', ''],
         ['0', '0', '0', '0', '0', '言,false', '0', '', '0', '被,false'],
         ['', '', '任,false', '', '0', '', '0', '懵,false', '0', ''],
-        ['', '0', '0', '0', '0', '', '0', '', '0', ''],
+        ['', '0', '0', '0', '0', '', '0', '', '0', '空,false'],
         ['大,false', '', '', '服,false', '0', '就,false', '0', '0', '0', '0'],
         ['', '0', '0', '0', '', '0', '0', '0', '0', '0'],
         ['梦,false', '0', '0', '0', '瘦,false', '', '', '道,false', '', '']
     ],
     "2": [
         ['0', '0', '', '0', '', '塞,false', '', '0', '0', '0'],
-        ['', '', '静,false', '', '0', '', '0', '', '0', '0'],
-        ['0', '0', '地,false', '0', '0', '0', '0', '是,false', '0', '0'],
+        ['我,false', '', '静,false', '', '0', '', '0', '', '0', '0'],
+        ['0', '0', '', '0', '0', '0', '0', '是,false', '0', '0'],
         ['0', '0', '', '0', '0', '', '0', '', '拳,false', '0'],
         ['我,false', '', '', '', '', '不,false', '', '', '0', '0'],
         ['', '0', '', '0', '0', '', '0', '0', '0', '0'],
         ['', '0', '男,false', '0', '0', '天,false', '0', '0', '0', '0'],
-        ['0', '0', '', '0', '0', '', '0', '活,false', '', ''],
-        ['0', '0', '0', '0', '', '0', '0', '', '0', ''],
+        ['0', '0', '', '0', '0', '', '0', '', '到,false', ''],
+        ['0', '0', '0', '0', '', '0', '0', '久,false', '0', ''],
         ['', '', '看,false', '', '质,false', '0', '0', '', '0', '机,false']
     ],
     "3": [
@@ -40,49 +40,49 @@ var data = {
         ['', '0', '0', '0', '0', '0', '0', '', '0', '0'],
         ['广,false', '0', '', '', '太,false', '', '', '不,false', '', ''],
         ['0', '', '0', '0', '0', '0', '0', '', '0', '0'],
-        ['', '要,false', '', '', '', '三,false', '', '0', '0', ''],
+        ['', '要,false', '', '', '', '三,false', '', '0', '0', '阅,false'],
         ['0', '', '0', '0', '0', '0', '0', '0', '0', ''],
-        ['0', '', '0', '0', '0', 'A,false', '', '', '', '蓝,false'],
-        ['0', '', '0', '0', '0', '', '0', '0', '0', '0'],
+        ['0', '', '0', '0', '0', '', 'P,false', '', '', '蓝,false'],
+        ['0', '华,false', '0', '0', '0', '4,false', '0', '0', '0', '0'],
         ['0', '0', '', '0', '0', '', '0', '0', '0', '吃,false'],
-        ['0', '撩,false', '', '0', '0', '0', '', '', '之,false', '']
+        ['0', '撩,false', '', '0', '0', '0', '', '荒,false', '', '']
     ]
 }
 var mydata = {
     "0": [
         ['0', '厉,1', '0', '0', '0', '0', '泥,2', '石,false', '流,2', '0'],
-        ['0', '害,false', '0', '宝,4', '0', '0', '0', '化,3', '0', '友,5'],
-        ['0', '了,1', '0', '宝,4', '0', '0', '总,7', '0', '0', '谊,false'],
-        ['0', 'Word,1', '内,6', '心,false', '几,6', '乎,6', '是,6', '崩,6', '溃,false', '的,5'],
-        ['0', '哥,1', '0', '里,4', '0', '0', '套,false', '0', '0', '小,5'],
-        ['0', '0', '0', '苦,4', '0', '0', '路,7', '0', '0', '船,5'],
+        ['0', '害,1', '0', '宝,false', '0', '0', '0', '化,3', '0', '友,5'],
+        ['0', '了,1', '0', '宝,4', '0', '0', '总,false', '0', '0', '谊,false'],
+        ['0', 'Word,false', '内,6', '心,false', '几,6', '乎,6', '是,6', '崩,false', '溃,6', '的,5'],
+        ['0', '哥,1', '0', '里,4', '0', '0', '套,false', '0', '0', '小,false'],
+        ['0', '0', '0', '苦,4', '0', '0', '路,false', '0', '0', '船,5'],
         ['0', '0', '0', '0', '0', '0', '得,7', '0', '阿,11', '0'],
         ['葛,8', '0', '0', '0', '摆,10', '渡,false', '人,7', '0', '尔,false', '0'],
-        ['优,8', '0', '0', '0', '0', '0', '心,7', '0', '法,11', '0'],
+        ['优,8', '0', '0', '0', '0', '0', '心,false', '0', '法,11', '0'],
         ['躺,false', '赢,9', '0', '0', '0', '0', '0', '0', '狗,false', '带,12']
     ],
     "1": [
-        ['0', '鸡,1', '0', '套,false', '0', '0', '0', '第,3', '六,3', '感,false'],
-        ['0', '智,false', '0', '吃,2', '瓜,4', '群,false', '众,4', '0', '0', '觉,5'],
+        ['0', '鸡,false', '0', '套,false', '0', '0', '0', '第,false', '六,3', '感,3'],
+        ['0', '智,1', '0', '吃,2', '瓜,4', '群,false', '众,4', '0', '0', '觉,false'],
         ['0', '如,1', '0', '0', '0', '0', '0', '0', '0', '身,5'],
-        ['0', '我,1', '先,6', '挣,6', '他,false', '一,6', '个,6', '亿,false', '0', '体,5'],
+        ['0', '我,false', '先,6', '挣,6', '他,false', '一,6', '个,6', '亿,false', '0', '体,5'],
         ['0', '0', '0', '0', '0', '言,false', '0', '脸,7', '0', '被,false'],
         ['有,9', '钱,9', '任,false', '性,9', '0', '不,8', '0', '懵,false', '0', '掏,5'],
-        ['大,10', '0', '0', '0', '0', '合,8', '0', '逼,7', '0', '空,5'],
+        ['大,10', '0', '0', '0', '0', '合,8', '0', '逼,7', '0', '空,false'],
         ['大,false', '写,11', '的,11', '服,false', '0', '就,false', '0', '0', '0', '0'],
         ['的,10', '0', '0', '0', '蓝,12', '0', '0', '0', '0', '0'],
         ['梦,false', '0', '0', '0', '瘦,false', '成,13', '一,13', '道,false', '闪,13', '电,13']
     ],
     "2": [
         ['0', '0', '安,1', '0', '猴,3', '塞,false', '雷,3', '0', '0', '0'],
-        ['我,2', '想,2', '静,false', '静,2', '0', '车,4', '0', '也,5', '0', '0'],
-        ['0', '0', '地,false', '0', '0', '0', '0', '是,false', '0', '0'],
+        ['我,false', '想,2', '静,false', '静,2', '0', '车,4', '0', '也,5', '0', '0'],
+        ['0', '0', '地,1', '0', '0', '0', '0', '是,false', '0', '0'],
         ['0', '0', '做,1', '0', '0', '咋,7', '0', '醉,5', '拳,false', '0'],
         ['我,false', '整,8', '个,1', '人,8', '都,8', '不,false', '好,8', '了,5', '0', '0'],
         ['方,9', '0', '美,1', '0', '0', '上,7', '0', '0', '0', '0'],
         ['了,9', '0', '男,false', '0', '0', '天,false', '0', '0', '0', '0'],
-        ['0', '0', '子,1', '0', '0', '呢,7', '0', '活,false', '到,10', '老,10'],
-        ['0', '0', '0', '0', '潜,11', '0', '0', '久,12', '0', '司,13'],
+        ['0', '0', '子,1', '0', '0', '呢,7', '0', '活,10', '到,false', '老,10'],
+        ['0', '0', '0', '0', '潜,11', '0', '0', '久,false', '0', '司,13'],
         ['主,14', '要,14', '看,false', '气,14', '质,false', '0', '0', '见,12', '0', '机,false']
     ],
     "3": [
@@ -90,15 +90,16 @@ var mydata = {
         ['上,3', '0', '0', '0', '0', '0', '0', '觉,5', '0', '0'],
         ['广,false', '0', '画,4', '面,4', '太,false', '美,4', '我,4', '不,false', '敢,4', '看,4'],
         ['0', '偏,6', '0', '0', '0', '0', '0', '爱,5', '0', '0'],
-        ['重,7', '要,false', '的,7', '话,7', '说,7', '三,false', '遍,7', '0', '0', '阅,8'],
+        ['重,7', '要,false', '的,7', '话,7', '说,7', '三,false', '遍,7', '0', '0', '阅,false'],
         ['0', '靠,6', '0', '0', '0', '0', '0', '0', '0', '兵,8'],
-        ['0', '才,6', '0', '0', '0', 'A,false', 'P,9', 'E,9', 'C,9', '蓝,false'],
-        ['0', '华,6', '0', '0', '0', '4,10', '0', '0', '0', '0'],
+        ['0', '才,6', '0', '0', '0', 'A,9', 'P,false', 'E,9', 'C,9', '蓝,false'],
+        ['0', '华,false', '0', '0', '0', '4,false', '0', '0', '0', '0'],
         ['0', '0', '迷,11', '0', '0', '腰,10', '0', '0', '0', '吃,false'],
-        ['0', '撩,false', '妹,12', '0', '0', '0', '洪,13', '荒,13', '之,false', '力,13']
+        ['0', '撩,false', '妹,12', '0', '0', '0', '洪,13', '荒,false', '之,13', '力,13']
     ]
 }
-var group = ['0,1', '0,2', '0,3', '1,0', '1,2', '1,3', '2,0', '2,1', '2,3', '3,0', '3,1', '3,2'];
+// var group = ['0,1', '0,2', '0,3', '1,0', '1,2', '1,3', '2,0', '2,1', '2,3', '3,0', '3,1', '3,2'];
+var group = ['0', '1', '2', '3'];
 var cache = [];
 (function() {
     document.onreadystatechange = loading;
@@ -120,17 +121,14 @@ var cache = [];
             if (window.location.href.indexOf('?type') != -1) {
                 setTimeout(function() {
                     $(".count_down_mak").show();
-                    var num = -1;
+                    var num = 0;
                     var t = setInterval(function() {
                         num++;
-                        if (num == 0) {
-                            $('.count').html('<p><img src="images/off.png"></p><img src="images/bigchicken.gif" />');
-                        }
                         if (num == 1) {
-                            $('.count').html('<img src="images/ready.png" class="imgt" />');
+                            $('.count_down_box').html('<div class="count_head"><img src="images/shut11.png" /></div><div class="count"><img src="images/ready.png" class="imgt" /></div>');
                         }
                         if (num == 2) {
-                            $('.count').html('<img src="images/go.png" class="imgt" />');
+                            $('.count_down_box').html('<div class="count_head"><img src="images/shut11.png" /></div><div class="count"><img src="images/go.png" class="imgt" /></div>');
                         }
                         if (num == 3) {
                             clearInterval(t);
@@ -140,7 +138,7 @@ var cache = [];
                             // 时间计数
                             timer();
                         }
-                    }, 800);
+                    }, 1600);
                 }, 500);
             }
             //排行榜
@@ -174,9 +172,6 @@ var NumberGame = {
         t.update_page(type);
         addborder(false);
         $(".public-screen02-content").on('click', '.txt_box', function(e) {
-            if ($(this).attr('data-error') == 'true') {
-
-            }
             if ($(this).attr('data-i') == "true") {
                 t._me = $(this);
                 $('.txt_box').removeClass('active');
@@ -187,12 +182,15 @@ var NumberGame = {
         });
         $(".key_box").on('click', '.key', function(e) {
             $(this).html() == 'Word' ? $('.active').addClass('word') : $('.active').removeClass('word');
-            group_txt = $('.active').attr('data-group');
+            $('.active').attr('data-group') != undefined ? group_txt = $('.active').attr('data-group') : '';
+            // $('.key').removeClass('key_active');
+            // $(this).addClass('key_active');
             $('.active').eq(0).attr('data-switch', 'false').removeAttr('data-group');
             $('.txt_box').removeAttr('data-state');
             $('.active').html($(this).html()).attr('data-state', '1');
             addborder(true, group_txt);
-            t.count < 2 ? (t.answer == 1 ? t.start($('.txt_box[data-state="1"]')) : '', t.answer == 0 ? time() : '') : '';
+            console.log(t.answer)
+            t.count < 2 ? (t.answer == 1 ? t.start($('.txt_box[data-state="1"]')) : '', t.answer == 0 ? NumberGame.count++ : '') : '';
         });
     },
     start: function(me) {
@@ -224,8 +222,13 @@ var NumberGame = {
         for (var i = 0; i < this.CR; i++) {
             for (var j = 0; j < this.CR; j++) {
                 if (data[GroupName][i][j] != '0') {
-                    $(".public-screen02-content").append('<div data-i="true" data-switch="true" data-coordinate="' + i + j + '" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
+                    if (data[GroupName][i][j].split(',')[0] == 'Word') {
+                        $(".public-screen02-content").append('<div data-i="true" data-switch="true" data-coordinate="' + i + j + '" class="txt_box word ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
+                    } else {
+                        $(".public-screen02-content").append('<div data-i="true" data-switch="true" data-coordinate="' + i + j + '" class="txt_box ' + i + j + '">' + data[GroupName][i][j].split(',')[0] + '</div>');
+                    }
                 }
+
                 if (data[GroupName][i][j].split(',')[1] == "false") {
                     $('.' + i + j).css({
                         background: '#ffdf57'
@@ -246,7 +249,7 @@ var NumberGame = {
         }
         this.answer = $(".txt_box[data-i='true']").length;
         //备用字
-        var spare_words = ['智', '障', '带', '我', '装', '逼', '带', '我', '飞', '开', '黑'];
+        var spare_words = ['智', '障', '带', '我', '装', '逼', '带', '我', '飞', '开', '黑','酷','污','残'];
         result(GroupName, spare_words);
     }
 }
@@ -279,16 +282,19 @@ function timer() {
             }
             ss = 0;
         }
-        str += HH < 10 ? "0" + HH : HH;
-        str += ":";
+        // str += HH < 10 ? "0" + HH : HH;
+        // str += ":";
         str += mm < 10 ? "0" + mm : mm;
         str += ":";
         str += ss < 10 ? "0" + ss : ss;
         $(".grade>span").html(str);
-        if (NumberGame.count == 2) {
+        if (NumberGame.count == 1) {
             clearInterval(tim);
-            when_long = HH * 3600 + mm * 60 + ss + ',' + str;
+            var when_long = mm * 60 + ss + ',' + str;
             window.location.href = 'GameResult.html?when_long=' + when_long;
+        }
+        if((mm * 60 + ss)>=180){
+            window.location.href = 'GameResult.html?when_long=false,'+str;
         }
     }, 1000);
 }
@@ -310,13 +316,9 @@ function result(GroupName, spare_words) {
         }
     }
     arr = arr.concat(arradd).shuffle();
+    console.log(arr)
     for (var d = 0; d < arr.length; d++) {
-
-        if (arr[d] == 'Word') {
-            $(".key_box").append('<span class="key word">' + arr[d] + '</span>');
-        } else {
-            $(".key_box").append('<span class="key">' + arr[d] + '</span>');
-        }
+        $(".key_box").append('<span class="key">' + arr[d] + '</span>');
     }
 }
 Array.prototype.shuffle = function() {
@@ -353,35 +355,31 @@ function music() {
     });
 }
 //预加载
-function time() {
-    if (NumberGame.count == 0) {
-        setTimeout(function() {
-            $(".count_head img").attr('src', 'images/shut2.png')
-            $('.count').html('');
-            $(".count_down_mak").show();
-            var num = -1;
-            var t = setInterval(function() {
-                num++;
-                if (num == 0) {
-                    $('.count').html('<p><img src="images/off.png"></p><img src="images/bigchicken.gif" />');
-                }
-                if (num == 1) {
-                    $('.count').html('<img src="images/ready.png" class="imgt" />');
-                }
-                if (num == 2) {
-                    $('.count').html('<img src="images/go.png" class="imgt" />');
-                }
-                if (num == 3) {
-                    clearInterval(t);
-                    $(".count_down_mak").hide();
-                    NumberGame.update_page(cache[++NumberGame.count]);
-                    addborder();
-                }
-            }, 800);
-        }, 500);
-    }
-    NumberGame.count == 1 ? ++NumberGame.count : '';
-}
+// function time() {
+//     if (NumberGame.count == 0) {
+//         setTimeout(function() {
+//             $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><p><img src="images/off.png"></p><img src="images/bigchicken.gif" /></div>');
+//             $(".count_down_mak").show();
+//             var num = 0;
+//             var t = setInterval(function() {
+//                 num++;
+//                 if (num == 1) {
+//                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/ready.png" class="imgt" /></div>');
+//                 }
+//                 if (num == 2) {
+//                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/go.png" class="imgt" /></div>');
+//                 }
+//                 if (num == 3) {
+//                     clearInterval(t);
+//                     $(".count_down_mak").hide();
+//                     NumberGame.update_page(cache[++NumberGame.count]);
+//                     addborder();
+//                 }
+//             }, 1200);
+//         }, 500);
+//     }
+//     NumberGame.count == 1 ? ++NumberGame.count : '';
+// }
 var num = 0;
 
 function addborder(bool, group_txt) {

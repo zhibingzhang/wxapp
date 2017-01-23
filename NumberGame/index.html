@@ -51,7 +51,7 @@
                     <div class="public-screen01-title">
                         <span class="tit">Crosswords Puzzle</a>
                     </div>
-                    <p class="txt_office">Office 365，成就你的下个365天</p>
+                    <p class="txt_office">Office 365,成就你的下个365天</p>
                     <a id='start_btn' href="Game.html?type" class="public-screen01-footer"></a>
                     <div class="logo">
                         <img src="images/logo.png" />
@@ -63,13 +63,13 @@
                             <div class="mak-content">
                                 <ul>
                                     <li>
-                                        <span>1. 活动时间：</span> 2017 年 1 月 26 日 00:00 至 2017 年 2 月 3 日 24:00。
+                                        <span>1. 活动时间：</span> 2017 年 1 月 25 日 00:00 至 2017 年 2 月 2 日 24:00。
                                     </li>
                                     <li>
                                         <span>2. 游戏玩法：</span>点击空白格，选择下方字库中的文字，点击即可填空，红框提示错误，无变化即为正确，可继续重复以上动作，直到完成所有题目。
                                     </li>
                                     <li>
-                                        <span>3. 获奖机制：</span>2017 年 2 月 3 日 24 时，位列游戏排名前 50 名的玩家，可获得由Office 365 特别定制的 “鸡”智宝宝——小 O 一枚！为取得最好成绩，可重复多次玩本游戏。
+                                        <span>3. 获奖机制：</span>2017 年 2 月 2 日 24 时，位列游戏排名前 50 名的玩家，可获得由Office 365 特别定制的 “鸡”智宝宝——小 O 一枚！为取得最好成绩，可重复多次玩本游戏。
                                     </li>
                                     <li>
                                         <span>4. 奖品发放：</span>活动结束后 15 个工作日内，会由工作人员根据获奖者提供的信息进行电话确认，之后派发奖品。
@@ -87,8 +87,26 @@
     <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
-        $("#start_btn").click(function(){
-            $(this).addClass('active');
+        var url = window.location.href;
+        var value = 0;
+        value = url.indexOf('?Code=') == -1?0:url.split('?')[1].split('=')[1];
+        console.log(value);
+        $.ajax({
+            url: "http://eventhub04.anruichina.com/o365-puzzles/home/SaveCode",
+            type: 'post',
+            datatype: 'json',
+            data: {
+                'Code':value
+            },
+            success: function(data) {
+                id=data.Message;
+                if(data.Status == 1){
+                    $('.from_mak').show();
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
         });
     </script>
     <script src="http://s11.cnzz.com/z_stat.php?id=1261168686&web_id=1261168686" language="JavaScript"></script>

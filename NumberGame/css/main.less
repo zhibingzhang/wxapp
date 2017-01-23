@@ -147,10 +147,11 @@
         height: 46px;
         line-height: 46px;
         border-radius: 6px;
-        border: 1px solid #e44f25;
+        border: 1px solid #FFF;
         text-align: center;
         font-size: 26.76/16rem;
-        color: #e44f25;
+        color: #FFF;
+        background-color: #e44f25;
         position: relative;
         i{
           position: absolute;
@@ -203,16 +204,16 @@
   }
   .public-screen01-footer{
     position: fixed;
-    width: 392px;
-    height: 442px;
+    width: 400px;
+    height: 447px;
     bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    background: transparent url(../images/btn1.png) no-repeat;
-  }
-  .active{
-    background-image: url(../images/btn2.png); 
-
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    background: transparent url(../images/btn.gif) no-repeat;
   }
   .logo{
     position: fixed;
@@ -247,7 +248,7 @@
         font-size: 1.8rem;
         border-radius: 28px;
         text-align: left;
-        padding-left: 65px;
+        padding-left: 86px;
       }
     }
   }
@@ -318,7 +319,19 @@
       text-align: center;
       border-radius: 6px;
     }
+    .key_active{
+      transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      -o-transform: scale(1.2);
+    }
   }
+}
+.head_txt{
+    font-size: 2.8rem;
+    color: #FFF;
+    margin: 28px 0;
 }
 //第三屏
 .public-screen03{
@@ -404,7 +417,7 @@
       }
     }
     .off365{
-      padding: 60px 0 0 106px;
+      padding: 38px 0 0 106px;
       .bor{
         position: relative;
         width: 442px;
