@@ -51,7 +51,7 @@
                     <div class="public-screen01-title">
                         <span class="tit">Crosswords Puzzle</a>
                     </div>
-                    <p class="txt_office">Office 365,成就你的下个365天</p>
+                    <p class="txt_office">Office 365, 成就你的下个365天</p>
                     <a id='start_btn' href="Game.html?type" class="public-screen01-footer"></a>
                     <div class="logo">
                         <img src="images/logo.png" />
@@ -89,8 +89,12 @@
     <script type="text/javascript">
         var url = window.location.href;
         var value = 0;
-        value = url.indexOf('?Code=') == -1?0:url.split('?')[1].split('=')[1];
-        console.log(value);
+        if(url.indexOf('from') == -1){
+            value = url.indexOf('?Code=') == -1?0:url.split('?')[1].split('=')[1];
+        }else{
+            value = (url.split('?')[1]).split('&')[0].split('=')[1];
+
+        }
         $.ajax({
             url: "http://eventhub04.anruichina.com/o365-puzzles/home/SaveCode",
             type: 'post',

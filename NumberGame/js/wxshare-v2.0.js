@@ -40,9 +40,9 @@ $.ajax({
 wx.ready(function() {
     function getShareData(shareType) {
         return shareData = {
-            title: '时下最 IN 网络流行语你都知道吗？',
+            title: '2分钟不卡壳，你就是最潮流的老司机',
             desc: '成功闯关就有机会获得由 Office 365 特别定制的“鸡”智宝宝——小O!',
-            link: 'http://eventhub04.anruichina.com/NumberGame/index.html',
+            link: 'http://eventhub04.anruichina.com/NumberGame/index.html?Code=100',
             imgUrl: 'http://eventhub04.anruichina.com/NumberGame/images/wx.jpg',
             success: function(res) {
                 shareConfirm(shareType);

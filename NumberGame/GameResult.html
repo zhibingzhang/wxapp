@@ -48,8 +48,8 @@
                             </div>
                             <a class="introduce" id="activity_btn"><span>活动介绍</span></a>
                             <a class="ranking" id='ranking_btn'><span>游戏排名</span></a>
-                            <h3>恭喜你，闯关成功！</h3>
-                            <p>用时<span class="time"></span></p>
+                            <h3>恭喜你, 闯关成功！</h3>
+                            <p id='tim'></p>
                         </div>
                         <p class="btns">
                             <a href="index.html" class="again"></a>
@@ -58,7 +58,7 @@
                         <div class="off365">
                             <div class="bor">
                                 <span></span>
-                                <p>Office 365 是一种订阅式的跨平台办公服务：</p>
+                                <p><a style="text-decoration: underline;" href="https://microsoftstore.jumbomart.cn/product/MS0207/detail.htm?WT.mc_id=msftcn_wechat_officeBGCNYcampaign_201701">点我获取</a>你的 Office 365 专属订阅</p>
                             </div>
                         </div>
                         <ul>
@@ -132,6 +132,8 @@
     var url = window.location.href;
     if(url.indexOf('false') == -1){
         var urllist = url.split('=')[1].split(',');
+
+        $('#tim').html('剩余时间<span class="time">'+url.split('=')[1].split(',')[1]+'</span>');
         $.ajax({
             url: "http://eventhub04.anruichina.com/o365-puzzles/home/SubTime",
             type: 'post',
@@ -142,13 +144,12 @@
             success: function(data) {
                 id=data.Message;
                 if(data.Status == 1){
-                    $('.time').html(url.split('=')[1].split(',')[1]);
                     $('.from_mak').show();
                 }
             }
         });
     }else{
-        $('.time').html(url.split('=')[1].split(',')[1]);
+        // $('.time').html(url.split('=')[1].split(',')[1]);
         $(".blocks h3").html('很遗憾,闯关失败');
     }
     

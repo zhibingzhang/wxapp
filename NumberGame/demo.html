@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var sum = 60,mm = 0,ss = 0,str = '';
+		var t = setInterval(function(){
+			mm = parseInt(sum / 60) < 10?'0'+parseInt(sum / 60):parseInt(sum / 60);
+			ss = mm <0 ? '0'+sum:(sum%60<10?'0'+sum%60:sum%60);
+			str = mm+":"+ss;
+			console.log(str)
+			if(sum == 0){
+				clearInterval(t); 
+			}
+			sum --;
+		},1000);
+	</script>
+</body>
+</html>
