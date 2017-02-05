@@ -115,8 +115,6 @@ var cache = [];
                 noSwiping: true,
                 preloadImages: false,
             });
-            //添加背景音乐
-            music();
             // 开始游戏
             if (window.location.href.indexOf('?type') != -1) {
                 setTimeout(function() {
@@ -141,10 +139,6 @@ var cache = [];
                     }, 1600);
                 }, 500);
             }
-            //排行榜
-            $("#ranking_btn").click(function() {
-                window.location.href = 'WinningList.html';
-            });
             //分享
             $('#share').click(function() {
                 $('.wx-share').show();
@@ -357,56 +351,32 @@ Array.prototype.shuffle = function() {
         }
         return this;
     }
-    //背景音乐
-function music() {
-    var a = document.createElement('AUDIO');
-    a.setAttribute('src', 'images/music.mp3');
-    a.setAttribute('loop', true);
-    a.setAttribute('autoplay', true);
-    a.setAttribute('id', 'myaudio');
-    document.body.appendChild(a);
-    var my_music = document.getElementById('myaudio');
-    document.addEventListener("WeixinJSBridgeReady", function() {
-        my_music.play();
-    }, false);
-    $('#music').click(function() {
-        if ($(this).hasClass('mysic_active')) {
-            $(this).removeClass('mysic_active');
-            my_music.pause();
-            $("#music").css('background', 'url(images/music.png)');
-        } else {
-            $(this).addClass('mysic_active');
-            my_music.play();
-            $("#music").css('background', 'url(images/music2.png)');
-        };
-    });
-}
-//预加载
-// function time() {
-//     if (NumberGame.count == 0) {
-//         setTimeout(function() {
-//             $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><p><img src="images/off.png"></p><img src="images/bigchicken.gif" /></div>');
-//             $(".count_down_mak").show();
-//             var num = 0;
-//             var t = setInterval(function() {
-//                 num++;
-//                 if (num == 1) {
-//                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/ready.png" class="imgt" /></div>');
-//                 }
-//                 if (num == 2) {
-//                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/go.png" class="imgt" /></div>');
-//                 }
-//                 if (num == 3) {
-//                     clearInterval(t);
-//                     $(".count_down_mak").hide();
-//                     NumberGame.update_page(cache[++NumberGame.count]);
-//                     addborder();
-//                 }
-//             }, 1200);
-//         }, 500);
-//     }
-//     NumberGame.count == 1 ? ++NumberGame.count : '';
-// }
+    //预加载
+    // function time() {
+    //     if (NumberGame.count == 0) {
+    //         setTimeout(function() {
+    //             $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><p><img src="images/off.png"></p><img src="images/bigchicken.gif" /></div>');
+    //             $(".count_down_mak").show();
+    //             var num = 0;
+    //             var t = setInterval(function() {
+    //                 num++;
+    //                 if (num == 1) {
+    //                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/ready.png" class="imgt" /></div>');
+    //                 }
+    //                 if (num == 2) {
+    //                     $('.count_down_box').html('<div class="count_head"><img src="images/shut2.png" /></div><div class="count"><img src="images/go.png" class="imgt" /></div>');
+    //                 }
+    //                 if (num == 3) {
+    //                     clearInterval(t);
+    //                     $(".count_down_mak").hide();
+    //                     NumberGame.update_page(cache[++NumberGame.count]);
+    //                     addborder();
+    //                 }
+    //             }, 1200);
+    //         }, 500);
+    //     }
+    //     NumberGame.count == 1 ? ++NumberGame.count : '';
+    // }
 var num = 0;
 
 function addborder(bool, group_txt) {
