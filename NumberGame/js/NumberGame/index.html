@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta name="keywords" content="鸡年不“鸡”智怎么行">
+    <meta name="description" content="鸡年不“鸡”智怎么行">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="pragram" content="no-cache">
+    <meta name="sharecontent" data-msg-img="" data-msg-title="" data-msg-content="" data-msg-callback=""
+          data-line-img="" data-line-title="" data-line-callback="">
+    <title>鸡年不“鸡”智怎么行</title>
+    <link href="css/swiper-3.4.1.min.css" type="text/css" rel="stylesheet"/>
+    <link href="css/animate.css" type="text/css" rel="stylesheet"/>
+    <link href="css/styleReset.css" type="text/css" rel="stylesheet"/>
+    <link href="css/load.css" type="text/css" rel="stylesheet"/>
+    <link href="css/main.css" type="text/css" rel="stylesheet"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/wxshare-v2.0.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="load">
+        <ul>
+            <li class="top"></li>
+            <li class="rigth"></li>
+            <li class="bottom"></li>
+            <li class="left"></li>
+        </ul>
+    </div>
+    <div class="container">
+    <!-- <div id="music" class="mysic_active"></div> -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!--第一屏-->
+                <div class="swiper-slide public-screen01 swiper-no-swiping">
+                    <div class="public-screen01-header header">
+                        <div class="header_img">
+                            <img src="images/slantern.png" />
+                        </div>
+                        <div class="header_simg">
+                            <a id="ranking_btn"><i></i>游戏排名</a><a id='activity_btn'><i></i>活动介绍</a>
+                        </div>
+                    </div>
+                    <div class="public-screen01-title">
+                        <span class="tit">Crosswords Puzzle</a>
+                    </div>
+                    <p class="txt_office">Office 365, 成就你的下个365天</p>
+                    <a id='start_btn' class="public-screen01-footer"></a>
+                    <div class="logo">
+                        <img src="images/logo.png" />
+                    </div>
+                    <!-- 活动介绍 -->
+                    <div class="activity_mak">
+                        <div class="activity_box">
+                            <div class="mak-header">活动介绍<i id='close'></i></div>
+                            <div class="mak-content">
+                                <ul>
+                                    <li>
+                                        <span>1. 活动时间：</span> 2017 年 1 月 25 日 00:00 至 2017 年 2 月 2 日 24:00。
+                                    </li>
+                                    <li>
+                                        <span>2. 游戏玩法：</span>点击空白格，选择下方字库中的文字，点击即可填空，红框提示错误，无变化即为正确，可继续重复以上动作，直到完成所有题目。
+                                    </li>
+                                    <li>
+                                        <span>3. 获奖机制：</span>2017 年 2 月 2 日 24 时，位列游戏排名前 50 名的玩家，可获得由Office 365 特别定制的 “鸡”智宝宝——小 O 一枚！为取得最好成绩，可重复多次玩本游戏。
+                                    </li>
+                                    <li>
+                                        <span>4. 奖品发放：</span>活动结束后 15 个工作日内，会由工作人员根据获奖者提供的信息进行电话确认，之后派发奖品。
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <video src="images/music.mp3" autoplay="autoplay"></video> -->
+    <script type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
+    <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        var url = window.location.href;
+        var value = 0;
+        // var yy=1;
+        if(url.indexOf('from') == -1){
+            value = url.indexOf('?Code=') == -1?0:url.split('?')[1].split('=')[1];
+        }else{
+            value = (url.split('?')[1]).split('&')[0].split('=')[1];
+        }
+
+        // if(url.indexOf('yy') == -1){
+        //     //添加背景音乐
+        //         var a = document.createElement('AUDIO');
+        //         a.setAttribute('src', 'images/music.mp3');
+        //         a.setAttribute('loop', true);
+        //         a.setAttribute('autoplay', true);
+        //         a.setAttribute('id', 'myaudio');
+        //         document.body.appendChild(a);
+        //         var my_music = document.getElementById('myaudio');
+        //         document.addEventListener("WeixinJSBridgeReady", function() {
+        //             my_music.play();
+        //         }, false);
+        //         $('#music').click(function() {
+        //             if ($(this).hasClass('mysic_active')) {
+        //                 $(this).removeClass('mysic_active');
+        //                 my_music.pause();
+        //                 yy = 0;
+        //                 $("#music").css('background', 'url(images/music.png)');
+        //             } else {
+        //                 $(this).addClass('mysic_active');
+        //                 my_music.play();
+        //                 yy = 1;
+        //                 $("#music").css('background', 'url(images/music2.png)');
+        //             };
+        //         });
+        // }else{
+        //     if(url.split('=')[1] == '0'){
+        //         yy=0;
+        //         $('#music').removeClass('mysic_active');
+        //         $("#music").css('background', 'url(images/music.png)');
+        //         //添加背景音乐
+        //             var a = document.createElement('AUDIO');
+        //             a.setAttribute('src', 'images/music.mp3');
+        //             a.setAttribute('loop', true);
+        //             // a.setAttribute('autoplay', true);
+        //             a.setAttribute('id', 'myaudio');
+        //             document.body.appendChild(a);
+        //             var my_music = document.getElementById('myaudio');
+        //             $('#music').click(function() {
+        //                 if ($(this).hasClass('mysic_active')) {
+        //                     $(this).removeClass('mysic_active');
+        //                     my_music.pause();
+        //                     yy = 0;
+        //                     $("#music").css('background', 'url(images/music.png)');
+        //                 } else {
+        //                     $(this).addClass('mysic_active');
+        //                     my_music.play();
+        //                     yy = 1;
+        //                     $("#music").css('background', 'url(images/music2.png)');
+        //                 };
+        //             });
+        
+        //     }else{
+        //         yy=1;
+        //        //添加背景音乐
+        //             var a = document.createElement('AUDIO');
+        //             a.setAttribute('src', 'images/music.mp3');
+        //             a.setAttribute('loop', true);
+        //             a.setAttribute('autoplay', true);
+        //             a.setAttribute('id', 'myaudio');
+        //             document.body.appendChild(a);
+        //             var my_music = document.getElementById('myaudio');
+        //             document.addEventListener("WeixinJSBridgeReady", function() {
+        //                 my_music.play();
+        //             }, false);
+        //             $('#music').click(function() {
+        //                 if ($(this).hasClass('mysic_active')) {
+        //                     $(this).removeClass('mysic_active');
+        //                     my_music.pause();
+        //                     yy = 0;
+        //                     $("#music").css('background', 'url(images/music.png)');
+        //                 } else {
+        //                     $(this).addClass('mysic_active');
+        //                     my_music.play();
+        //                     yy = 1;
+        //                     $("#music").css('background', 'url(images/music2.png)');
+        //                 };
+        //             });
+        //     }
+        // } 
+        $.ajax({
+            url: "http://eventhub04.anruichina.com/o365-puzzles/home/SaveCode",
+            type: 'post',
+            datatype: 'json',
+            data: {
+                'Code':value
+            },
+            success: function(data) {
+                id=data.Message;
+                if(data.Status == 1){
+                    $('.from_mak').show();
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+        //开始游戏
+        $("#start_btn").click(function(){
+            window.location.href = 'Game.html?type';
+        });
+        //排行榜
+        $("#ranking_btn").click(function() {
+            window.location.href = 'WinningList.html';
+        });
+    </script>
+    <script src="http://s11.cnzz.com/z_stat.php?id=1261168686&web_id=1261168686" language="JavaScript"></script>
+</body>
+</html>

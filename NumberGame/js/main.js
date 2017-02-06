@@ -308,12 +308,14 @@ function timer() {
 
 
         if (NumberGame.count == 1) {
-            var when_long = parseInt(sum / 60) * 60 + sum % 60 + ',' + str;
+            var when_long =compile(parseInt(sum / 60) * 60 + sum % 60 + ',' + str);
+            console.log(when_long)
             window.location.href = 'GameResult.html?when_long=' + when_long;
         }
         if (sum == 0) {
             clearInterval(t);
-            window.location.href = 'GameResult.html?when_long=false,' + str;
+            var type = compile('false,'+str);
+            window.location.href = 'GameResult.html?when_long=' + type;
         }
         sum--;
     }, 1000);
@@ -403,3 +405,24 @@ function delete_key(keyhtml) {
         }
     }
 }
+
+//url加密函数
+function compile(code)  
+{    
+   var str=String.fromCharCode(code.charCodeAt(0)+code.length);  
+   for(var i=1;i<code.length;i++){  
+   str+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));  
+   }  
+   return escape(str);
+}  
+
+//url 解密
+function uncompile(code)  
+{  
+   code=unescape(code);  
+   var str=String.fromCharCode(code.charCodeAt(0)-code.length);  
+   for(var i=1;i<code.length;i++){  
+   str+=String.fromCharCode(code.charCodeAt(i)-str.charCodeAt(i-1));  
+   }  
+   return str;  
+}  

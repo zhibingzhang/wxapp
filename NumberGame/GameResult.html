@@ -128,7 +128,7 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript">
     var id = '';
-    var url = window.location.href;
+    var url = uncompile(window.location.href.split('=')[1]);
     // var yy;
     if(url.indexOf('false') == -1){
         var urllist = url.split('=')[1].split(',');
