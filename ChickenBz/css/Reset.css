@@ -1,0 +1,21 @@
+/**清除内外边距**/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,/*结构元素*/dl,dt,dd,ul,ol,li,/*列表元素*/pre,/*文本格式化元素*/form,fieldset,legend,button,input,textarea,/*表单元素*/th,td/*表格元素*/,img/*图片元素*/{
+	margin: 0;
+	padding: 0;
+	border: medium none;
+}
+/**设置默认字体**/
+body,button,input,select,textarea{
+	font: 12px/1.5 Microsoft YaHei,Helvetica,Arial,Hiragino Sans GB,sans-serif;
+}
+h1,h2,h3,h4,h5,h6{font-size: 100%;}
+em{font-style: normal;}
+/**重置列表元素**/
+ul,ol{list-style: none;}
+/**重置超链接元素**/
+a{text-decoration: none; color: #FFF;}
+a:hover{text-decoration: underline; color: #F40;}
+/**重置图片元素**/
+img{border: none;vertical-align: bottom;}
+/**重置表格元素**/
+table{border-collapse: collapse;border-spacing: 0;}

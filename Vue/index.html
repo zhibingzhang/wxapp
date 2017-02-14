@@ -6,14 +6,26 @@
 	<script type="text/javascript" src="js/vue.js"></script>
 </head>
 <body>
-	<h1 id="h1" style="background-color: #333;">Hello {{message}}</h1>
+	<h1>组件开发</h1>
+	<ol id='app'>
+		<todo-item v-for='item in groceryList' v-bind:todo='item'></todo-item>
+	</ol>
 <script type="text/javascript">
-	var app = new Vue({
-		el: 'h1',
-		data: {
-			message: 'World Vue!'
-		}
+	// 列表组件1
+	Vue.component('todo-item',{
+		props: ['todo'],
+		template: '<li>{{todo.text}}</li>'
 	});
+	var app = new Vue({
+		el:'#app',
+		data:{
+			groceryList:[
+				{text: 'Vegetables'},
+				{text: 'cheese'},
+				{text: 'Whatever else humans are supposed to eat'}
+			]
+		}
+	})
 </script>
 </body>
 </html>
