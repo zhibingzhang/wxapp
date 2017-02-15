@@ -1,7 +1,36 @@
-doctype
-html
-	head
-		meta(charset="utf-8")
-		title #{title}
-	body
-		h1 #{title}
+extends ../layout
+
+block content
+	.container
+		.row
+			form.form-horizontal(method="post", action="/admin/movie/")
+				input(type="hidden", name="movie[_id]", value="#{movie._id}")
+				.form-group
+					label.col-sm-3.control-label(for="inputTitle") 电影名字
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[title]", value="#{movie.title}")
+
+				.form-group
+					label.col-sm-3.control-label(for="inputDoctor") 导演
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[doctor]", value="#{movie.doctor}")
+
+				.form-group
+					label.col-sm-3.control-label(for="inputCountry") 国家
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[country]", value="#{movie.country}")
+
+				.form-group
+					label.col-sm-3.control-label(for="inputlanguage") 语种
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[language]", value="#{movie.language}")
+
+				.form-group
+					label.col-sm-3.control-label(for="inputPoster") 海报地址
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[poster]", value="#{movie.poster}")
+
+				.form-group
+					label.col-sm-3.control-label(for="inputTitle") 电影名字
+					.col-sm-10
+						input#inputTitle.form-control(tyle="text", name="movie[title]", value="#{movie.title}")

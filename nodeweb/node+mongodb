@@ -3,7 +3,9 @@
 			+ views
 			app.js
 
-	2,用 git 进入nodeweb目录安装命令：npm install express jade moment mongoose
+	2，用 git 进入nodeweb目录安装命令：npm install express jade moment mongoose
 	3，安装 bootstrap 
 		1, 安装全局 bower : npm install bower -g
 		2, bower install bootstrap
+	4，用bower安装mongodb
+		bower install mongodb
