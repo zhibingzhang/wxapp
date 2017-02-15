@@ -3,12 +3,12 @@ var path = require('path')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var _= require('underscore')
-var Movie = require('./models/movie.js')
+// var Movie = require('./models/movie.js')
 var port = process.env.PORT || 3000
 var app = express()
 
 
-mongoose.connect('mongodb://localhost/nodeweb')
+// mongoose.connect('mongodb://localhost/nodeweb')
 
 app.set('views','views/pages')
 app.set('view engine','jade')//设置默认的模板引擎
@@ -23,15 +23,15 @@ console.log('nodeweb started on port '+port)
 
 // 页面路由 index page
 app.get('/',function(req, res){
-	Movie.fetch(function(err, movies){
-		if(err){
-			console.log(err)
-		}
+	// Movie.fetch(function(err, movies){
+	// 	if(err){
+	// 		console.log(err)
+	// 	}
 		res.render('index',{
 			title: 'nodeweb 首页',
-			movies: movies
+			movies: 'movies'
 		})
-	})
+	// })
 })
 // // // 页面路由 detail page
 // app.get('/movie/:id',function(req, res){
