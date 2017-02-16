@@ -1,8 +1,8 @@
 //
 // Navbars
 // --------------------------------------------------
-
-
+// Core variables and mixins
+@import "bootstrap.less";
 // Wrapper and base class
 //
 // Provide a static navbar from which we expand to create full-width, fixed, and
@@ -12,8 +12,7 @@
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
-  border: 1px solid transparent;
-
+  border-bottom: 1px solid transparent;
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
 
@@ -49,8 +48,8 @@
 
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: @navbar-padding-horizontal;
-  padding-left:  @navbar-padding-horizontal;
+  // padding-right: @navbar-padding-horizontal;
+  // padding-left:  @navbar-padding-horizontal;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
   &:extend(.clearfix all);
@@ -107,8 +106,8 @@
 .container-fluid {
   > .navbar-header,
   > .navbar-collapse {
-    margin-right: -@navbar-padding-horizontal;
-    margin-left:  -@navbar-padding-horizontal;
+    // margin-right: -@navbar-padding-horizontal;
+    // margin-left:  -@navbar-padding-horizontal;
 
     @media (min-width: @grid-float-breakpoint) {
       margin-right: 0;
@@ -162,10 +161,12 @@
 
 .navbar-brand {
   float: left;
-  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  width: 166px;
+  // padding: @navbar-padding-vertical @navbar-padding-horizontal;
   font-size: @font-size-large;
-  line-height: @line-height-computed;
+  line-height: @navbar-height;
   height: @navbar-height;
+  margin-right: @navbar-padding-horizontal;
 
   &:hover,
   &:focus {
@@ -173,13 +174,14 @@
   }
 
   > img {
-    display: block;
+    display: inline-block;
+    width: 100%;
   }
 
   @media (min-width: @grid-float-breakpoint) {
     .navbar > .container &,
     .navbar > .container-fluid & {
-      margin-left: -@navbar-padding-horizontal;
+      // margin-left: -@navbar-padding-horizontal;
     }
   }
 }
@@ -529,7 +531,9 @@
 .navbar-inverse {
   background-color: @navbar-inverse-bg;
   border-color: @navbar-inverse-border;
-
+  border-top: 1px solid #000;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 rgba(255,255,255,.1);
   .navbar-brand {
     color: @navbar-inverse-brand-color;
     &:hover,
@@ -545,12 +549,15 @@
 
   .navbar-nav {
     > li > a {
-      color: @navbar-inverse-link-color;
+      color: #ccc;
+      height: 68px;
+      line-height: 68px;
+      padding: 0 26px;
 
       &:hover,
       &:focus {
         color: @navbar-inverse-link-hover-color;
-        background-color: @navbar-inverse-link-hover-bg;
+        background-color: #96064b;
       }
     }
     > .active > a {
@@ -656,5 +663,19 @@
         color: @navbar-inverse-link-disabled-color;
       }
     }
+  }
+}
+@media (max-width: 768px) {
+  .navbar-brand{
+    margin-left: 15px;
+  }
+  .navbar-collapse.in{
+    overflow-y: inherit;
+  }
+  .navbar-form{
+    border: none;
+  }
+  .navbar-nav{
+    margin: 0;
   }
 }

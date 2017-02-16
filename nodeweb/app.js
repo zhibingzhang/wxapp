@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var _= require('underscore')
 // var Movie = require('./models/movie.js')
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 80
 var app = express()
 
 
@@ -14,6 +14,7 @@ app.set('views','views/pages')
 app.set('view engine','jade')//设置默认的模板引擎
 //定义public路径
 app.use(express.static(path.join(__dirname, 'public')))//设置静态目录为pubic
+app.use(express.static(path.join(__dirname, 'bower_components')))//设置静态目录为bower_components
 app.use(bodyParser.urlencoded({ extended: false }))
 app.listen(port)
 
@@ -28,7 +29,7 @@ app.get('/',function(req, res){
 	// 		console.log(err)
 	// 	}
 		res.render('index',{
-			title: 'nodeweb 首页',
+			title: 'ChickenBz-首页',
 			movies: 'movies'
 		})
 	// })
