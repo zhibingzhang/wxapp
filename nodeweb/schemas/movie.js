@@ -1,6 +1,6 @@
 var mongoose = require('mongoose') //引入mongoose建模模块
 
-var MovieSchema = new mongoose.Schema({
+var MovieSchema = new mongoose.Schema({//申明一个mongoons对象
 	doctor: String,
 	title: String,
 	language: String,
@@ -21,7 +21,7 @@ var MovieSchema = new mongoose.Schema({
 	}
 })
 
-MovieSchema.pre('save', function(next){
+MovieSchema.pre('save', function(next){//每次执行都会调用,时间更新操作
 	if(this.isNew){
 		this.meta.createAt = this.meta.updateAt = Date.now()
 	}else{
@@ -31,7 +31,7 @@ MovieSchema.pre('save', function(next){
 	next()
 })
 
-MovieSchema.statics = {
+MovieSchema.statics = {//查询的静态方法
 	fetch: function(cb) {
 		return this
 			.find({})
@@ -45,4 +45,4 @@ MovieSchema.statics = {
 	}
 }
 
-module.exports = MovieSchema
+module.exports = MovieSchema //暴露出去的方法

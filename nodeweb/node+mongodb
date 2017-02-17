@@ -11,4 +11,50 @@
 		1, 下载地址：https://www.mongodb.com/download-center
 		2, 安装到指定的目录如E：mongodb文件夹下
 		3, 配置环境变量：E:\mongodb\AZ\bin
-		4，启动MongoDB如：mongod.exe --dbpath E:\zzb\wxapp\nodeweb\data\db （--dbpath指定数据存放的位置） 
+		4, 在项目中创建 mongodb 服务
+			1，创建 + mongodb
+						+ data
+							+ db
+						+ logs
+							mongod.log
+						+ conf
+							mongod.conf -->port = 12345 dbpath = data logpath = logs/mongod.log
+						+ bin
+							mongod.exe
+							mongo.exe
+		5，启动MongoDB服务如： ./bin/mongod -f conf/mongod.conf (-f 文件指向)
+		6，本地 mongo 连接数据库
+			./bin/mongo 127.0.0.1:12345/test
+二，mongoDB 的基本操作
+	1，删除数据库 nodeweb
+		use nodeweb
+		db.dropDatabase()
+	2，新建数据库
+		use nodeweb
+		db.nodeweb_collection.insert({x:68})
+	3，查询数据
+		use nodeweb
+		show dbs (查询数据库)
+		show collections (查询数据表)
+		db.nodeweb_collection.find()
+		db.nodeweb_collection.find().count() 数据数目
+		db.nodeweb_collection.find().skip(n) 跳过n条数据
+		db.nodeweb_collection.find().limit(n) 换回n条数据
+		db.nodeweb_collection.find().sort({条件}) 排序
+	4，更新数据
+		db.nodeweb_collection.update({旧数据},{新数据})
+		db.nodeweb_collection.update({旧数据},{$set:新数据})(注意更新某个字段)
+		db.nodeweb_collection.update({旧数据},{新数据},true)(更新不存在的数据，会自动添加一条新数据)
+		db.nodeweb_collection.update({旧数据},{$set:新数据},false,true)(更新多条数据)
+	5，删除数据
+		b.nodeweb_collection.remove() (注意：不能不传参数)
+	6，删除指定数据表
+		表名.drop()
+	7, 索引
+		1，查看索引 db.表名.getIndexes()
+		2，创建索引 db.表名.ensureIndex({x:1})
+三，nongoose 连接 mongodb
+	1，在项目中安装 mongoose : npm install mongoose
+	2，引入 var mongoose = require('mongoose')
+	3，链接数据库 var db = mongoose.connect(“mongodb://127.0.0.1:27017/test”); 
+

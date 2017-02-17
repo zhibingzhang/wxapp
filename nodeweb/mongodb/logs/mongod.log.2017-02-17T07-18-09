@@ -1,0 +1,63 @@
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] MongoDB starting : pid=9476 port=12345 dbpath=data 64-bit host=zhangzhibin01
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] db version v3.4.2
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] git version: 3f76e40c105fc223b3e5aac3e20dcd026b83b38b
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2h  3 May 2016
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-02-17T13:27:37.378+0800 I CONTROL  [initandlisten] modules: none
+2017-02-17T13:27:37.379+0800 I CONTROL  [initandlisten] build environment:
+2017-02-17T13:27:37.379+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2017-02-17T13:27:37.379+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2017-02-17T13:27:37.379+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-02-17T13:27:37.379+0800 I CONTROL  [initandlisten] options: { config: "conf/mongod.conf", net: { port: 12345 }, storage: { dbPath: "data" }, systemLog: { destination: "file", path: "logs/mongod.log" } }
+2017-02-17T13:27:37.379+0800 W -        [initandlisten] Detected unclean shutdown - data\mongod.lock is not empty.
+2017-02-17T13:27:37.379+0800 I -        [initandlisten] Detected data files in data created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2017-02-17T13:27:37.379+0800 W STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2017-02-17T13:27:37.380+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3432M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2017-02-17T13:27:38.035+0800 I CONTROL  [initandlisten] 
+2017-02-17T13:27:38.036+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2017-02-17T13:27:38.036+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2017-02-17T13:27:38.036+0800 I CONTROL  [initandlisten] 
+2017-02-17T13:27:38.252+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'data/diagnostic.data'
+2017-02-17T13:27:38.252+0800 I NETWORK  [thread1] waiting for connections on port 12345
+2017-02-17T13:27:39.014+0800 I FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2017-02-17T13:28:59.421+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47383 #1 (1 connection now open)
+2017-02-17T13:28:59.421+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47384 #2 (2 connections now open)
+2017-02-17T13:28:59.421+0800 I -        [conn1] end connection 127.0.0.1:47383 (2 connections now open)
+2017-02-17T13:28:59.421+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47385 #3 (2 connections now open)
+2017-02-17T13:28:59.451+0800 I -        [conn2] end connection 127.0.0.1:47384 (2 connections now open)
+2017-02-17T13:28:59.461+0800 I -        [conn3] end connection 127.0.0.1:47385 (1 connection now open)
+2017-02-17T13:28:59.672+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47386 #4 (1 connection now open)
+2017-02-17T13:29:14.722+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47393 #5 (2 connections now open)
+2017-02-17T13:29:14.722+0800 I NETWORK  [conn5] received client metadata from 127.0.0.1:47393 conn5: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.2" }, os: { type: "Windows", name: "Microsoft Windows 8", architecture: "x86_64", version: "6.2 (build 9200)" } }
+2017-02-17T13:29:14.962+0800 I -        [conn4] end connection 127.0.0.1:47386 (2 connections now open)
+2017-02-17T13:33:01.765+0800 I -        [conn5] end connection 127.0.0.1:47393 (1 connection now open)
+2017-02-17T13:35:30.491+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47518 #6 (1 connection now open)
+2017-02-17T13:35:30.491+0800 I NETWORK  [conn6] received client metadata from 127.0.0.1:47518 conn6: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.2" }, os: { type: "Windows", name: "Microsoft Windows 8", architecture: "x86_64", version: "6.2 (build 9200)" } }
+2017-02-17T13:45:23.604+0800 I COMMAND  [conn6] command nodeweb.nodeweb_collection appName: "MongoDB Shell" command: insert { insert: "nodeweb_collection", documents: [ { _id: ObjectId('58a68df3db038ed7d40b4f93'), x: 1.0 } ], ordered: true } ninserted:1 keysInserted:1 numYields:0 reslen:29 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_command 109ms
+2017-02-17T13:49:44.962+0800 I -        [conn6] end connection 127.0.0.1:47518 (1 connection now open)
+2017-02-17T13:49:54.412+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:47954 #7 (1 connection now open)
+2017-02-17T13:49:54.413+0800 I NETWORK  [conn7] received client metadata from 127.0.0.1:47954 conn7: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.2" }, os: { type: "Windows", name: "Microsoft Windows 8", architecture: "x86_64", version: "6.2 (build 9200)" } }
+2017-02-17T13:56:46.857+0800 I -        [conn7] end connection 127.0.0.1:47954 (1 connection now open)
+2017-02-17T13:57:02.873+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:48113 #8 (1 connection now open)
+2017-02-17T13:57:02.873+0800 I NETWORK  [conn8] received client metadata from 127.0.0.1:48113 conn8: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.2" }, os: { type: "Windows", name: "Microsoft Windows 8", architecture: "x86_64", version: "6.2 (build 9200)" } }
+2017-02-17T14:40:07.743+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:49433 #9 (2 connections now open)
+2017-02-17T14:40:07.744+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:49434 #10 (3 connections now open)
+2017-02-17T14:40:07.745+0800 I -        [conn9] end connection 127.0.0.1:49433 (3 connections now open)
+2017-02-17T14:40:07.745+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:49435 #11 (3 connections now open)
+2017-02-17T14:40:07.804+0800 I -        [conn10] end connection 127.0.0.1:49434 (3 connections now open)
+2017-02-17T14:40:07.805+0800 I -        [conn11] end connection 127.0.0.1:49435 (2 connections now open)
+2017-02-17T14:40:07.994+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:49436 #12 (2 connections now open)
+2017-02-17T14:40:07.995+0800 I -        [conn12] end connection 127.0.0.1:49436 (2 connections now open)
+2017-02-17T15:03:47.517+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50242 #13 (2 connections now open)
+2017-02-17T15:03:47.518+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50243 #14 (3 connections now open)
+2017-02-17T15:03:47.518+0800 I -        [conn13] end connection 127.0.0.1:50242 (2 connections now open)
+2017-02-17T15:03:47.518+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50244 #15 (3 connections now open)
+2017-02-17T15:03:47.558+0800 I -        [conn14] end connection 127.0.0.1:50243 (3 connections now open)
+2017-02-17T15:03:47.574+0800 I -        [conn15] end connection 127.0.0.1:50244 (2 connections now open)
+2017-02-17T15:03:47.768+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50245 #16 (2 connections now open)
+2017-02-17T15:03:47.769+0800 I -        [conn16] end connection 127.0.0.1:50245 (2 connections now open)
+2017-02-17T15:13:14.212+0800 I -        [conn8] end connection 127.0.0.1:48113 (1 connection now open)
+2017-02-17T15:13:35.161+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:50725 #17 (1 connection now open)
+2017-02-17T15:13:35.161+0800 I NETWORK  [conn17] received client metadata from 127.0.0.1:50725 conn17: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "3.4.2" }, os: { type: "Windows", name: "Microsoft Windows 8", architecture: "x86_64", version: "6.2 (build 9200)" } }
+2017-02-17T15:14:03.114+0800 I -        [conn17] end connection 127.0.0.1:50725 (1 connection now open)
