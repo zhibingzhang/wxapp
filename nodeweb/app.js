@@ -37,7 +37,7 @@ app.get('/',function(req, res){
 		console.log(movies)
 		res.render('index',{
 			title: 'ChickenBz-首页',
-			movies: 'movies'
+			movies: movies
 		})
 	})
 })
@@ -46,9 +46,10 @@ app.get('/movie/:id',function(req, res){
 	var id = req.params.id
 
 	Movie.findById(id, function(err, movie){
+		console.log(movie)
 		res.render('detail',{
-			title: 'nodeweb 详情页'+ movie.title,
-			movies: movie
+			title: 'nodeweb 详情页',
+			movies: [movie]
 		})
 	})
 })
@@ -85,27 +86,26 @@ app.get('/admin/update/:id', function(req, res){
 app.post('/admin/movie/new', function(req, res){
 	var id = req.body['movie[_id]']
 	var movieObj = req.body
-	// console.log(movieObj)Cannot read property 'save' of null
 	var _movie
-
-	if(id !== 'undefined'){
+	if(id != undefined){
 		Movie.findById(id, function(err, movie){
 			if(err){
 				console.log(err)
 			}
 
 			_movie = _.extend(movie, movieObj)
-			// _movie.save(function(err, movie){
-			// 	if(err){
-			// 		console.log(err)
-			// 	}
-			// 	res.redirect('/movie' + movie._id)
-			// })
+
+			_movie.save(function(err, movie){
+				if(err){
+					console.log(err)
+				}
+				res.redirect('/movie' + movie._id)
+			})
 		})
 	}else{
 		_movie = new Movie({
 			doctor: movieObj.doctor,
-			title: movieObj.title,
+			title: movieObj.titles,
 			country: movieObj.country,
 			language: movieObj.language,
 			year: movieObj.year,
@@ -113,13 +113,13 @@ app.post('/admin/movie/new', function(req, res){
 			summary: movieObj.summary,
 			flash: movieObj.flash
 		})
-
-		// _movie.save(function(err, movie){
-		// 	if(err){
-		// 			console.log(err)
-		// 	}
-		// 	res.redirect('/movie' + movie._id)
-		// })
+		console.log(_movie)
+		_movie.save(function(err, movie){
+			if(err){
+					console.log(err)
+			}
+			res.redirect('/movie/' + movie._id)
+		})
 	}
 
 })
@@ -129,6 +129,7 @@ app.get('/admin/list',function(req, res){
 		if(err){
 			console.log(err)
 		}
+		console.log(movies)
 		res.render('list',{
 			title: 'nodeweb 列表页',
 			movies: movies

@@ -1,14 +1,47 @@
 extends ../layout
 
 block content
-	.container
-		.row
-			each item in movies
-				.col-md-2
-					.thumbnail
-						a(href="/movie/#{item._id}")
-							img(src="#{item.poster}", alt="#{item.title}")
-						.caption
-							h3 #{item.title}
-							p: a.btn.btn-primary(href="/movie/#{item._id}", role="button")
-								观看预告片
+	//- Banner
+	//- div.container-fluid
+	//- 	div#carousel-example-generic.carousel.slide(data-ride="carousel")
+	//- 		//- Indicators
+	//- 		ol.carousel-indicators
+	//- 			li.active(data-target="#carousel-example-generic", data-slide-to="0")
+	//- 			li(data-target="#carousel-example-generic", data-slide-to="1")
+	//- 		//- Wrapper for slides		
+	//- 		div.carousel-inner(role="listbox")
+	//- 			div.item.active
+	//- 				img(src="/images/banner1.png", alt="...")
+	//- 				//- div.carousel-captiion 111
+	//- 			//- div.item
+	//- 			//- 	img(src="#", alt="...")
+	//- 			//- 	div.carousel-captiion 222
+	//- 		//- Controls
+	//- 		a.left.carousel-control(href="#carousel-example-generic", role="button", data-slide="prev")
+	//- 			span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+	//- 			span.sr-only Previous
+	//- 		a.right.carousel-control(href="#carousel-example-generic", role="button", data-slide="next")
+	//- 			span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+	//- 			span.sr-only Next
+	//- 内容
+	div.container.main
+		div.content
+			.row
+				.col-md-4 
+					span 2017-02-19
+				.col-md-8.border-l
+					h3
+						a(href="#", target="_black") WTF is｜人工智能是什么鬼？
+					p 作者：
+						span 张志彬
+					p 2016 年 6 月 23 日晚上 10 点，英国脱欧公投结束投票，计票工作随后开始。 次日早晨，欧洲人醒来听到消息说，英国人已经投票决定离开拥有 28 个成员国的欧盟。计票的最终结果是：52%的人选择离开，48%的人选择留下。“Brexit”（英国脱欧）是“British exit”的简写，这个丑陋的单词是在公投之前被创造出来的，它现在显然在英文词典中占据了一个席位。
+			.row
+				.col-md-4 
+					span 2017-02-19
+				.col-md-8.border-l
+					h3
+						a(href="#", target="_black") WTF is｜人工智能是什么鬼？
+					p 作者：
+						span 张志彬
+					p 2016 年 6 月 23 日晚上 10 点，英国脱欧公投结束投票，计票工作随后开始。 次日早晨，欧洲人醒来听到消息说，英国人已经投票决定离开拥有 28 个成员国的欧盟。计票的最终结果是：52%的人选择离开，48%的人选择留下。“Brexit”（英国脱欧）是“British exit”的简写，这个丑陋的单词是在公投之前被创造出来的，它现在显然在英文词典中占据了一个席位。
+				

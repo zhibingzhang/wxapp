@@ -17,7 +17,7 @@ block content
 				tbody
 					each item in movies
 						tr(class="movies-id-#{movies._id}")
-							td #{movies.title}
+							td #{movies[0].title}
 							td #{movies.doctor}
 							td #{movies.country}
 							td #{movies.year}
