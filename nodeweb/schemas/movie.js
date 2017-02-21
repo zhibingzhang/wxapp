@@ -1,14 +1,11 @@
 var mongoose = require('mongoose') //引入mongoose建模模块
 
 var MovieSchema = new mongoose.Schema({//申明一个mongoons对象
-	doctor: String,
 	title: String,
-	language: String,
-	country: String,
-	summary: String,
-	flash: String,
-	poster: String,
-	year: Number,
+	author: String,
+	content: String,
+	time: String,
+	img: String,
 	meta: {
 		createAt:{
 			type: Date,

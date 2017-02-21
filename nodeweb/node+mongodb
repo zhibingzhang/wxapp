@@ -47,7 +47,7 @@
 		db.nodeweb_collection.update({旧数据},{新数据},true)(更新不存在的数据，会自动添加一条新数据)
 		db.nodeweb_collection.update({旧数据},{$set:新数据},false,true)(更新多条数据)
 	5，删除数据
-		b.nodeweb_collection.remove() (注意：不能不传参数)
+		db.nodeweb_collection.remove() (注意：不能不传参数)
 	6，删除指定数据表
 		表名.drop()
 	7, 索引

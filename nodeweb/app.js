@@ -59,13 +59,10 @@ app.get('/admin/movie',function(req, res){
 		title: 'nodeweb 后台录入页',
 		movie: {
 			title: '',
-			doctor: '',
-			country: '',
-			year: '',
-			poster: '',
-			flash: '',
-			summary: '',
-			language: ''
+			author: '',
+			content: '',
+			time: '',
+			img: ''
 		}
 	})
 })
@@ -92,7 +89,6 @@ app.post('/admin/movie/new', function(req, res){
 			if(err){
 				console.log(err)
 			}
-
 			_movie = _.extend(movie, movieObj)
 
 			_movie.save(function(err, movie){
@@ -104,14 +100,11 @@ app.post('/admin/movie/new', function(req, res){
 		})
 	}else{
 		_movie = new Movie({
-			doctor: movieObj.doctor,
-			title: movieObj.titles,
-			country: movieObj.country,
-			language: movieObj.language,
-			year: movieObj.year,
-			poster: movieObj.poster,
-			summary: movieObj.summary,
-			flash: movieObj.flash
+			title: movieObj.title,
+			author: movieObj.author,
+			content: movieObj.content,
+			time: movieObj.time,
+			img: movieObj.img,
 		})
 		console.log(_movie)
 		_movie.save(function(err, movie){

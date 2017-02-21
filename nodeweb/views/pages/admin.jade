@@ -6,34 +6,29 @@ block content
 			form.form-horizontal(method="post", action="/admin/movie/new")
 				input(type="hidden", name="_id", value="#{movie._id}")
 				.form-group
-					label.col-sm-2.control-label(for="inputTitle") 电影名字
+					label.col-sm-2.control-label(for="inputTitle") 标题
 					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="titles", value="#{movie.title}")
+						input#inputTitle.form-control(type="text", name="title", value="#{movie.title}")
 
 				.form-group
-					label.col-sm-2.control-label(for="inputDoctor") 导演
+					label.col-sm-2.control-label(for="inputAuthor") 作者
 					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="doctor", value="#{movie.doctor}")
+						input#inputAuthor.form-control(type="text", name="author", value="#{movie.author}")
 
 				.form-group
-					label.col-sm-2.control-label(for="inputCountry") 国家
+					label.col-sm-2.control-label(for="inputContent") 内容
 					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="country", value="#{movie.country}")
+						input#inputContent.form-control(type="text", name="content", value="#{movie.content}")
 
 				.form-group
-					label.col-sm-2.control-label(for="inputlanguage") 语种
+					label.col-sm-2.control-label(for="inputTime") 时间
 					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="language", value="#{movie.language}")
+						input#inputTime.form-control(type="text", name="time", value="#{movie.time}")
 
 				.form-group
-					label.col-sm-2.control-label(for="inputPoster") 海报地址
+					label.col-sm-2.control-label(for="inputImg") 图片
 					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="poster", value="#{movie.poster}")
-
-				.form-group
-					label.col-sm-2.control-label(for="inputTitle") 电影名字
-					.col-sm-10
-						input#inputTitle.form-control(tyle="text", name="title", value="#{movie.title}")
+						input#inputImg.form-control(type="file", name="img", value="#{movie.img}")
 				.form-group
 					.col-sm-offset-2.col-sm-10
 					button.btn.btn-default(type="submit") 录入

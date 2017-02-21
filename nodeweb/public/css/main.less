@@ -16,11 +16,16 @@ body{
 	margin: 50px auto;
 	background: transparent url(../images/me.png) no-repeat center top;
 	padding-top: 268px;
+	.main-header{
+		height: 48px;
+		background-color: #cc7d5e;
+		box-shadow: 0 0 30px rgba(255,255,255,.8);
+	}
 	.content{
 		background-color: rgba(255,255,255,1);
-		height: 500px;
 		box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
-		padding: 68px;
+		padding: 32px;
+		padding-top: 0;
 		.border-l{
 			border-left: 2px solid #CCC;
 		}
@@ -29,6 +34,43 @@ body{
 			display: block;
 			height: 0;
 			border-bottom: 1px solid #ccc;
+		}
+		.time{
+			position: absolute;
+			width: 148px;
+			text-align: right;
+			right: 20px;
+			top: 15px;
+			color: #FFF;
+			padding: 3px 6px;
+			background-color: rgba(0,0,0,.3);
+		}
+		.time:after{
+			content: '';
+			position: absolute;
+			top:5px;
+			right: -28px;
+			width: 15px;
+			height: 15px;
+			border-radius: 7.5px;
+			border: 1px solid #cc7d5e;
+			z-index: 9;
+		}
+		.time:before{
+	    content: '';
+	    position: absolute;
+	    top: 12px;
+	    right: -14px;
+	    width: 14px;
+	    height: 0;
+	    border-top: 1px solid #cc7d5e;
+	    z-index: 9;
+		}
+		.liem-img{
+				width: 160px;
+				height: 160px;
+				display: inline-block;
+				margin-top: 10px;
 		}
 	}
 }
