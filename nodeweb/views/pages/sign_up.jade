@@ -1,0 +1,40 @@
+doctype
+html(lang="zh-CN")
+	head
+		meta(charset="utf-8")
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">	
+		title #{title}
+		include ../includes/head
+	body
+		div.sign
+			div.sign_main
+				div.sigin_logo
+					a(href="/", alt="logo")
+						img(src="/images/logo.png", alt="logo")
+				h4.title
+					div.normal-title
+						a(href="/sign_in") 登录
+						b ·
+						a.active(href="/sign_up") 注册
+				p.error.hide
+					i.error-txt
+					span.glyphicon.glyphicon-warning-sign#glyphicon-warning-sign
+				form(action="/sign_in/new", method="post")
+					ul
+						li
+							input(type="text",placeholder="你的昵称", name="uname", id="uname")
+							span.glyphicon.glyphicon-user
+						li
+							input(type="text",placeholder="手机号", name="phone")
+							span.glyphicon.glyphicon-phone
+						li
+							input(type="text",placeholder="手机验证码", name="vcode")
+							span.glyphicon.glyphicon-eye-close
+							a.btn-up-resend 发送验证码
+						li
+							input(type="password",placeholder="设置密码", name="password")
+							span.glyphicon.glyphicon-lock
+					input.sign-up-button(type="submit")
+					p.sign-up-msg 点击 “注册” 即表示您同意并愿意遵守简书<br> 
+						<a target="_blank" href="#">用户协议</a> 和 
+						<a target="_blank" href="#">隐私政策</a> 。

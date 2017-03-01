@@ -36,7 +36,7 @@
 		use nodeweb
 		show dbs (查询数据库)
 		show collections (查询数据表)
-		db.nodeweb_collection.find()
+		db.nodeweb_collection.find() .pretty()（对数据进行格式化） findOne()
 		db.nodeweb_collection.find().count() 数据数目
 		db.nodeweb_collection.find().skip(n) 跳过n条数据
 		db.nodeweb_collection.find().limit(n) 换回n条数据
@@ -57,4 +57,7 @@
 	1，在项目中安装 mongoose : npm install mongoose
 	2，引入 var mongoose = require('mongoose')
 	3，链接数据库 var db = mongoose.connect(“mongodb://127.0.0.1:27017/test”); 
+四，nonejs 邮箱验证
+	1，在项目中安装 nodemailer 模块
+		npm install nodemailer --save
 

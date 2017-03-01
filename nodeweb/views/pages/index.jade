@@ -23,20 +23,65 @@ block content
 	//- 		a.right.carousel-control(href="#carousel-example-generic", role="button", data-slide="next")
 	//- 			span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
 	//- 			span.sr-only Next
+	//- banner
+	div.banner.container-fluid
+		div.users
+			p.head
+				img(src="/images/me-head.png")
+			p.name MINGZI
+			p.name-info QITALUANQIBAZAO
+	//- 作品
+	ul.works.container
+		li
+			a(href="#") 1
+		li
+			a(href="#") 2
+		li
+			a(href="#") 3
+		li
+			a(href="#") 4
+		li
+			a(href="#") 5
 	//- 内容
 	div.container.main
-		div.main-header
-		div.content
-			each item in movies
-				.row
-					.col-md-2 
-						span.time #{item.time}
-						img.img-responsive.center-block.img-thumbnail.liem-img(src="#{item.img}")
-					.col-md-8.border-l
-						h3
-							a(href="#", target="_black") #{item.title}
-						p 作者：
-							span #{item.author}
-						p #{item.content}
-					.col-md-2
+		div.row
+			div.col-xs-12.col-sm-12.col-md-9
+				div.row.line
+					div.col-md-9.col-sm-9
+						div.list-content
+							div.title
+								a.head-img(href="#")
+								div.name
+									a(href="#") 转身下一秒
+									span 昨天 22:22
+							a.tit 简书是个好平台
+							p.abstract 1、 在简书网，有很多假装勤奋好学的青年。他们喜欢寻找捷径，那些干货类的文章，深受他们喜欢。 捷径是没有的。即使有捷径，也轮不到你们走，早被比你们更有资源更有才气的人抢走了。...
+							a(href="#").meta 关注
+							span 666人
+					div.col-md-3.hidden-xs.col-sm-3
+						a(href="#").wrap-img
+							img(src="/images/list1.jpg", alt="")
+				div.row.line
+					div.col-md-9.col-sm-9
+						div.list-content
+							div.title
+								a.head-img(href="#")
+								div.name
+									a(href="#") 转身下一秒
+									span 昨天 22:22
+							a.tit 简书是个好平台
+							p.abstract 1、 在简书网，有很多假装勤奋好学的青年。他们喜欢寻找捷径，那些干货类的文章，深受他们喜欢。 捷径是没有的。即使有捷径，也轮不到你们走，早被比你们更有资源更有才气的人抢走了。...
+							a(href="#").meta 关注
+							span 666人
+					div.col-md-3.hidden-xs.col-sm-3
+						a(href="#").wrap-img
+							img(src="/images/list1.jpg", alt="")
+				
+				a.more(href="#") 加载更多
+			div.col-md-3.hidden-xs.hidden-sm
+				div.inputs
+					input(type="text", placeholder="搜索") 
+					a.search-btn(href="#")
+						span.glyphicon.glyphicon-search
+			
 				

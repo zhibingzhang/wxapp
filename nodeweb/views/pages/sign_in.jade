@@ -1,0 +1,27 @@
+doctype
+html(lang="zh-CN")
+	head
+		meta(charset="utf-8")
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">	
+		title #{title}
+		include ../includes/head
+	body
+		div.sign
+			div.sign_main
+				div.sigin_logo
+					a(href="/", alt="logo")
+						img(src="/images/logo.png", alt="")
+				h4.title
+					div.normal-title
+						a.active(href="/sign_in") 登录
+						b ·
+						a(href="/sign_up") 注册
+				form(action="/users", method="posh")
+					ul
+						li
+							input(type="text",placeholder="手机号或邮箱")
+							span.glyphicon.glyphicon-user
+						li
+							input(type="text",placeholder="密码")
+							span.glyphicon.glyphicon-lock
+					input.sign-up-button.sign-in-botton(type="submit", value="登录")

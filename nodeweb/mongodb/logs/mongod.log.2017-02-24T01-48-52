@@ -1,0 +1,17 @@
+2017-02-24T09:48:45.378+0800 I CONTROL  [initandlisten] MongoDB starting : pid=5580 port=12345 dbpath=data 64-bit host=zhangzhibin01
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] db version v3.4.2
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] git version: 3f76e40c105fc223b3e5aac3e20dcd026b83b38b
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2h  3 May 2016
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] modules: none
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] build environment:
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-02-24T09:48:45.379+0800 I CONTROL  [initandlisten] options: { config: "conf/mongod.conf", net: { port: 12345 }, storage: { dbPath: "data" }, systemLog: { destination: "file", path: "logs/mongod.log" } }
+2017-02-24T09:48:45.380+0800 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to create/open lock file: data\mongod.lock 另一个程序正在使用此文件，进程无法访问。. Is a mongod instance already running?, terminating
+2017-02-24T09:48:45.380+0800 I NETWORK  [initandlisten] shutdown: going to close listening sockets...
+2017-02-24T09:48:45.380+0800 I NETWORK  [initandlisten] shutdown: going to flush diaglog...
+2017-02-24T09:48:45.380+0800 I CONTROL  [initandlisten] now exiting
+2017-02-24T09:48:45.380+0800 I CONTROL  [initandlisten] shutting down with code:100
