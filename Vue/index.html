@@ -2,30 +2,58 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Vue.jd</title>
-	<script type="text/javascript" src="js/vue.js"></script>
+	<title>Vue.js</title>
+	<!-- <script type="text/javascript" src="js/vue.js"></script> -->
+	  <script src="https://unpkg.com/vue/dist/vue.js"></script>  
+        <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/> 
 </head>
 <body>
-	<h1>组件开发</h1>
-	<ol id='app'>
-		<todo-item v-for='item in groceryList' v-bind:todo='item'></todo-item>
-	</ol>
-<script type="text/javascript">
-	// 列表组件1
-	Vue.component('todo-item',{
-		props: ['todo'],
-		template: '<li>{{todo.text}}</li>'
-	});
-	var app = new Vue({
-		el:'#app',
-		data:{
-			groceryList:[
-				{text: 'Vegetables'},
-				{text: 'cheese'},
-				{text: 'Whatever else humans are supposed to eat'}
-			]
-		}
-	})
-</script>
+	<p id="p_text">{{message}}</p>
+        <h1>Vue demo</h1>   
+            <table id="app">
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>作者</th>
+                    <th>价格</th>
+                </tr>
+                <tr v-for="book in books ">  
+                    <td>{{book.id}}</td>  
+                    <td>{{book.name}}</td>  
+                    <td>{{book.author}}</td>  
+                    <td>{{book.price}}</td>  
+                </tr>
+            </table> 
+	<script type="text/javascript">
+            new Vue ({
+                el:'#p_text',
+                data:{
+                    message:'hello'
+                }
+            })
+            var app2 = new Vue({
+                el:'#app',
+                data:{
+                    book:{
+                        id:0,
+                        author:'',
+                        name:'',
+                        price:''
+                    },
+                    books:[{
+                            id:1,
+                            author:'曹雪芹',
+                            name:'红楼梦',
+                            price:32.0
+                    },{
+                            id:2,
+                            author:'施耐庵',
+                            name:'水浒传',
+                            price:30.0
+                    }]
+                }
+            })
+        </script>
+
 </body>
 </html>

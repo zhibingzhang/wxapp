@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+	<link rel="stylesheet" type="text/css" href="css/Reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="content">
+		<div class="form1">
+			<h3>添加字段</h3>
+			<div class="group">
+				<label for="inpname">展示名称</label>
+				<input id="inpname" type="text" name="name">
+			</div>
+			<div class="group">
+				<label for="inpname">字段名</label>
+				<input id="inpname" type="text" name="name"><span>(英文)</span>
+			</div>
+			<div class="group">
+				<label for="inpname">顺序</label>
+				<input id="inpname" type="text" name="name">
+			</div>
+			<div class="group">
+				<label for="inpname">类型</label>
+				<select id="inpname">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="group">
+				<label for="inpname">选项</label>
+				<input id="inpname" type="text" name="name"><span>可不填</span>
+			</div>
+			<p class="btns">
+				<a class="submit">提交</a>
+			</p>
+		</div>
+		<div class="form2">
+			<h3>信息展示</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>展示名称</th>
+						<th>字段名</th>
+						<th>顺序</th>
+						<th>类型</th>
+						<th>选项</th>
+						<th colspan="2">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>安锐卓越</td>
+						<td>uname</td>
+						<td>倒叙</td>
+						<td>1</td>
+						<td>打点滴</td>
+						<td><a href="#">删除</a></td>
+						<td><a href="#">约束</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="content constraint">
+		<div class="constraint_box">
+			<h3>添加约束</h3>
+			<div class="group">
+				<label>约束名称</label>
+				<select id="constraint">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="group">
+				<label>提示语</label>
+				<input type="text" name="">
+			</div>
+			<p class="btns">
+				<a href="#" class="add">添加</a>
+				<a href="#" class="delete">删除</a>
+			</p>
+		</div>
+		<div class="constraint_exhibition">
+			<h3>约束的展示</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>约束名称</th>
+						<th>提示语</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>安锐卓越</td>
+						<td>uname</td>
+						<td><a href="#">添加</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

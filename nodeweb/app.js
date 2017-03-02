@@ -188,15 +188,15 @@ app.post('/sign_in_uname/new', function(req, res){
 var transporter = nodemailer.createTransport({
     service: 'qq',
     auth: {
-        user: '563703814@qq.com',
-        pass: 'qq159++78506750'
+        user: '466163792@qq.com',
+        pass: 'aptgrixegofwbifg'
     }
 });
 
 // setup email data with unicode symbols
 var mailOptions = {
-    from: '<563703814@qq.com>', // sender address
-    to: '466163792@qq.com', // list of receivers
+    from: '<466163792@qq.com>', // sender address
+    to: '563703814@qq.com', // list of receivers
     subject: 'Hello', // Subject line
     text: 'Hello world ?', // plain text body
     html: '<b>Hello world ?</b>' // html body
