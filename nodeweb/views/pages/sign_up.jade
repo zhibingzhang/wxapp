@@ -20,15 +20,22 @@ html(lang="zh-CN")
 					i.error-txt
 					span.glyphicon.glyphicon-warning-sign#glyphicon-warning-sign
 				form(action="/sign_in/new", method="post")
-					ul
+					ul.form
 						li
 							input(type="text",placeholder="你的昵称", name="uname", id="uname")
 							span.glyphicon.glyphicon-user
 						li
 							input(type="text",placeholder="手机号", name="phone")
 							span.glyphicon.glyphicon-phone
+						//- li
+						//- 	input(type="text",placeholder="手机验证码", name="vcode")
+						//- 	span.glyphicon.glyphicon-eye-close
+						//- 	a.btn-up-resend 发送验证码
 						li
-							input(type="text",placeholder="手机验证码", name="vcode")
+							input(type="text",placeholder="邮箱", name="email" id="email")
+							span.glyphicon.glyphicon-envelope
+						li
+							input(type="text",placeholder="邮箱验证码", name="vcode")
 							span.glyphicon.glyphicon-eye-close
 							a.btn-up-resend 发送验证码
 						li

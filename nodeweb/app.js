@@ -174,7 +174,6 @@ app.post('/sign_in_uname/new', function(req, res){
 	    		"message": ''
 	    	});
 	  	}
-
 	  	return res.json({
 	  		"data": doc.uname,
 	  		"state": 200,
@@ -182,33 +181,44 @@ app.post('/sign_in_uname/new', function(req, res){
 	  	});
 	})
 })
+//邮箱验证
+app.post('/sign_in_email/new', function(req, res){
+	var email = req.body.email;
+	
+	// 随机生成一个6位数字
+	function random_num(){
+		for(var i=0,Num='';i<6;i++){ 
+			Num+=Math.floor(Math.random()*10); 
+		} 
+		return Num;
+	}
+	var Nnum = random_num();
+	// create reusable transporter object using the default SMTP transport
+	var transporter = nodemailer.createTransport({
+	    service: 'qq',
+	    auth: {
+	        user: '466163792@qq.com',
+	        pass: 'aptgrixegofwbifg'
+	    }
+	});
 
-// 邮箱验证
-//create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport({
-    service: 'qq',
-    auth: {
-        user: '466163792@qq.com',
-        pass: 'aptgrixegofwbifg'
-    }
-});
+	// setup email data with unicode symbols
+	var mailOptions = {
+	    from: '<466163792@qq.com>', // sender address
+	    to: '<'+email+'>', // list of receivers
+	    subject: 'ChickenBz-邮箱验证', // Subject line
+	    text: '保管好你的邮箱验证码', // plain text body
+	    html: '<table width="700" border="0" cellpadding="0" cellspacing="0"><tr><td height="122" style="font-family: 微软雅黑; font-size: 14px; ">尊敬的xxx,您好</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; ">请妥善保管好你的验证密码哦o.o</td></tr><tr><td height="60" style="font-family: 微软雅黑; font-size: 14px; font-weight: bold;">'+Nnum+'</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; ">为保障您的帐号安全，请在24小时内点击该链接，您也可以将链接复制到浏览器地址栏访问。如果您并未尝试激活邮箱，请忽略本邮件，由此给您带来的不便请谅解。</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; padding-top: 80px;">本邮件由系统自动发出，请直接回复！</td> </tr></table>' // html body
+	};
 
-// setup email data with unicode symbols
-var mailOptions = {
-    from: '<466163792@qq.com>', // sender address
-    to: '563703814@qq.com', // list of receivers
-    subject: 'Hello', // Subject line
-    text: 'Hello world ?', // plain text body
-    html: '<b>Hello world ?</b>' // html body
-};
-
-// send mail with defined transport object
-transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-        return console.log(error);
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response);
-});
+	// send mail with defined transport object
+	transporter.sendMail(mailOptions, function(error, info){
+	    if (error) {
+	        return console.log(error);
+	    }
+	    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
+})
 
 // md5加密
 function md5(str){
