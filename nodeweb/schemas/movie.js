@@ -20,6 +20,8 @@ var MovieSchema = new mongoose.Schema({//申明一个mongoons对象
 var SignSchema = new mongoose.Schema({
 	uname: String,
 	phone: String,
+	email: String,
+	vcode: String,
 	password: String,
 	meta: {
 		createAt:{

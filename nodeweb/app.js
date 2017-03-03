@@ -1,6 +1,7 @@
 var express = require('express')
 var crypto = require('crypto')//md5加密
-var nodemailer = require('nodemailer')
+var nodemailer = require('nodemailer')//邮箱验证
+var moment = require('moment')//时间处理
 var path = require('path')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
@@ -120,19 +121,38 @@ app.post('/admin/movie/new', function(req, res){
 })
 // 注册页面
 app.post('/sign_in/new', function(req, res){
-	var movieObj = req.body
-	var _movie
-	_movie = new Movie({
-		uname: movieObj.uname,
-		phone: movieObj.phone,
-		password: md5(movieObj.password)
-	})
-	_movie.save(function(err, Sign){
-		if(err){
-			console.log(err)
-		}
-		res.redirect('/sign_in')
-	})
+	var moment_end = moment().unix();
+	var vcode = req.body.vcode;
+	if(moment_start-moment_end<0 && moment_start !== 0){
+		return res.json({
+			"state":'404',
+			"message":'验证码已过期请重新发送'
+		})
+	}else if(Nnum !== vcode){
+		return res.json({
+			"state":'404',
+			"message":'验证码输入错误'
+		})
+	}else{
+		var movieObj = req.body
+		var _movie
+		_movie = new Movie({
+			uname: movieObj.uname,
+			phone: movieObj.phone,
+			email: movieObj.email,
+			vcode: movieObj.vcode,
+			password: md5(movieObj.password)
+		})
+		_movie.save(function(err, Sign){
+			if(err){
+				console.log(err)
+			}
+			return res.json({
+				"state":'200',
+				"message":'表单提交成功'
+			})
+		})
+	}
 })
 // 页面路由 list page
 app.get('/admin/list',function(req, res){
@@ -182,9 +202,11 @@ app.post('/sign_in_uname/new', function(req, res){
 	})
 })
 //邮箱验证
+var moment_start=0;
+var Nnum='';
 app.post('/sign_in_email/new', function(req, res){
 	var email = req.body.email;
-	
+	moment_start = moment().unix()+60;
 	// 随机生成一个6位数字
 	function random_num(){
 		for(var i=0,Num='';i<6;i++){ 
@@ -192,7 +214,7 @@ app.post('/sign_in_email/new', function(req, res){
 		} 
 		return Num;
 	}
-	var Nnum = random_num();
+	Nnum = random_num();
 	// create reusable transporter object using the default SMTP transport
 	var transporter = nodemailer.createTransport({
 	    service: 'qq',
@@ -214,10 +236,17 @@ app.post('/sign_in_email/new', function(req, res){
 	// send mail with defined transport object
 	transporter.sendMail(mailOptions, function(error, info){
 	    if (error) {
-	        return console.log(error);
+	        return res.json({
+		    	"state":404,
+		    	"message":error
+		    })
 	    }
-	    console.log('Message %s sent: %s', info.messageId, info.response);
+	    return res.json({
+	    	"state":200,
+	    	"message":'邮件发送成功'
+	    })
 	});
+
 })
 
 // md5加密

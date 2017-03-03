@@ -19,13 +19,13 @@ html(lang="zh-CN")
 				p.error.hide
 					i.error-txt
 					span.glyphicon.glyphicon-warning-sign#glyphicon-warning-sign
-				form(action="/sign_in/new", method="post")
+				form(action="/sign_in/new", method="post", onsubmit="return false")
 					ul.form
 						li
 							input(type="text",placeholder="你的昵称", name="uname", id="uname")
 							span.glyphicon.glyphicon-user
 						li
-							input(type="text",placeholder="手机号", name="phone")
+							input(type="text",placeholder="手机号", name="phone" id="phone")
 							span.glyphicon.glyphicon-phone
 						//- li
 						//- 	input(type="text",placeholder="手机验证码", name="vcode")
@@ -35,13 +35,13 @@ html(lang="zh-CN")
 							input(type="text",placeholder="邮箱", name="email" id="email")
 							span.glyphicon.glyphicon-envelope
 						li
-							input(type="text",placeholder="邮箱验证码", name="vcode")
+							input(type="text",placeholder="邮箱验证码", name="vcode" maxlength="6" id="vcode")
 							span.glyphicon.glyphicon-eye-close
 							a.btn-up-resend 发送验证码
 						li
-							input(type="password",placeholder="设置密码", name="password")
+							input(type="password",placeholder="设置密码", name="password" id="password")
 							span.glyphicon.glyphicon-lock
-					input.sign-up-button(type="submit")
+					input.sign-up-button#submit(type="submit")
 					p.sign-up-msg 点击 “注册” 即表示您同意并愿意遵守简书<br> 
 						<a target="_blank" href="#">用户协议</a> 和 
 						<a target="_blank" href="#">隐私政策</a> 。
