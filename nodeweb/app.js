@@ -5,8 +5,9 @@ var moment = require('moment')//时间处理
 var path = require('path')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
-var Movie = require('./models/movie.js')
-var Sign = require('./models/movie.js')
+// var Movie = require('./models/movie.js')
+var Sign = require('./models/sign.js')
+var Email = require('./models/email.js')
 var _= require('underscore')
 var port = process.env.PORT || 80
 var app = express()
@@ -34,28 +35,28 @@ console.log('nodeweb started on port '+port)
 
 // 页面路由 index page
 app.get('/',function(req, res){
-	Movie.fetch(function(err, movies){
-		if(err){
-			console.log(err)
-		}
-		console.log(movies)
-		res.render('index',{
-			title: 'ChickenBz-首页',
-			movies: movies
-		})
-	})
+	// Movie.fetch(function(err, movies){
+	// 	if(err){
+	// 		console.log(err)
+	// 	}
+	// 	console.log(movies)
+	// 	res.render('index',{
+	// 		title: 'ChickenBz-首页',
+	// 		movies: movies
+	// 	})
+	// })
 })
 // 页面路由 detail page
 app.get('/movie/:id',function(req, res){
 	var id = req.params.id
 
-	Movie.findById(id, function(err, movie){
-		console.log(movie)
-		res.render('detail',{
-			title: 'nodeweb 详情页',
-			movies: [movie]
-		})
-	})
+	// Movie.findById(id, function(err, movie){
+	// 	console.log(movie)
+	// 	res.render('detail',{
+	// 		title: 'nodeweb 详情页',
+	// 		movies: [movie]
+	// 	})
+	// })
 })
 // 页面路由 admin page
 app.get('/admin/movie',function(req, res){
@@ -123,36 +124,51 @@ app.post('/admin/movie/new', function(req, res){
 app.post('/sign_in/new', function(req, res){
 	var moment_end = moment().unix();
 	var vcode = req.body.vcode;
-	if(moment_start-moment_end<0 && moment_start !== 0){
-		return res.json({
-			"state":'404',
-			"message":'验证码已过期请重新发送'
-		})
-	}else if(Nnum !== vcode){
-		return res.json({
-			"state":'404',
-			"message":'验证码输入错误'
-		})
-	}else{
-		var movieObj = req.body
-		var _movie
-		_movie = new Movie({
-			uname: movieObj.uname,
-			phone: movieObj.phone,
-			email: movieObj.email,
-			vcode: movieObj.vcode,
-			password: md5(movieObj.password)
-		})
-		_movie.save(function(err, Sign){
-			if(err){
-				console.log(err)
-			}
+	var email = req.body.email;
+	var movieObj = req.body
+	var _movie
+    Email.find({'email': email}).sort({startime: -1}).limit(1).exec(function(err, doc){
+		if(err) {
+		    return res.serverError(err);
+		 }
+	  	if(!doc.length) {
+	  		console.log(typeof doc.length)
+	    	return res.json({
+	    		"data":null,
+	    		"state": '404',
+	    		"message": '验证码输入错误'
+	    	})
+	  	}
+	  	var doc = doc[0];
+	  	if(doc.startime-moment_end<0){
 			return res.json({
-				"state":'200',
-				"message":'表单提交成功'
+				"state":'404',
+				"message":'验证码已过期请重新发送'
 			})
-		})
-	}
+		}else if(doc.vcode != vcode){
+			return res.json({
+				"state":'404',
+				"message":'验证码输入错误'
+			})
+		}else{
+			_movie = new Sign({
+				uname: movieObj.uname,
+				phone: movieObj.phone,
+				email: movieObj.email,
+				vcode: movieObj.vcode,
+				password: md5(movieObj.password)
+			})
+			_movie.save(function(err, Sign){
+				if(err){
+					console.log(err)
+				}
+				return res.json({
+					"state":'200',
+					"message":'表单提交成功'
+				})
+			})
+		}
+	})
 })
 // 页面路由 list page
 app.get('/admin/list',function(req, res){
@@ -202,11 +218,8 @@ app.post('/sign_in_uname/new', function(req, res){
 	})
 })
 //邮箱验证
-var moment_start=0;
-var Nnum='';
 app.post('/sign_in_email/new', function(req, res){
-	var email = req.body.email;
-	moment_start = moment().unix()+60;
+	var email = req.body.email,movieObj = req.body,_movie,startime = moment().unix()+60,Nnum;
 	// 随机生成一个6位数字
 	function random_num(){
 		for(var i=0,Num='';i<6;i++){ 
@@ -246,6 +259,17 @@ app.post('/sign_in_email/new', function(req, res){
 	    	"message":'邮件发送成功'
 	    })
 	});
+	// 邮箱保存
+	_movie = new Email({
+		email: movieObj.email,
+		startime: startime,
+		vcode: Nnum
+	})
+	_movie.save(function(err, Email){
+		if(err){
+			console.log(err)
+		}
+	})
 
 })
 

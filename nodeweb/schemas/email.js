@@ -1,11 +1,10 @@
 var mongoose = require('mongoose') //引入mongoose建模模块
 
-var MovieSchema = new mongoose.Schema({//申明一个mongoons对象
-	title: String,
-	author: String,
-	content: String,
-	time: String,
-	img: String,
+
+var EmailSchema = new mongoose.Schema({
+	email: String,
+	startime: Number,
+	vcode: String,
 	meta: {
 		createAt:{
 			type: Date,
@@ -17,7 +16,8 @@ var MovieSchema = new mongoose.Schema({//申明一个mongoons对象
 		}
 	}
 })
-MovieSchema.pre('save', function(next){//每次执行都会调用,时间更新操作
+
+EmailSchema.pre('save', function(next){//每次执行都会调用,时间更新操作
 	if(this.isNew){
 		this.meta.createAt = this.meta.updateAt = Date.now()
 	}else{
@@ -26,7 +26,9 @@ MovieSchema.pre('save', function(next){//每次执行都会调用,时间更新�
 
 	next()
 })
-MovieSchema.statics = {//查询的静态方法
+
+
+EmailSchema.statics = {//查询的静态方法
 	fetch: function(cb) {
 		return this
 			.find({})
@@ -39,4 +41,4 @@ MovieSchema.statics = {//查询的静态方法
 			.exec(cb)
 	}
 }
-module.exports = MovieSchema
+module.exports = EmailSchema

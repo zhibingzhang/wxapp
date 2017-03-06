@@ -93,6 +93,7 @@ $(function(){
 	            type:'post',
 	            data: data,
 	            success: function(data){ 
+	            	console.log(typeof data.state)
 	            	if(data.state === "404"){
 	            		$('.error').addClass('show').children('i').html(data.message);
 	            	}else if(data.state === "200"){
@@ -105,4 +106,5 @@ $(function(){
 	        });
 		}
 	});
+	//登录
 });
