@@ -7,11 +7,15 @@ $(function(){
 		$('.nav li').removeClass('active');
 		$(this).parent().addClass('active');
 	});
+	// sign_in && sign_in
+	$('.normal-title a').click(function(){
+		$(this).addClass('active').siblings().removeClass('active');
+	});
 	// form is user name
 	$("#uname").blur(function(){
 		var data = {"uname": $(this).val()};
 		$.ajax({ 
-            url:'/sign_in_uname/new',
+            url:'/sign_up_uname/new',
             type:'post',
             data: data,
             success: function(data){ 
@@ -30,27 +34,31 @@ $(function(){
 		var time = 60;
 		var me = $(this);
 		if(email === ""){
-			$('.error').addClass('show').children('i').html('请输入邮箱');
+			$('.error').addClass('show').children('i').html($('#email').attr('placeholder'));
 		}else if(!reg.test(email)){
-			$('.error').addClass('show').children('i').html('邮箱格式错误');
+			$('.error').addClass('show').children('i').html($('#email').attr('placeholder')+'格式有误');
 		}else{
 			$('.error').removeClass('show');
 			$.ajax({ 
-	            url:'/sign_in_email/new',
+	            url:'/sign_up_email/new',
 	            type:'post',
 	            data: data,
 	            success: function(data){ 
 	            	console.log(data)
-	            	data.state == 200?$('.error').removeClass('show'):$('.error').addClass('show').children('i').html(data.message);
-	            	// 倒计时
-					var t = setInterval(function(){
-						time --;
-						$(me).html('倒计时 '+time).addClass('timeactive');
-						if(time === 0){
-							clearInterval(t)
-							$(me).html('重新获取').removeClass('timeactive');
-						}
-					},1000);
+	            	if(data.state === '200'){
+	            		$('.error').removeClass('show')
+	            		// 倒计时
+						var t = setInterval(function(){
+							time --;
+							$(me).html('倒计时 '+time).addClass('timeactive');
+							if(time === 0){
+								clearInterval(t)
+								$(me).html('重新获取').removeClass('timeactive');
+							}
+						},1000);
+	            	}else{
+	            		$('.error').addClass('show').children('i').html(data.message);
+	            	}
 	            },
 	            error: function(data){ 
 	            	console.log(data)
@@ -89,11 +97,10 @@ $(function(){
 				"password": $("#password").val()
 			};
 			$.ajax({ 
-	            url:'/sign_in/new',
+	            url:'/sign_up/new',
 	            type:'post',
 	            data: data,
 	            success: function(data){ 
-	            	console.log(typeof data.state)
 	            	if(data.state === "404"){
 	            		$('.error').addClass('show').children('i').html(data.message);
 	            	}else if(data.state === "200"){
@@ -107,4 +114,81 @@ $(function(){
 		}
 	});
 	//登录
+	$('#submit_up').click(function(){
+		var en = $('#en').val();
+		var pwd = $('#pwd').val();
+		var data = {'en': en, 'pwd': pwd}
+		if(en === ''){
+			$('.error').addClass('show').children('i').html('请输入你的昵称/邮箱');
+			return false;
+		}else if(pwd ===''){
+			$('.error').addClass('show').children('i').html('请输入密码');
+			return false;
+		}
+		$('.error').removeClass('show');
+		$.ajax({ 
+            url:'/sign_in/new',
+            type:'post',
+            data: data,
+            success: function(data){ 
+            	console.log(data)
+            	if(data.state === "404"){
+            		$('.error').addClass('show').children('i').html(data.message);
+            	}else if(data.state === "200"){
+            		window.location.href='/';
+            	}
+            },
+            error: function(data){ 
+            	console.log(data)
+            }
+        });
+	});
+	//用邮箱重置密码
+	$('#email_reset').click(function(){
+		var reg_password = /^[A-Za-z0-9]{6,20}$/;
+		var reg_email = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+		var inp = $('.email_inp input');
+		for(var i=0; i<inp.length; i++){
+			if(inp.eq(i).val() === ''){
+				$('.error').addClass('show').children('i').html(inp.eq(i).attr('placeholder'));
+				return false;
+			}
+		}
+		if(!reg_email.test($('#email').val())){
+			$('.error').addClass('show').children('i').html($('#email').attr('placeholder')+'格式有误');
+			return false;
+		}else if(!reg_password.test($('#password').val())){
+			$('.error').addClass('show').children('i').html($('#password').attr('placeholder')+'格式有误');
+			return false;
+		}else if(!reg_password.test($('#password_confirmation').val())){
+			$('.error').addClass('show').children('i').html($('#password_confirmation').attr('placeholder')+'格式有误');
+			return false;
+		}else if($('#password').val() !== $('#password_confirmation').val()){
+			$('.error').addClass('show').children('i').html('两次密码不一致');
+			return false;
+		}else{
+			$('.error').removeClass('show')
+			var data = {
+				'email': $("#email").val(),
+				'vcode': $("#vcode").val(),
+				'password': $("#password").val(),
+				'password_confirmation': $("#password_confirmation").val()
+			}
+			$.ajax({ 
+	            url:'/email_reset/new',
+	            type:'post',
+	            data: data,
+	            success: function(data){ 
+	            	if(data.state === "404"){
+	            		$('.error').addClass('show').children('i').html(data.message);
+	            	}else if(data.state === "200"){
+	            		window.location.href='/sign_in';
+	            	}
+	            },
+	            error: function(data){ 
+	            	console.log(data)
+	            }
+	        });
+		}
+	})
 });

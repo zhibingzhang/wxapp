@@ -16,12 +16,21 @@ html(lang="zh-CN")
 						a.active(href="/sign_in") 登录
 						b ·
 						a(href="/sign_up") 注册
-				form(action="/users", method="posh")
+				p.error
+					i.error-txt
+					span.glyphicon.glyphicon-warning-sign#glyphicon-warning-sign
+				form(action="/sign_in/new", method="post", onsubmit="return false")
 					ul
 						li
-							input(type="text",placeholder="手机号或邮箱")
+							input(type="text",placeholder="你的昵称/邮箱", name='en', id='en')
 							span.glyphicon.glyphicon-user
 						li
-							input(type="text",placeholder="密码")
+							input(type="password",placeholder="密码", name='pwd' id='pwd')
 							span.glyphicon.glyphicon-lock
-					input.sign-up-button.sign-in-botton(type="submit", value="登录")
+					p.password-state.clear
+						label.fl
+							input(type="checkbox")
+							记住Me
+						a.fr(href="/email_reset") 忘记密码？
+					input#submit_up.sign-up-button.sign-in-botton(type="submit", value="登录")
+					p.footer-line

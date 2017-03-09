@@ -16,10 +16,10 @@ html(lang="zh-CN")
 						a(href="/sign_in") 登录
 						b ·
 						a.active(href="/sign_up") 注册
-				p.error.hide
+				p.error
 					i.error-txt
 					span.glyphicon.glyphicon-warning-sign#glyphicon-warning-sign
-				form(action="/sign_in/new", method="post", onsubmit="return false")
+				form(action="/sign_up/new", method="post", onsubmit="return false")
 					ul.form
 						li
 							input(type="text",placeholder="你的昵称", name="uname", id="uname")
@@ -45,3 +45,4 @@ html(lang="zh-CN")
 					p.sign-up-msg 点击 “注册” 即表示您同意并愿意遵守简书<br> 
 						<a target="_blank" href="#">用户协议</a> 和 
 						<a target="_blank" href="#">隐私政策</a> 。
+					p.footer-line

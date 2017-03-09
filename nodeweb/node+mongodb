@@ -60,4 +60,9 @@
 四，nonejs 邮箱验证
 	1，在项目中安装 nodemailer 模块
 		npm install nodemailer --save
+五，nodeJS jsonwebtoken 登陆密码验证
+	1，在项目中安装 jsonwebtoken
+		npm install jsonwebtoken
+	2, 在js页面中引入jsonwebtoken
+		var jwt = require('jsonwebtoken')
 
