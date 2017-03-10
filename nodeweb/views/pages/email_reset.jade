@@ -23,7 +23,7 @@ html(lang="zh-CN")
 						li
 							input(type="text",placeholder="邮箱验证码", name="vcode" maxlength="6" id="vcode")
 							span.glyphicon.glyphicon-eye-close
-							a.btn-up-resend.btn-up-resend-color 发送验证码
+							a.btn-up-resend.btn-up-resend-color(data-state='reset') 发送验证码
 						li
 							input(type="password",placeholder="请输入新密码", name="password" id="password")
 							span.glyphicon.glyphicon-lock

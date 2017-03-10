@@ -248,6 +248,83 @@ app.post('/sign_up_email/new', function(req, res){
 		transporter.sendMail(mailOptions, function(error, info){
 		    if (error) {
 		        return res.json({
+			    	"state":'404',
+			    	"message":'可能是邮箱不存在'
+			    })
+		    }
+		    return res.json({
+		    	"state":'200',
+		    	"message":'邮件发送成功'
+		    })
+		});
+		Email.findOne({'email': email}).exec(function(err, doc){
+			if (err) {
+			    return res.serverError(err);
+			}
+			if(doc){
+				var condition = {'email': email}//更新条件
+				var value = {"$set":{'startime': startime, 'vcode': Nnum}}//更新值
+				Email.update(condition,value,function(err){
+					if(err){
+						return res.serverError(err)
+					}
+					return res.json({
+				    	"state":'200',
+				    	"message":'邮箱注册成功'
+				    })
+				})
+			}else{
+				_movie = new Email({
+					email: movieObj.email,
+					startime: startime,
+					vcode: Nnum
+				})
+				_movie.save(function(err, Email){
+					if(err){
+						console.log(err)
+					}
+					return res.json({
+				    	"state":'200',
+				    	"message":'邮箱注册成功'
+				    })
+				})
+			}
+		})
+	})
+})
+//邮箱验证reset
+app.post('/sign_up_email_reset/new', function(req, res){
+	var email = req.body.email,movieObj = req.body,_movie,startime = moment().unix()+60,Nnum,id=req.body._id;
+	Sign.findOne({'email': email}).exec(function(err, doc){
+		if(!doc){
+			return res.json({
+				'state': '404',
+				'message': '此邮箱不存在'
+			})
+		}
+		Nnum = random_num();
+		// create reusable transporter object using the default SMTP transport
+		var transporter = nodemailer.createTransport({
+		    service: 'qq',
+		    auth: {
+		        user: '466163792@qq.com',
+		        pass: 'aptgrixegofwbifg'
+		    }
+		});
+
+		// setup email data with unicode symbols
+		var mailOptions = {
+		    from: '<466163792@qq.com>', // sender address
+		    to: '<'+email+'>', // list of receivers
+		    subject: 'ChickenBz-邮箱验证', // Subject line
+		    text: '保管好你的邮箱验证码', // plain text body
+		    html: '<table width="700" border="0" cellpadding="0" cellspacing="0"><tr><td height="122" style="font-family: 微软雅黑; font-size: 14px; ">尊敬的xxx,您好</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; ">请妥善保管好你的验证密码哦o.o</td></tr><tr><td height="60" style="font-family: 微软雅黑; font-size: 14px; font-weight: bold;">'+Nnum+'</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; ">为保障您的帐号安全，请在24小时内点击该链接，您也可以将链接复制到浏览器地址栏访问。如果您并未尝试激活邮箱，请忽略本邮件，由此给您带来的不便请谅解。</td></tr><tr><td style="font-family: 微软雅黑; font-size: 14px; padding-top: 80px;">本邮件由系统自动发出，请直接回复！</td> </tr></table>' // html body
+		};
+
+		// send mail with defined transport object
+		transporter.sendMail(mailOptions, function(error, info){
+		    if (error) {
+		        return res.json({
 			    	"state":404,
 			    	"message":error
 			    })
@@ -268,6 +345,10 @@ app.post('/sign_up_email/new', function(req, res){
 					if(err){
 						return res.serverError(err)
 					}
+					return res.json({
+				    	"state":'200',
+				    	"message":'邮箱注册成功'
+				    })
 				})
 			}else{
 				_movie = new Email({
@@ -351,10 +432,6 @@ app.post('/email_reset/new',function(req, res){
 		}
 	})
 })
-// basse64编码
-function base64(object){
-	return new Buffer(JSON.stringify(object)).toString("base64");
-}
 // md5加密
 function md5(object){
 	return crypto.createHash('md5')

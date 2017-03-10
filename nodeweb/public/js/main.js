@@ -39,31 +39,60 @@ $(function(){
 			$('.error').addClass('show').children('i').html($('#email').attr('placeholder')+'格式有误');
 		}else{
 			$('.error').removeClass('show');
-			$.ajax({ 
-	            url:'/sign_up_email/new',
-	            type:'post',
-	            data: data,
-	            success: function(data){ 
-	            	console.log(data)
-	            	if(data.state === '200'){
-	            		$('.error').removeClass('show')
-	            		// 倒计时
-						var t = setInterval(function(){
-							time --;
-							$(me).html('倒计时 '+time).addClass('timeactive');
-							if(time === 0){
-								clearInterval(t)
-								$(me).html('重新获取').removeClass('timeactive');
-							}
-						},1000);
-	            	}else{
-	            		$('.error').addClass('show').children('i').html(data.message);
-	            	}
-	            },
-	            error: function(data){ 
-	            	console.log(data)
-	            }
-	        });
+			if(me.data('state') === 'reset'){
+				$.ajax({ 
+		            url:'/sign_up_email_reset/new',
+		            type:'post',
+		            data: data,
+		            success: function(data){ 
+		            	console.log(data)
+		            	if(data.state === '200'){
+		            		$('.error').removeClass('show')
+		            		// 倒计时
+							var t = setInterval(function(){
+								time --;
+								$(me).html('倒计时 '+time).addClass('timeactive');
+								if(time === 0){
+									clearInterval(t)
+									$(me).html('重新获取').removeClass('timeactive');
+								}
+							},1000);
+		            	}else{
+		            		$('.error').addClass('show').children('i').html(data.message);
+		            	}
+		            },
+		            error: function(data){ 
+		            	console.log(data)
+		            }
+		        });
+			}else{
+				console.log('注册')
+				$.ajax({ 
+		            url:'/sign_up_email/new',
+		            type:'post',
+		            data: data,
+		            success: function(data){ 
+		            	console.log(data)
+		            	if(data.state === '200'){
+		            		$('.error').removeClass('show')
+		            		// 倒计时
+							var t = setInterval(function(){
+								time --;
+								$(me).html('倒计时 '+time).addClass('timeactive');
+								if(time === 0){
+									clearInterval(t)
+									$(me).html('重新获取').removeClass('timeactive');
+								}
+							},1000);
+		            	}else{
+		            		$('.error').addClass('show').children('i').html(data.message);
+		            	}
+		            },
+		            error: function(data){ 
+		            	console.log(data)
+		            }
+		        });
+			}
 		}
 	});
 	// 表单提交
