@@ -20,6 +20,7 @@ var db=mongoose.connect('mongodb://127.0.0.1:12345/blog')
 	db.connection.once("open", function(){
 		console.log('数据库连接成功')
 	})
+var secretOrPrivatekdy = 'zibinzhang';
 app.set('views','views/pages')
 app.set('view engine','jade')//设置默认的模板引擎
 //定义public路径
@@ -33,7 +34,6 @@ app.get('/',function(req, res){
 		if(err){
 			console.log(err)
 		}
-		console.log(movies)
 		res.render('index',{
 			title: 'ChickenBz-首页',
 			movies: movies
@@ -54,16 +54,24 @@ app.get('/movie/:id',function(req, res){
 })
 // 页面路由 admin page
 app.get('/admin/movie',function(req, res){
-	res.render('admin',{
-		title: 'nodeweb 后台录入页',
-		movie: {
-			title: '',
-			author: '',
-			content: '',
-			time: '',
-			img: ''
-		}
-	})
+	var token = req.body.token || req.query.token || req.headers.cookie; // 从body或query或者header中获取token
+	console.log(secretOrPrivatekdy)
+	jwt.verify(token, secretOrPrivatekdy, function (err, decode) {
+        if (err) {  //  时间失效的时候/ 伪造的token          
+           res.redirect('/sign_in')
+        }else{
+        	res.render('admin',{
+				title: 'nodeweb 后台录入页',
+				movie: {
+					title: '',
+					author: '',
+					content: '',
+					time: '',
+					img: ''
+				}
+			})
+        } 
+    })
 })
 //admin update movid
 app.get('/admin/update/:id', function(req, res){
@@ -383,9 +391,19 @@ app.post('/sign_in/new', function(req, res){
 				'message': '用户名或密码错误'
 			})
 		}
+
+		var content = {
+			iss: doc.uname
+		}
+		var token = jwt.sign(content, secretOrPrivatekdy,{
+			expiresIn: 60*60*24
+		})
+
+
 		return res.json({
 			'state': '200',
-			'message': ''
+			'message': '',
+			'token': token
 		})
 	})
 })

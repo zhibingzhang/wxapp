@@ -164,7 +164,9 @@ $(function(){
             	if(data.state === "404"){
             		$('.error').addClass('show').children('i').html(data.message);
             	}else if(data.state === "200"){
-            		window.location.href='/';
+            		document.cookie = data.token;
+            		window.location.href='/admin/movie';
+            		console.log(document.cookie)
             	}
             },
             error: function(data){ 
