@@ -1,0 +1,50 @@
+一，安装（官方命令行工具）
+	# 全局安装 vue-cli
+		$ npm install -g vue-cli
+	# 创建一个基于 webpack 模板的新项目
+		$ vue init webpack 项目名称
+			? Project name (my-project) my-project
+			? Project name my-project
+			? Project description (A Vue.js project) this is test vue.js
+			? Project description this is test vue.js
+			? Author (zhibingzhang <466163792@qq.com>) zhibinzhang
+			? Author zhibinzhang
+			? Vue build runtime
+			? Install vue-router? (Y/n) y
+			? Install vue-router? Yes
+			? Use ESLint to lint your code? (Y/n) n
+			? Use ESLint to lint your code? No
+			? Setup unit tests with Karma + Mocha? (Y/n) n
+			? Setup unit tests with Karma + Mocha? No
+			? Setup e2e tests with Nightwatch? (Y/n) n
+			? Setup e2e tests with Nightwatch? No
+	# 安装依赖，走你
+		$ cd my-project
+		$ npm install
+		#启动服务
+		$ npm run dev
+二，.vue 文件结构
+											 	*.html
+			*.vue ->  webpack *.js
+											 	*.css
+	#基本重要字段
+		1, data 数据集合
+		2, methods 方法集合
+		3, watch 对数据监听集合function(新val,旧val){}
+	#数据渲染
+		1, v-text
+		2, v-html
+		3, {{}}
+	#控制模块隐藏
+		1, v-if
+		2, v-show (通过css)
+	#渲染循环
+		1, v-for
+	#事件绑定
+		1, v-on (简写@)
+	#属性绑定
+		1, v-bind (简写:)
+	#修饰符
+		.prevent
+	#过滤器
+	

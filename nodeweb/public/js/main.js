@@ -165,8 +165,8 @@ $(function(){
             		$('.error').addClass('show').children('i').html(data.message);
             	}else if(data.state === "200"){
             		document.cookie = data.token;
+            		document.cookie = data.doc;
             		window.location.href='/admin/movie';
-            		console.log(document.cookie)
             	}
             },
             error: function(data){ 

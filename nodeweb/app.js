@@ -399,11 +399,12 @@ app.post('/sign_in/new', function(req, res){
 			expiresIn: 60*60*24
 		})
 
-
+		console.log(doc)
 		return res.json({
 			'state': '200',
 			'message': '',
-			'token': token
+			'token': token,
+			'doc': doc
 		})
 	})
 })

@@ -3,20 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script type="text/javascript" src='js/jquery-1.12.4.min.js'></script>
 </head>
 <body>
 	<script type="text/javascript">
-		var sum = 60,mm = 0,ss = 0,str = '';
-		var t = setInterval(function(){
-			mm = parseInt(sum / 60) < 10?'0'+parseInt(sum / 60):parseInt(sum / 60);
-			ss = mm <0 ? '0'+sum:(sum%60<10?'0'+sum%60:sum%60);
-			str = mm+":"+ss;
-			console.log(str)
-			if(sum == 0){
-				clearInterval(t); 
-			}
-			sum --;
-		},1000);
+		$.ajax({
+		    url: "http://server.w-share.cn/WebsiteServlet?action=shopUserlogin&uuid=manager&upassword=123456",
+		    dataType: 'jsonp',
+		    type: 'get',
+		    jsonp: 'jsonpcallback',
+		    success: function(data) {
+		        console.log(data)
+		        
+		    }
+		});
 	</script>
 </body>
 </html>

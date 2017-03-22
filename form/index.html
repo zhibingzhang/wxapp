@@ -5,33 +5,37 @@
 	<title>form</title>
 	<link rel="stylesheet" type="text/css" href="css/Reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 </head>
 <body>
 	<div class="content">
 		<div class="form1">
 			<h3>添加字段</h3>
 			<div class="group">
-				<label for="inpname">展示名称</label>
-				<input id="inpname" type="text" name="name">
+				<label for="exhibition">展示名称</label>
+				<input id="exhibition" type="text" name="exhibition">
 			</div>
 			<div class="group">
-				<label for="inpname">字段名</label>
-				<input id="inpname" type="text" name="name"><span>(英文)</span>
+				<label for="field">字段名</label>
+				<input id="field" type="text" name="field"><span>(英文)</span>
 			</div>
 			<div class="group">
-				<label for="inpname">顺序</label>
-				<input id="inpname" type="text" name="name">
+				<label for="order">顺序</label>
+				<input id="order" type="text" name="order">
 			</div>
 			<div class="group">
-				<label for="inpname">类型</label>
-				<select id="inpname">
-					<option>1</option>
-					<option>2</option>
+				<label for="type">类型</label>
+				<select id="type">
+					<option>请选择</option>
+					<option>单选</option>
+					<option>下拉</option>
+					<option>多选</option>
 				</select>
 			</div>
-			<div class="group">
-				<label for="inpname">选项</label>
-				<input id="inpname" type="text" name="name"><span>可不填</span>
+			<div class="options">
+				
+				
+				
 			</div>
 			<p class="btns">
 				<a class="submit">提交</a>
@@ -70,8 +74,8 @@
 			<div class="group">
 				<label>约束名称</label>
 				<select id="constraint">
-					<option>1</option>
-					<option>2</option>
+					<option>单选</option>
+					<option>多选</option>
 				</select>
 			</div>
 			<div class="group">
@@ -103,5 +107,39 @@
 			</table>
 		</div>
 	</div>
+	<script type="text/javascript">
+		var data = ['A.','B.','C.','D.','E.','F.','G.'];
+		var index = 0;
+		$('#type').change(function(){
+			if($('#type').val()=='单选' || $('#type').val()=='多选'){
+				$('.options').html('<div class="option"></div><button data-val='+$('#type').val()+' class="add_option">添加选项</button><button class="delete_option">删除选项</button>')
+			}else{
+				$('.options').html('')
+			}
+		})
+		
+			$('.options').on('click','.add_option',function(){
+				if(index<data.length){
+					var val = $(this).data('val')
+					if(val === '单选'){
+						var html ='<div class="group_type group"><label>'+data[index]+'</label><input type="text" name=""><label class="label"><input type="radio" name=""><span>正确答案请勾选</span></label></div>';
+					}else if(val === '多选'){
+						var html = '<div class="group_type group"><label>'+data[index]+'</label><input type="text" name=""><label class="label"><input type="checkbox" name=""><span>正确答案请勾选</span></label></div>';
+					}else{
+						var html = '<div class="group"><label for="order">'+data[index]+'</label><input type="text"></div>';
+					}
+			
+				index ++;
+				$('.option').append(html)
+			}
+		})
+		
+		$('.options').on('click','.delete_option',function(){
+			$('.option .group:last').remove()
+		})
+		$(document).on('click','#but',function(){
+			alert(111)
+		})
+	</script>
 </body>
 </html>
