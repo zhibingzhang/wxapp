@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>初始标价</title>
+	<script type="text/javascript" src='jquery.min.js'></script>
+	<script type="text/javascript" src='vue.min.js'></script>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	h4{
+		text-align: center;
+		margin-bottom: 36px;
+	}
+	.container{
+		width: 600px;
+		margin: 26px auto;
+		padding: 32px;
+		box-shadow: 0px 0px 15px rgba(0,0,0,.6);
+		border-radius: 6px;
+	}
+	.group{
+		margin-bottom: 20px;
+	}
+	.group label{
+		display: block;
+		margin-bottom: 3px;
+	}
+	.group input{
+		width: 100%;
+		height: 36px;
+		line-height: 36px;
+		border-radius: 3px;
+		padding-left: 3px;
+		border: 1px solid #CCC;
+	}
+</style>
+<body>
+	<div class="container">
+		<h4>请输入下面（批发价）</h4>
+		<div class="group">
+			<label>批发价</label>
+			<input type="Number" name="price" id='price' v-model='price'>
+		</div>
+		<div class="group">
+			<label>初始标价结果</label>
+			<input type="text" name="price" v-model='sum'>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			new Vue({
+				el: '.container',
+				data: {
+					price: '',
+					sum:  0
+				},
+				watch: {
+					price(v){
+						if(v ==""){
+							this.sum = 0;
+						}else{
+							var v = parseInt(v);
+							sum_price = parseInt((v+30)*1.6).toString();
+							this.sum = parseInt(sum_price.substring(0, (sum_price.length)-1)+'9');
+						}
+					}
+				}
+			})
+		})	
+	</script>
+</body>
+</html>
