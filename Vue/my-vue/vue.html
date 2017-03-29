@@ -7,98 +7,12 @@
 </head>
 <body>
 	<div class="countainer">
-		<my-component :my-message='message' size='15'></my-component>
-		<my-p></my-p>
-		<table>
-			<tr is='my-tr'></tr>
-		</table>
-		<input type="text" v-model='message' name="">
-		<p>{{message}}</p>
-		<my-counter></my-counter>
-		<my-counter></my-counter>
-		<p>{{total}}</p>
-		<my-button v-on:increment='incrementToal'></my-button>
-		<my-button v-on:increment='incrementToal'></my-button>
-		<my-but v-on:click.native = 'doTheThing'></my-but>
-		<div>
-			<h1>我是父组件title</h1>
-			<my-div>
-				<p>s</p>
-			</my-div>
+		  <slot text="hello from child"></slot>
 		</div>
 	</div>
 	<script type="text/javascript">
-		Vue.component('my-div',{
-			template: '<div><p>我是子组件的title</p><slot>只有在没有要分发的内容时才会显示。</slot></div>'
-		})
-		// 注册
-		Vue.component('my-component',{
-			template: '<h1>这里是一个全局模板 is data : {{message}}  、myMessage : {{myMessage}}{{size}}</h1>',
-			props: ['myMessage', 'size'],
-			data: function(){
-				return {
-					message: 'Function(){}'
-				}
-			}
-		})
-		Vue.component('my-tr',{
-			template: '<tr><td>这里是受限元素 使用 is 属性</td></tr>'
-		})
-		// 注册局部模板
-		var my_p = {
-			template: '<p>这里是一个局部模板</p>'
-		}
-		// 计数模板
-		Vue.component('my-counter',{
-			template: '<button v-on:click="counter+=1" v-text="counter"></button>',
-			data: function(){
-				return {
-					counter: 0
-				}
-			}
-		})
-		Vue.component('my-button',{
-			template: '<button v-on:click="increment">{{counter}}</button>',
-			data: function(){
-				return {
-					counter: 0
-				}
-			},
-			methods: {
-				increment: function(){
-					this.counter +=1
-					this.$emit('increment')
-				}
-			}
-
-		})
-		Vue.component('my-but',{
-			template: '<button>{{mes}}</button>',
-			data: function(){
-				return {
-					mes: 0
-				}
-			}
-		})
-		// 实例
-		new Vue({
-			el: '.countainer',
-			data: {
-				message: '123456',
-				total: 0,
-				mes: 0
-			},
-			components: {
-				'my-p': my_p
-			},
-			methods: {
-				incrementToal: function(){
-					this.total +=1
-				},
-				doTheThing: function(){
-					this.mes +=1
-				}
-			}
+		Vue.component('my-parent',{
+			template: '<div class="parent"><child><template scope="props"><span>hello from parent</span><span>{{ props.text }}</span></template></div>'
 		})
 	</script>
 </body>
