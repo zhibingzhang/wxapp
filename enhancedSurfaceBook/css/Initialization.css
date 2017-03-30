@@ -1,0 +1,55 @@
+body, p, ul, li, ol, h1, h2, h3, h4, h5, h6, form, input, dl, dt, dd {
+	margin: 0;
+	padding: 0;
+}
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+body {
+	font-family:"microsoft yahei",'Segoe UI',Arial ;
+	font-size: 12px;
+	color: #666;
+	line-height: 1.7;
+	overflow:hidden;
+}
+ul {
+	list-style: none;
+}
+ol {
+	list-style: none;
+}
+img {
+	display: block;
+	border: none
+}
+a {
+	text-decoration: none;
+}
+a:link {
+ color: inherit;
+ TEXT-DECORATION: none
+}
+a:visited {
+ COLOR:inherit;
+ TEXT-DECORATION: none
+}
+
+a:active {
+ COLOR: inherit;  
+ text-decoration: none;
+}
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
+.clear {
+	height: 0;
+	overflow: hidden;
+	clear: both
+}
+input{ 
+        -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+

@@ -1,0 +1,53 @@
+body{
+	overflow: scroll!important;
+	height: auto!important;
+	
+}
+.container{
+	position: relative;
+	background-color: #f6f6f6;
+	height: auto!important;
+	padding-bottom: 50px;
+}
+.logo_list{
+    padding-left: 58px;
+    padding-top: 32px;
+}
+.prompt{
+	color: #666666;
+	font-size: 18px;
+	padding: 20px 0px;
+	padding-left: 58px;
+}
+table tbody tr{
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+}
+table img{
+	display: inline-block;
+}
+table tbody tr th{
+	width: 50%;
+	text-align: center;
+	background-color: #f6f6f6;
+	padding: 20px 0px;
+}
+table tbody tr{
+
+}
+table tbody tr td{
+	padding: 10px 0px;
+	width: 50%;
+	text-align: left;
+}
+table tbody tr td:nth-child(1){
+	padding-left: 58px;
+	font-weight: bold;
+}
+table tbody tr td:nth-child(2){
+	padding-right: 20px;
+}
+table tbody tr:nth-child(odd){
+	background-color: #ffffff;
+}

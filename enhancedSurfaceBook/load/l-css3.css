@@ -1,0 +1,112 @@
+/*无限旋转-反方向*/
+.l-rotating-left {
+	animation: Lrotatingleft 6s linear infinite;
+	-moz-animation: Lrotatingleft 6s linear infinite;
+	-ms-animation: Lrotatingleft 6s linear infinite;
+	-webkit-animation: Lrotatingleft 6s linear infinite;
+}
+/*无限旋转-顺方向*/
+.l-rotating-right {
+	animation: Lrotatingright 6s linear infinite;
+	-moz-animation: Lrotatingright 6s linear infinite;
+	-ms-animation: Lrotatingright 6s linear infinite;
+	-webkit-animation: Lrotatingright 6s linear infinite;
+}
+/*添加阴影*/
+.l-shadow{ animation:Lshadow 2s ; animation-fill-mode:forwards;
+           -webkit-animation:Lshadow 2s ; -webkit-animation-fill-mode:forwards; 
+		   -ms-animation:Lshadow 2s ; -ms-animation-fill-mode:forwards;
+		   -moz-animation:Lshadow 2s ; -moz-animation-fill-mode:forwards;
+}
+
+
+
+
+@keyframes Lrotatingleft {
+0% {
+ transform:rotate(0deg);
+}
+ 100% {
+ transform:rotate(-360deg);
+}
+}
+@-webkit-keyframes Lrotatingleft {
+0% {
+ -webkit-transform:rotate(0deg);
+}
+ 100% {
+ -webkit-transform:rotate(-360deg);
+}
+}
+@-moz-keyframes Lrotatingleft {
+0% {
+ -moz-transform:rotate(0deg);
+}
+ 100% {
+ -moz-transform:rotate(-360deg);
+}
+}
+@-ms-keyframes Lrotatingleft {
+0% {
+ -ms-transform:rotate(0deg);
+}
+ 100% {
+ -ms-transform:rotate(-360deg);
+}
+}
+@keyframes Lrotatingright {
+0% {
+ transform:rotate(0deg);
+}
+ 100% {
+ transform:rotate(360deg);
+}
+}
+@-webkit-keyframes Lrotatingright {
+0% {
+ -webkit-transform:rotate(0deg);
+}
+ 100% {
+ -webkit-transform:rotate(360deg);
+}
+}
+@-moz-keyframes Lrotatingright {
+0% {
+ -moz-transform:rotate(0deg);
+}
+ 100% {
+ -moz-transform:rotate(360deg);
+}
+}
+@-ms-keyframes Lrotatingright {
+0% {
+ -ms-transform:rotate(0deg);
+}
+ 100% {
+ -ms-transform:rotate(360deg);
+}
+}
+@keyframes Lshadow {
+	0%{ box-shadow:0 0 0 #888888;
+	}
+	100%{ box-shadow:0 0 10px #888888;
+	}
+}
+@-moz-keyframes Lshadow {
+	0%{ box-shadow:0 0 0 #888888;
+	}
+	100%{ box-shadow:0 0 10px #888888;
+	}
+}
+@-ms-keyframes Lshadow {
+	0%{ box-shadow:0 0 0 #888888;
+	}
+	100%{ box-shadow:0 0 10px #888888;
+	}
+}
+@-webkit-keyframes Lshadow {
+	0%{ box-shadow:0 0 0 #888888;
+	}
+	100%{ box-shadow:0 0 10px #888888;
+	}
+}

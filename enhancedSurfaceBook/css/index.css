@@ -1,0 +1,249 @@
+.container{ height:100%; width:640px; margin:0 auto}
+.swiper-container{height:100%;}
+.swiper-button-prev,.swiper-button-next{ top:auto; bottom:10px; width:100px; height:50px; background:#C8C8C8;}
+.swiper-slide{ width:640px;}
+.page1{
+    background: url(../images/BG-01.png);
+}
+.titleBox{
+    text-align: center;
+    margin-top: 100px;
+    padding-left: 27px;
+}
+.titleBox img{
+	animation: 2s scaleTitle linear infinite;
+	-webkit-animation: 2s scaleTitle linear infinite;
+	-ms-animation: 2s scaleTitle linear infinite;
+	-o-animation: 2s scaleTitle linear infinite;
+	-moz-animation: 2s scaleTitle linear infinite;
+}
+@keyframes scaleTitle{
+	0%{transform: scale(1.0);}
+	30%{transform: scale(1.1);}
+	50%{transform: scale(1.0);}
+	100%{transform: scale(1.0);}
+}
+@-webkit-keyframes scaleTitle{
+	0%{transform: scale(1.0);}
+	30%{transform: scale(1.1);}
+	50%{transform: scale(1.0);}
+	100%{transform: scale(1.0);}
+}
+@-ms-keyframes scaleTitle{
+	0%{transform: scale(1.0);}
+	30%{transform: scale(1.1);}
+	50%{transform: scale(1.0);}
+	100%{transform: scale(1.0);}
+}
+@-o-keyframes scaleTitle{
+	0%{transform: scale(1.0);}
+	30%{transform: scale(1.1);}
+	50%{transform: scale(1.0);}
+	100%{transform: scale(1.0);}
+}
+@-moz-keyframes scaleTitle{
+	0%{transform: scale(1.0);}
+	30%{transform: scale(1.1);}
+	50%{transform: scale(1.0);}
+	100%{transform: scale(1.0);}
+}
+.titleBox img,.groupImg img,.p2-pcBox img{
+    display: inline-block;
+}
+.surfacePC{
+    position: absolute;
+    top: 524px;
+    left: 50%;
+    margin-left: -280px;
+}
+.content{
+    color: #666666;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 268px;
+}
+.starBtn{
+    text-align: center;
+    margin-top: 46px;
+    position: relative;
+    width: 287px;
+    overflow: hidden;
+    left: 50%;
+    margin-left: -143px;
+}
+.lineLight{
+    position: absolute;
+    top: -37px;
+    left: 57px;
+    width: 2px;
+    height: 188px;
+    background-color: #FFFFFF;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+	box-shadow: 0px 0px 10px #FFFFFF;
+	animation: 3s lineLight ease-in infinite;
+	-moz-animation: 3s lineLight ease-in infinite;
+	-o-animation: 3s lineLight ease-in infinite;
+	-webkit-animation: 3s lineLight ease-in infinite;
+	-ms-animation: 3s lineLight ease-in infinite;
+}
+@keyframes lineLight{
+	0%{left: -57px;}
+	70%{left: 318px;}
+	100%{left: 318px;}
+}
+@-webkit-keyframes lineLight{
+	0%{left: -57px;}
+	70%{left: 318px;}
+	100%{left: 318px;}
+}
+@-moz-keyframes lineLight{
+	0%{left: -57px;}
+	70%{left: 318px;}
+	100%{left: 318px;}
+}
+@-ms-keyframes lineLight{
+	0%{left: -57px;}
+	70%{left: 318px;}
+	100%{left: 318px;}
+}
+@-o-keyframes lineLight{
+	0%{left: -57px;}
+	70%{left: 318px;}
+	100%{left: 318px;}
+}
+.page2{
+     background: -webkit-radial-gradient(#ffffff, #e1e1e1); /* Safari 5.1 - 6.0 */
+      background: -o-radial-gradient(#ffffff, #e1e1e1); /* Opera 11.6 - 12.0 */
+      background: -moz-radial-gradient(#ffffff, #e1e1e1); /* Firefox 3.6 - 15 */
+      background: radial-gradient(#ffffff, #e1e1e1); /* 标准的语法 */
+}
+.title{
+    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.title:before{
+    content: url(../images/line.png);
+    width: 7px;
+    height: 30px;
+    color: #666666;
+    background-color: #666666;
+    line-height: 1;
+}
+.groupImg{
+    text-align: center;
+    margin-bottom: 16px;
+}
+.groupBox{
+    overflow: hidden;
+    padding-top: 24px;
+}
+.group{
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+    height: 50%;
+    margin-top: 40px;
+}
+.group p{
+    text-align: center;
+    color: #666666;
+    font-size: 20px;
+    font-weight: bold;
+}
+.p2-pcBox{
+    text-align: center;
+    margin-top: 64px;
+    padding-left: 12px;
+}
+.pen{
+    position: absolute;
+    display: none;
+    left: 422px;
+    top: 437px;
+}
+.penAni{
+	animation: movePen 4s linear;
+	display: block;
+}
+@keyframes movePen{
+	0%{left: 122px;top: 400px}
+	20%{left: 172px;top: 450px}
+	30%{left: 222px;top: 400px}
+	60%{left: 282px;top: 420px}
+	70%{left: 352px;top: 400px}
+	100%{left: 422px;top: 437px;}
+}
+.closeMusic {
+    width: 57px;
+    height: 87px;
+    background: url(../images/player-button.png) no-repeat;
+    /* background-size: 60%; */
+    background-position-x: -57px;
+    position: fixed;
+    top: 48px;
+    right: 54px;
+    z-index: 100;
+}
+.active {
+    background-position-x: 0px;
+}
+.prompt_p3{
+    position: absolute;
+    top: 918px;
+    right: 42px;
+    font-size: 16px;
+    color: #ffffff;
+}
+.pcAni{
+    position: absolute;
+    top: 236px;
+    left: 50%;
+    margin-left: -280px;
+    animation: 2s infinite pcAni linear;
+    z-index: 3;
+    
+}
+@keyframes pcAni{
+    0%{
+        top: 230px;
+    }
+    50%{
+        top: 266px;
+    }
+    100%{
+        top: 230px;
+    }
+}
+.page4 .keyLine {
+    position: absolute;
+    top: -71px;
+    left: 416px;
+     pointer-events: auto!important; 
+}
+.mask{
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+.maskLight{
+    position: absolute;
+    z-index: 101;
+    top: 664px;
+    left: 427px;
+    pointer-events: none;
+}
+.one,.two,.three{
+    display: none;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    transition: opacity 1s; 
+}

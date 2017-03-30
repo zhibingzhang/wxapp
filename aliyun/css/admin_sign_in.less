@@ -1,0 +1,197 @@
+.admin_header{
+	  position: fixed;
+    width: 100%;
+    height: 50px;
+    background: #373d41;
+    z-index: 101;
+    box-shadow: 0 1px 1px rgba(0,0,0,.6);
+    .admin_header_content{
+	    position: relative;
+	    z-index: 100;
+	    clear: both;
+	    height: 50px;
+	    background: #373d41;
+	    font-size: 12px;
+	    min-width: 990px;
+	    >div:last-child{
+	    	float: right;
+	    }
+	    >div:first-child{
+	    	float: left;
+	    }
+	    a{
+	    	display: inline-block;
+	    	color: #FFF;
+	    	line-height: 50px;
+	    	height: 50px;
+	    	padding: 0 18px;
+	    	border-right: 1px solid #2a2f32;
+	   		-webkit-transition: background-color .2s;
+	   		-moz-transition: background-color .2s;
+	   		-ms-transition: background-color .2s;
+	   		-o-transition: background-color .2s;
+	   		font-size: 14px;
+	    	img{
+	    		vertical-align: middle;
+	    	}
+	    	span{
+  		    text-rendering: optimizeLegibility;
+			    -webkit-font-smoothing: antialiased;
+			    letter-spacing: 0.02em; 
+	    	}
+	    }
+	    a:hover{
+	    	background-color: #2a2f32;
+	    	text-decoration: none;
+	    }
+	    .content-r{
+	    	.content-l-item{
+					position: relative;
+	    	}
+	    	.content-l-item:hover{
+	    		ul{
+	    			display: block;
+	    		}
+	    	}
+	    }
+	    ul{
+	    	display: none;
+	    	background-color: #FFF;
+	    	position: absolute;
+				top: 50px;
+				right: 0px;
+				text-align: center;
+				box-shadow: 0 1px 3px rgba(0,0,0,.1);
+
+	    	li{
+	    		a{
+	    			color: #333;
+	    			border-right: none;
+	    			width: 100%;
+	    			padding: 0;
+	    		}
+	    		a:hover{
+						background-color: #F5F5F6;
+	    		}
+	    	}
+	    }
+	    ul.admin_uname{
+	    	width: 156px;
+	    }
+	    ul.lange{
+	    	width: 100px;
+	    }
+    }
+}
+.admin_content{
+	  position: absolute;
+    width: 100%;
+    top: 50px;
+    bottom: 0px;
+    background-color: #000;
+    z-index: 100;
+    font-size: 14px;
+    .admin_content_active{
+    	height: 100%;
+    	>div{
+    		height: 100%;
+    	}
+    	.aside{
+	    	width: 199px;
+	    	background-color: #293038;
+	    	position: fixed;
+	    	top: 50px;
+	    	left: 0;
+	    	>ul{
+	    		background-color: #42485B;
+	    		>li{
+	    			position: relative;
+	    			>a{
+	    				display: block;
+	    				height: 40px;
+	    				line-height: 40px;
+							padding-left: 66px;
+	    				-webkit-transition: background-color .2s;
+				   		-moz-transition: background-color .2s;
+				   		-ms-transition: background-color .2s;
+				   		-o-transition: background-color .2s;
+	    			}
+	    			>a:after{
+	    				content: '';
+	    				position: absolute;
+	    				top: 14px;
+	    				left: 48px;
+	    				width: 0px;
+	    				height: 0px;
+	    				border: 6px solid transparent;
+	    				border-left-color: #FFF;
+	    				transition: transform .2s;
+	    				-webkit-transition: transform .2s;
+	    				-moz-transition: transform .2s;
+	    				-ms-transition: transform .2s;
+	    				-o-transition: transform .2s;
+	    			}
+	    			>a:hover{
+	    				color: #FFF;
+	    				text-decoration: none;
+	    				background-color: #00C1DE;
+	    			}
+	    			ul{
+	    				background-color: #373d41;
+	    				display: none;
+	    				li{
+	    					position: relative;
+	    					a{
+	    						display: block;
+			    				height: 40px;
+			    				line-height: 40px;
+									padding-left: 66px;
+			    				-webkit-transition: background-color .2s;
+						   		-moz-transition: background-color .2s;
+						   		-ms-transition: background-color .2s;
+						   		-o-transition: background-color .2s;
+	    					}
+	    					a:hover{
+	    						background-color: #4A5064;
+	    						color: #FFF;
+	    						text-decoration: none;
+	    					}
+	    				}
+	    				li.item_active{
+	    					a{
+									background-color: #4A5064;
+	    					}
+	    				}
+	    				li.item_active:after{
+								content: '';
+								position: absolute;
+								top: 12px;
+								right: -16px;
+								border: 8px solid transparent;
+								border-left-color: #4A5064;
+	    				}
+	    			}
+	    		}
+	    		>li.active{
+	    			a:after{
+  				    transform: rotate(90deg);
+  				    -webkit-transform: rotate(90deg);
+  				    -moz-transform: rotate(90deg);
+  				    -ms-transform: rotate(90deg);
+  				    -o-transform: rotate(90deg);
+	    			}
+	    			ul{
+	    				display: block;
+	    			}
+	    		}
+	    	}
+	    }
+	    .main{
+	    	background-color: #ebeef2;
+	    	padding-left: 199px;
+				.main_app{
+					padding: 16px;
+				}
+	    }
+    }
+}
