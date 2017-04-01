@@ -13,7 +13,7 @@ wx.ready(function () {
 
     function getShareData(shareType) {
         return shareData = {
-            title: '增强版 Surface Book 强势来袭',
+            title: 'Surface Book 增强版重磅来袭！',
             desc: '你对笔记本电脑的想象，其实可以走得更远',
             link: 'http://eventhub04.anruichina.com/enhancedSurfaceBook/index.html',
             imgUrl: 'http://eventhub04.anruichina.com/enhancedSurfaceBook/images/share.jpg',

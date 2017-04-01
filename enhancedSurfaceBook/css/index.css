@@ -59,7 +59,6 @@
 .content{
     color: #666666;
     font-size: 40px;
-    font-weight: bold;
     text-align: center;
     margin-top: 268px;
 }
@@ -156,7 +155,6 @@
     text-align: center;
     color: #666666;
     font-size: 20px;
-    font-weight: bold;
 }
 .p2-pcBox{
     text-align: center;
@@ -246,4 +244,27 @@
     opacity: 0;
     filter:alpha(opacity=0);
     transition: opacity 1s; 
+}
+
+.img_box{
+    width: 534px;
+    height: 370px;
+    margin: 0 auto;
+    padding-top: 156px;
+    box-sizing: border-box;
+    background: transparent url(../images/pc3_p4.png) no-repeat;
+}
+.img_box p{
+    color: #FFF;
+    font-size: 17px;
+    font-weight: bold;
+    margin-right: -230px;
+    opacity: 0;
+    filter:alpha(opacity=0);
+    transition: all 1s ease .5s;
+}
+.img_box p:last-child{
+    text-align: right;
+    padding-right: 56px;
+    margin-top: 88px;
 }

@@ -22,4 +22,15 @@ $(function(){
 		$('.ul_item>li').removeClass('item_active')
 		me.addClass('item_active');
 	});
+});
+const User = {template: '<div>{{$route.params.id}}F</div>'}
+
+const router= new VueRouter({
+	routes: [
+		{path: '/user/:id', component: User}
+	]
 })
+
+const app = new Vue({
+	router
+}).$mount('#app')

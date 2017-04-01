@@ -5,12 +5,37 @@ $(function(){
 	var one = $('.one');
 	var two = $('.two');
 	var three = $('.three');
+	var p1 = $('.img_box p').eq(0);
+	var p2 = $('.img_box p').eq(1);
+	var p3 = $('.img_box p').eq(2);
+
+	// var p4 =$('.screenContent p').eq(0);
+	// var p5 =$('.screenContent p').eq(1);
+	// var p6 =$('.screenContent p').eq(2);
+	// var p7 =$('.screenContent p').eq(3);
+	// var p8 =$('.screenContent p').eq(4);
 	$('.screen').click(event=>{
 		$('.screen').addClass('hidden').removeClass('show');
 		$('.screenFont').addClass('hidden').removeClass('show');
 		screenBox.css("display","block");
 		screenBox.css("display");
         screenBox.css("opacity","1");
+        p1.css('opacity','1');
+        p1.css('margin-right','0');
+        p2.css('opacity','1');
+        p2.css('margin-right','0');
+        p3.css('opacity','1');
+        p3.css('margin-right','0');
+        // p4.css('opacity','1');
+        // p4.css('right','0');
+        // p5.css('opacity','1');
+        // p5.css('right','0');
+        // p6.css('opacity','1');
+        // p6.css('right','0');
+        // p7.css('opacity','1');
+        // p7.css('right','0');
+        // p8.css('opacity','1');
+        // p8.css('right','0');
 	})
 	$('.key').click(event=>{
 		$('.key').addClass('hidden').removeClass('show');

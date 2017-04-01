@@ -5,6 +5,8 @@
 	<title>Chicken-后台管理页面</title>
 	<link rel="stylesheet" type="text/css" href="css/Reset.css">
 	<link rel="stylesheet" type="text/css" href="css/admin_sign_in.css">
+	<script type="text/javascript" src='js/vue.min.js'></script>
+	<script type="text/javascript" src='js/vue-router.min.js'></script>
 </head>
 <body>
 	<!-- header -->
@@ -52,7 +54,7 @@
 		</div>
 	</div>
 	<!-- content -->
-	<div class="admin_content">
+	<div class="admin_content" id='app'>
 		<div class="admin_content_active">
 			<!-- aside -->
 			<div class="aside">
@@ -61,10 +63,10 @@
 						<a href="#">发布文章</a>
 						<ul class="ul_item">
 							<li class="item_active">
-								<a href="#">订单发布</a>
+								<router-link to="/user/foo">订单发布</router-link>
 							</li>
 							<li>
-								<a href="#">订单详情</a>
+								<router-link to="/user/bar">订单详情</router-link>
 							</li>
 						</ul>
 					</li>
@@ -100,7 +102,7 @@
 			</div>
 			<div class="main">
 				<div class="main_app">
-					fffff
+					<router-view></router-view>
 				</div>
 			</div>
 		</div>

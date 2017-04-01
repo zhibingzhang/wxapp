@@ -51,7 +51,26 @@
 .page4 .screenBox { display: none; position: relative; margin-top: 20px; text-align: center; opacity: 0; filter: alpha(opacity=0); transition: opacity 1s; }
 .page4 .screenBox img { display: inline-block; }
 .page4 .screenBox .screenLine { position: absolute; left: 143px; top: 400px; z-index: 1; }
-.page4 .screenBox .screenContent { text-align: left; height: 190px; font-size: 20px; color: #666666; padding-left: 182px; line-height: 1.5; padding-top: 16px; box-sizing: border-box; }
+.page4 .screenBox .screenContent {overflow: hidden; text-align: left; height: 190px; font-size: 20px; color: #666666; padding-left: 182px; line-height: 1.5; padding-top: 16px; box-sizing: border-box; }
+// .page4 .screenBox .screenContent p{
+//   opacity: 0;
+//   filter:alpha(opacity=0);
+//   transition: all 1s ease-in .5s;
+//   position: relative;
+//   right: -420px;
+// }
+// .page4 .screenBox .screenContent p:nth-child(2){
+//   right: -450px;
+// }
+// .page4 .screenBox .screenContent p:nth-child(2){
+//   right: -480px;
+// }
+// .page4 .screenBox .screenContent p:nth-child(2){
+//   right: -510px;
+// }
+// .page4 .screenBox .screenContent p:nth-child(2){
+//   right: -540px;
+// }
 .page4 .content_center { position: relative; margin-top: 50px; }
 .page4 .content_center .img1_p4 { margin-bottom: 46px; }
 .page4 .content_center .img2_p4 { position: absolute; top: 280px; left: 50%; margin-left: -265px; }
@@ -65,10 +84,10 @@
 .page4 .content_center .pen_p4 { position: absolute; top: 419px; left: 270px; }
 .page4 .content_center .penLight { position: absolute; left: 265px; top: 393px; }
 .page4 .content_center .penFont { position: absolute; left: 322px; top: 416px; }
-.page4 .keyBox { position: absolute; display: none; left: 614px; top: -47px; padding-right: 50px; opacity: 0; filter: alpha(opacity=0); transition: opacity 1s; }
+.page4 .keyBox { position: absolute; display: none; left: 614px; top: 13px; padding-right: 50px; opacity: 0; filter: alpha(opacity=0); transition: opacity 1s; }
 .page4 .keyBox .group_p4 { background-color: #666666; color: #FFFFFF; border-radius: 8px; overflow: hidden; width: 355px; height: 114px; position: relative; padding: 10px; padding-left: 167px; box-sizing: border-box; font-size: 18px; margin-top: 36px; text-align: left; }
 .page4 .keyBox .group_p4 img { position: absolute; left: 0px; top: 0px; border-radius: 8px 0px 0px 8px; }
-.page4 .keyLine { position: absolute; top: -71px; left: 416px; pointer-events: none; }
+.page4 .keyLine { position: absolute; top: 43px; left: 416px; pointer-events: none; }
 .page4 .penBox { display: none; position: relative; text-align: center; opacity: 0; filter: alpha(opacity=0); transition: opacity 1s; }
 .page4 .penBox img { display: inline-block; }
 .page4 .penBox .penboxLine { position: absolute; top: -182px; left: 75px; }
