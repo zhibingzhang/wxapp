@@ -14,7 +14,7 @@ $(function(){
 	// var p6 =$('.screenContent p').eq(2);
 	// var p7 =$('.screenContent p').eq(3);
 	// var p8 =$('.screenContent p').eq(4);
-	$('.screen').click(event=>{
+	$('.screen').click(function(){
 		$('.screen').addClass('hidden').removeClass('show');
 		$('.screenFont').addClass('hidden').removeClass('show');
 		screenBox.css("display","block");
@@ -37,7 +37,7 @@ $(function(){
         // p8.css('opacity','1');
         // p8.css('right','0');
 	})
-	$('.key').click(event=>{
+	$('.key').click(function(){
 		$('.key').addClass('hidden').removeClass('show');
 		$('.keyFont').addClass('hidden').removeClass('show');
 		$('.keyLine').removeClass('hidden').addClass('show');
@@ -60,21 +60,21 @@ $(function(){
 		},1000)
         $('.page4').scrollLeft(378)
 	})
-	$('.penLight').click(event=>{
+	$('.penLight').click(function(){
 		$('.penLight').addClass('hidden').removeClass('show');
 		$('.penFont').addClass('hidden').removeClass('show');
 		penBox.css("display","block");
 		penBox.css("display");
         penBox.css("opacity","1");
 	})
-	$('.screenBox').click(event=>{
+	$('.screenBox').click(function(){
 		$('.screen').removeClass('hidden').addClass('show');
 		$('.screenFont').removeClass('hidden').addClass('show');
 		screenBox.css("display","none");
 		screenBox.css("display");
         screenBox.css("opacity","0");
 	})
-	$('.keyBox').click(event=>{
+	$('.keyBox').click(function(){
 		$('.key').removeClass('hidden').addClass('show');
 		$('.keyFont').removeClass('hidden').addClass('show');
 		$('.keyLine').addClass('hidden').removeClass('show');
@@ -93,7 +93,7 @@ $(function(){
         $('.page4').scrollLeft(0)
         
 	})
-	$('.keyLine').click(event=>{
+	$('.keyLine').click(function(){
 		$('.key').removeClass('hidden').addClass('show');
 		$('.keyFont').removeClass('hidden').addClass('show');
 		$('.keyLine').addClass('hidden').removeClass('show');
@@ -103,17 +103,17 @@ $(function(){
         $('.page4').scrollLeft(0)
         
 	})
-	$('.penBox').click(event=>{
+	$('.penBox').click(function(){
 		$('.penLight').removeClass('hidden').addClass('show');
 		$('.penFont').removeClass('hidden').addClass('show');
 		penBox.css("display","none");
 		penBox.css("display");
         penBox.css("opacity","0");
 	})
-	$('.mask').click(event=>{
-		$('.mask').addClass('hidden').removeClass('show');
-		$('.maskLight').addClass('hidden').removeClass('show');
-	})
+	// $('.mask').click(event=>{
+	// 	$('.mask').addClass('hidden').removeClass('show');
+	// 	$('.maskLight').addClass('hidden').removeClass('show');
+	// })
 	//	音乐效果
     var a2 = document.getElementById('a2');
     $(document).one('touchstart', function () {

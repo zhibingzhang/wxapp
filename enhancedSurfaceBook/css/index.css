@@ -156,6 +156,9 @@
     color: #666666;
     font-size: 20px;
 }
+.group p sup{
+    font-size: 12px;
+}
 .p2-pcBox{
     text-align: center;
     margin-top: 64px;
