@@ -1,34 +1,62 @@
-extends ../layout
+extends ../layout_admin
 
 block content
-	.container
-		.row
-			form.form-horizontal(method="post", action="/admin/movie/new")
-				input(type="hidden", name="_id", value="#{movie._id}")
-				.form-group
-					label.col-sm-2.control-label(for="inputTitle") 标题
-					.col-sm-10
-						input#inputTitle.form-control(type="text", name="title", value="#{movie.title}")
-
-				.form-group
-					label.col-sm-2.control-label(for="inputAuthor") 作者
-					.col-sm-10
-						input#inputAuthor.form-control(type="text", name="author", value="#{movie.author}")
-
-				.form-group
-					label.col-sm-2.control-label(for="inputContent") 内容
-					.col-sm-10
-						input#inputContent.form-control(type="text", name="content", value="#{movie.content}")
-
-				.form-group
-					label.col-sm-2.control-label(for="inputTime") 时间
-					.col-sm-10
-						input#inputTime.form-control(type="text", name="time", value="#{movie.time}")
-
-				.form-group
-					label.col-sm-2.control-label(for="inputImg") 图片
-					.col-sm-10
-						input#inputImg.form-control(type="file", name="img", value="#{movie.img}")
-				.form-group
-					.col-sm-offset-2.col-sm-10
-					button.btn.btn-default(type="submit") 录入
+	//- header
+	div.admin_header
+		div.admin_header_content
+			div.content-l
+				div.content-l-item.fl
+					a(href="/")
+						img(src="/images/logo_admin.png", alt="This is logo")
+				div.content-l-item.fl
+					a(href="#")
+						span 产品与服务
+			div.content-r
+				div.content-l-item.fl
+					a(href="#")
+						span 收索
+				div.content-l-item.fl
+					a(href="#")
+						span Free68
+					ul.admin_uname
+						li
+							a(href="#") 退出管理控制台
+				div.content-l-item.fl
+					a(href="#")
+						span 简体中文
+					ul.lange
+						li
+							a(href="#") Eenlish
+	//- content
+	div.admin_content
+		div.admin_content_active
+			//- aside
+			div.aside
+				ul
+					li.active
+						a(href="#") 发布文章
+						ul.ul_item
+							li.item_active
+								a(href="#") 订单发布
+							li
+								a(href="#") 订单详情
+					li
+						a(href="#") 文章管理
+						ul.ul_item
+							li
+								a(href="#") 添加文章
+							li
+								a(href="#") 更新文章
+							li
+								a(href="#") 删除文章
+							li
+								a(href="#") 查询文章
+					li
+						a(href="#") 用户权限
+						ul.ul_item
+							li
+								a(href="#") 添加用户
+							li
+								a(href="#") 删除用户
+			//- main
+			div.main main

@@ -554,9 +554,10 @@
       color: #969696;
       height: 36px;
       line-height: 36px;
-      padding: 0 26px;
-      border-radius: 4px;
-      margin: 16px 0;
+      padding: 0;
+      margin: 16px;
+      border-top: 3px solid transparent;
+      transition: all .6s;
       &:hover,
       &:focus {
         color: #ff7b7b;
@@ -568,7 +569,7 @@
       &:hover,
       &:focus {
         color: #ff7b7b;
-        border-bottom: 1px solid #ff7b7b;
+        border-top-color: #ff7b7b;
       }
     }
     > .disabled > a {
