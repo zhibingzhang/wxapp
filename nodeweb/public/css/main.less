@@ -4,6 +4,9 @@ html,body{
 .container,.container-fluid{
 	padding: 0;
 }
+.collapse_md{
+	display: none;
+}
 .article{
 	float: right;
     height: 36px;
@@ -11,14 +14,22 @@ html,body{
     padding: 0 26px;
     border-radius: 4px;
     margin-top: 16px;
-    color: #fff;
-    background-color: #ff7b7b;
+    color: #969696;
+    border: 1px solid #ff7b7b;
     margin-right: 15px;
+    transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	-o-transition: all .5s;
 }
 .article:hover{
 	text-decoration: none;
 	color: #fff;
 	background-color: #fa6262;
+}
+.article_hide{
+	margin-left: 26px;
 }
 // banner
 .banner{
@@ -503,5 +514,18 @@ html,body{
 	}
 	.error{
 		margin-top: -10px;
+	}
+	.collapse_md{
+		display: block;
+	}
+	.article_hide{
+		display: none;
+	}
+	.navbar-inverse .navbar-nav>li>a{
+		margin: 0;
+		background-color: #eee;
+	}
+	.navbar-inverse .navbar-nav>.active>a{
+		background-color: #fff; 
 	}
 }
