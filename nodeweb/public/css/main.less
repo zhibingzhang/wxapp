@@ -37,11 +37,124 @@ html,body{
 	text-align: center;
 	color: #FFF;
 	padding: 20px 0 10px;
+	position: relative;
 	.users{
 		width: 178px;
 		margin: 0 auto;
 		a{
 			color: #666;
+		}
+	}
+	.boll{
+		i{
+			width: 15px;
+			height: 15px;
+			background-color: #FFF;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		i:nth-child(1){
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(2){
+			top: 30px;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in 3s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(3){
+			top: 60px; 
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in 6s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(4){
+			top: 90px; 
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in 9s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(5){
+			top: 120px; 
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in 12s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(6){
+			top: 150px; 
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_ball 15s ease-in 15s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+
+		i:nth-child(7){
+			top: inherit;
+			left: inherit;
+			bottom: 0; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(8){
+			top: inherit;
+			left: inherit;
+			bottom: 30px; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in 3s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(9){
+			top: inherit;
+			left: inherit;
+			bottom: 60px; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in 6s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(10){
+			top: inherit;
+			left: inherit;
+			bottom: 90px; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in 9s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(11){
+			top: inherit;
+			left: inherit;
+			bottom: 120px; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in 12s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
+		}
+		i:nth-child(12){
+			top: inherit;
+			left: inherit;
+			bottom: 150px; 
+			right: 0;
+			animation: myfirst_ball 5s ease-in infinite;
+			-moz-animation: myfirst_ball 5s ease-in infinite;	/* Firefox */
+			-webkit-animation: myfirst_noball 15s ease-in 15s infinite alternate;	/* Safari 和 Chrome */
+			-o-animation: myfirst_ball 5s ease-in infinite;	/* Opera */
 		}
 	}
 	.head{
@@ -88,22 +201,92 @@ html,body{
 // 作品
 .works{
 	padding: 22px 0;
-	background-color: #f7f7f7;
-	margin: 106px auto 36px auto;
+	background-color: #eee;
+	margin: 16px auto;
 	list-style: none;
 	li{
 		width: 20%;
 		float: left;
+		height: 164px;
+		position: relative;
+		padding-top: 22px;
+		a{
+			width: 120px;
+			height: 120px;
+			line-height: 120px;
+			border-radius: 3px;
+			background-color: #212733;	
+			display: block;
+			text-align: center;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+			position: absolute;
+			left: 50%;
+			margin-left: -60px;
+			transition: transform .5s;
+			backface-visibility:hidden;
+			-webkit-backface-visibility:hidden;	/* Chrome 和 Safari */
+			-moz-backface-visibility:hidden; 	/* Firefox */
+			-ms-backface-visibility:hidden;
+			color: #FFF;
+			text-align: center;
+			div{
+				max-width: 100%;
+				-webkit-transform: rotate(-45deg);
+				-moz-transform: rotate(-45deg);
+				-ms-transform: rotate(-45deg);
+				transform: rotate(-45deg);
+				overflow: hidden;
+				font-size: 12px;
+				height: 120px;
+				p{
+					line-height: 100%;
+				}
+			}
+			img{
+				max-width: 100%;
+			}
+		}
+		a:first-child{
+			-webkit-transform: rotateY(45deg);
+			-moz-transform: rotateY(45deg);
+			-ms-transform: rotateY(45deg);
+			transform: rotateY(45deg);
+		}
 	}
-	a{
-		width: 60px;
-		height: 60px;
-		line-height: 60px;
-		border-radius: 6px;
-		background-color: #CCC;	
-		display: block;
-		margin: 0 auto;
-		text-align: center;
+	li:hover{
+		a:last-child{
+			-webkit-transform: rotateY(192deg);
+			-moz-transform: rotateY(192deg);
+			-ms-transform: rotateY(192deg);
+			transform: rotateY(192deg);
+		}
+		a:first-child{
+			-webkit-transform: rotateY(0deg);
+			-moz-transform: rotateY(0deg);
+			-ms-transform: rotateY(0deg);
+			transform: rotateY(0deg);
+		}
+		a{
+			text-decoration: none;
+		}
+	}
+	li:first-child{
+		a{
+			background-color: #fc4928;
+		}
+	}
+	li:nth-child(3){
+		a{
+			background-color: #FFF;
+		}
+	}
+	li:nth-child(4),li:nth-child(5){
+		div{
+			padding-top: 42px;
+		}
 	}
 }
 // main
@@ -528,4 +711,49 @@ html,body{
 	.navbar-inverse .navbar-nav>.active>a{
 		background-color: #fff; 
 	}
+}
+// 自定义动画
+@keyframes myfirst_ball
+{
+0%   {opacity: 0;left: 0%;}
+100% {opacity: 1;left: 96%;}
+}
+
+@-moz-keyframes myfirst_ball /* Firefox */
+{
+0%   {opacity: 0;left: 0%;}
+100% {opacity: 1;left: 96%;}
+}
+@-webkit-keyframes myfirst_ball /* Safari 和 Chrome */
+{
+0%   {opacity: 0;left: 0%;}
+100% {opacity: 1;left: 96%;}
+}
+@-o-keyframes myfirst_ball /* Opera */
+{
+0%   {opacity: 0;left: 0%;}
+100% {opacity: 1;left: 96%;}
+}
+
+@keyframes myfirst_noball
+{
+0%   {opacity: 1;right: 0%;}
+100% {opacity: 0;right: 96%;}
+}
+
+@-moz-keyframes myfirst_noball /* Firefox */
+{
+0%   {opacity: 1;right: 0%;}
+100% {opacity: 0;right: 96%;}
+}
+
+@-webkit-keyframes myfirst_noball /* Safari 和 Chrome */
+{
+0%   {opacity: 1;right: 0%;}
+100% {opacity: 0;right: 96%;}
+}
+@-o-keyframes myfirst_noball /* Opera */
+{
+0%   {opacity: 1;right: 0%;}
+100% {opacity: 0;right: 96%;}
 }
