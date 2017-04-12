@@ -51,7 +51,7 @@ $(function(){
 		            		// 倒计时
 							var t = setInterval(function(){
 								time --;
-								$(me).html('倒计时 '+time).addClass('timeactive');
+								$(me).html('倒计时 '+time+'s').addClass('timeactive');
 								if(time === 0){
 									clearInterval(t)
 									$(me).html('重新获取').removeClass('timeactive');

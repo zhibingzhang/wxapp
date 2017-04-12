@@ -1,26 +1,29 @@
-2017-04-06T20:45:51.685+0800 I CONTROL  [initandlisten] MongoDB starting : pid=3656 port=12345 dbpath=data 64-bit host=zhibinzhang
-2017-04-06T20:45:51.685+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
-2017-04-06T20:45:51.685+0800 I CONTROL  [initandlisten] db version v3.4.2
-2017-04-06T20:45:51.685+0800 I CONTROL  [initandlisten] git version: 3f76e40c105fc223b3e5aac3e20dcd026b83b38b
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2h  3 May 2016
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten] allocator: tcmalloc
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten] modules: none
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten] build environment:
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten]     distarch: x86_64
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten]     target_arch: x86_64
-2017-04-06T20:45:51.686+0800 I CONTROL  [initandlisten] options: { config: "conf/mongod.conf", net: { port: 12345 }, storage: { dbPath: "data" }, systemLog: { destination: "file", path: "logs/mongod.log" } }
-2017-04-06T20:45:51.688+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1527M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
-2017-04-06T20:45:54.184+0800 I CONTROL  [initandlisten] 
-2017-04-06T20:45:54.184+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
-2017-04-06T20:45:54.184+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
-2017-04-06T20:45:54.184+0800 I CONTROL  [initandlisten] 
-2017-04-06T20:45:57.052+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'data/diagnostic.data'
-2017-04-06T20:45:58.168+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
-2017-04-06T20:45:58.168+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2017-04-06T20:45:58.186+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
-2017-04-06T20:45:58.187+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
-2017-04-06T20:45:58.189+0800 I NETWORK  [thread1] waiting for connections on port 12345
-2017-04-06T20:47:09.101+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:53151 #1 (1 connection now open)
-2017-04-06T20:47:09.112+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:53151 conn1: { driver: { name: "nodejs", version: "2.2.22" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "6.3.9600" }, platform: "Node.js v7.4.0, LE, mongodb-core: 2.1.7" }
-2017-04-06T21:29:17.240+0800 I -        [conn1] end connection 127.0.0.1:53151 (1 connection now open)
+2017-04-10T13:42:22.981+0800 I CONTROL  [initandlisten] MongoDB starting : pid=8848 port=12345 dbpath=data 64-bit host=zhangzhibin01
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] db version v3.4.2
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] git version: 3f76e40c105fc223b3e5aac3e20dcd026b83b38b
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2h  3 May 2016
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] allocator: tcmalloc
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] modules: none
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten] build environment:
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten]     distarch: x86_64
+2017-04-10T13:42:22.982+0800 I CONTROL  [initandlisten]     target_arch: x86_64
+2017-04-10T13:42:22.983+0800 I CONTROL  [initandlisten] options: { config: "conf/mongod.conf", net: { port: 12345 }, storage: { dbPath: "data" }, systemLog: { destination: "file", path: "logs/mongod.log" } }
+2017-04-10T13:42:22.983+0800 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3432M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2017-04-10T13:42:23.515+0800 I CONTROL  [initandlisten] 
+2017-04-10T13:42:23.516+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2017-04-10T13:42:23.516+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2017-04-10T13:42:23.516+0800 I CONTROL  [initandlisten] 
+2017-04-10T13:42:24.270+0800 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'data/diagnostic.data'
+2017-04-10T13:42:24.423+0800 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2017-04-10T13:42:24.423+0800 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2017-04-10T13:42:24.465+0800 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2017-04-10T13:42:24.467+0800 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2017-04-10T13:42:24.468+0800 I NETWORK  [thread1] waiting for connections on port 12345
+2017-04-10T13:43:03.339+0800 I NETWORK  [thread1] connection accepted from 127.0.0.1:13662 #1 (1 connection now open)
+2017-04-10T13:43:03.381+0800 I NETWORK  [conn1] received client metadata from 127.0.0.1:13662 conn1: { driver: { name: "nodejs", version: "2.2.22" }, os: { type: "Windows_NT", name: "win32", architecture: "x64", version: "6.3.9600" }, platform: "Node.js v6.9.5, LE, mongodb-core: 2.1.7" }
+2017-04-10T14:15:26.690+0800 I COMMAND  [conn1] command blog.users command: find { find: "users", filter: { password: "363b122c528f54df4a0446b6bab05515", $or: [ { uname: "i" }, { email: "i" } ] }, limit: 1, batchSize: 1, singleBatch: true } planSummary: EOF keysExamined:0 docsExamined:0 cursorExhausted:1 numYields:0 nreturned:0 reslen:98 locks:{ Global: { acquireCount: { r: 2 } }, Database: { acquireCount: { r: 1 } }, Collection: { acquireCount: { r: 1 } } } protocol:op_query 127ms
+2017-04-10T14:16:09.852+0800 I COMMAND  [conn1] command blog.emails command: insert { insert: "emails", documents: [ { email: "563723814@qq.com", startime: 1491805029, vcode: "737110", _id: ObjectId('58eb2329fc06501e70ad33d1'), meta: { updateAt: new Date(1491804969716), createAt: new Date(1491804969716) }, __v: 0 } ], ordered: false, writeConcern: { w: 1 } } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 120ms
+2017-04-10T14:23:01.913+0800 I COMMAND  [conn1] command blog.users command: insert { insert: "users", documents: [ { uname: "Free68", phone: "15601604621", email: "563703814@qq.com", vcode: "710040", password: "e10adc3949ba59abbe56e057f20f883e", _id: ObjectId('58eb24c5fc06501e70ad33d4'), meta: { updateAt: new Date(1491805381698), createAt: new Date(1491805381698) }, __v: 0 } ], ordered: false, writeConcern: { w: 1 } } ninserted:1 keysInserted:1 numYields:0 reslen:44 locks:{ Global: { acquireCount: { r: 3, w: 3 } }, Database: { acquireCount: { w: 2, W: 1 } }, Collection: { acquireCount: { w: 2 } } } protocol:op_query 211ms
+2017-04-10T15:15:03.914+0800 I -        [conn1] end connection 127.0.0.1:13662 (1 connection now open)
