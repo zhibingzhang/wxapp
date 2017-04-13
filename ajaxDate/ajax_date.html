@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajaxDate</title>
+</head>
+<body>
+	<div id="date"></div>
+	<script type="text/javascript">
+		setInterval(function(){
+			myDate();
+		},1000)
+		function myDate(){
+			var myDate = new Date();
+			var myDay = myDate.getDay();//获取当前星期几
+			var h = myDate.getHours();
+			var m = myDate.getMinutes();
+			var s = myDate.getSeconds();
+			if(myDay === 4 && h === 15 && m === 42){
+				console.log('写入数据库给增加抽奖机会')
+				document.getElementById('date').innerHTML = s;
+			}else if(myDay === 6 && h === 24 && m === 0){
+				console.log('消除抽奖机会')
+			}
+			console.log('星期'+myDay+' '+h+':'+m+':'+s)
+		}
+	</script>
+</body>
+</html>

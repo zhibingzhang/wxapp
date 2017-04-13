@@ -1,0 +1,101 @@
+html,body{
+    width:100%;
+    font-size:14px;
+    line-height: 1.5;
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin:0;
+    padding-bottom:40px;
+}
+p{
+    margin:0;
+}
+#jd-wrap{
+    width:100%;
+}
+.jd-main{
+    padding-top:43px;
+    padding-left:35px;
+    padding-right:35px;
+    font-size:12px;
+    color:#373e41;
+}
+.jd-btn{
+    margin-top:60px;
+    padding-left:35px;
+    padding-right:35px;
+    position:relative;
+}
+
+.mark{
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    width:6px;
+    height:16px;
+    background-color:#11b7f4;
+    margin-right:-6px;
+}
+.markTitle{
+    font-size:16px;
+    color:#141617;
+    margin-left:16px;
+}
+.line{
+    margin-top:18px;
+    margin-left:16px;
+}
+.line.first{
+    margin-top:26px;
+}
+.jd-main-dsp{
+    margin-top:53px;
+}
+.jd-main-req{
+    margin-top:54px;
+}
+.jd-email-img{
+    position:absolute;
+    top:38px;
+    left:52px;
+}
+.jd-email{
+    position:absolute;
+    top:48px;
+    color:#141617;
+    left:95px;
+    font-size:16px;
+    font-weight:bold;
+}
+.jd-cell-img{
+    position:absolute;
+    top:38px;
+    left:287px;
+}
+.jd-cell{
+    position:absolute;
+    top:48px;
+    color:#141617;
+    left:332px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+/*chrome & safari*/
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+::-webkit-scrollbar-track{
+    background-color:#6a7d84;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:#d6e4f1;
+}
+
+/* ms */
+html,body{
+    scrollbar-track-color:#d6e4f1;
+    scrollbar-base-color:#6a7d84;
+    -ms-scrollbar-darkshadow-color:#6a7d84;
+}
