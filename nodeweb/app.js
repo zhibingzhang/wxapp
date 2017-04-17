@@ -30,6 +30,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.listen(port)
 // 页面路由 index page
 app.get('/',function(req, res){
+	var token = req.body.token || req.query.token || req.headers.cookie||[]
+	console.log(getCookie('uname'))
 	Movie.fetch(function(err, movies){
 		if(err){
 			console.log(err)
@@ -54,8 +56,9 @@ app.get('/movie/:id',function(req, res){
 })
 // 页面路由 admin page
 app.get('/admin/movie',function(req, res){
-	var token = req.body.token || req.query.token || req.headers.cookie; // 从body或query或者header中获取token
-	console.log(secretOrPrivatekdy)
+	var token = req.body.token || req.query.token || req.headers.cookie||[]
+	 // 从body或query或者header中获取token
+	getCookie(uname)
 	jwt.verify(token, secretOrPrivatekdy, function (err, decode) {
         if (err) {  //  时间失效的时候/ 伪造的token          
            res.redirect('/sign_in')
@@ -391,20 +394,17 @@ app.post('/sign_in/new', function(req, res){
 				'message': '用户名或密码错误'
 			})
 		}
-
 		var content = {
 			iss: doc.uname
 		}
 		var token = jwt.sign(content, secretOrPrivatekdy,{
 			expiresIn: 60*60*24
 		})
-
-		console.log(doc)
 		return res.json({
 			'state': '200',
 			'message': '',
 			'token': token,
-			'doc': doc
+			'doc': doc.uname
 		})
 	})
 })
@@ -470,3 +470,5 @@ function random_num(){
 	} 
 	return Num;
 }
+function getCookie(c_name)
+{
