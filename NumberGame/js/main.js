@@ -293,9 +293,6 @@ function timer() {
     //         window.location.href = 'GameResult.html?when_long=false,' + str;
     //     }
     // }, 1000);
-
-
-
     var sum = 180,
         mm = 0,
         ss = 0,

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ECharts地图选择器</title>
+</head>
+
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="main" style="height:950px"></div>
+	<!--<span id="wrong-message" style="color:red">当前选择：广州 </span>-->
+	<script src="js/echarts.js"></script>
+	<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/map' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main'));
+				option = {
+					backgroundColor: '#000',
+					//设置图片标题、子标题、文本颜色等等
+					tooltip : {
+						trigger: 'item',
+						formatter: '{b}',
+						show: false
+
+					},
+
+					series : [
+						{
+							name: '中国',
+							type: 'map',
+							mapType: 'china',
+							selectedMode : 'multiple',
+							itemStyle:{
+								normal:{
+									label:{
+										show:true,
+										textStyle: {
+											fontSize: 16,
+											color: "rgb(249, 249, 249)"
+										}
+									},
+									areaStyle:{color:'#6b6b6b'},
+									color:'#6b6b6b',
+									borderWidth:4,
+									borderColor:'#4bb344'
+								},
+								emphasis:{
+									label:{
+										show:true,
+										textStyle: {
+											fontSize: 16,
+											color: "rgb(249, 249, 249)"
+										}
+									},
+									areaStyle:{color:'#4bb344'},
+									color:'#4bb344'
+								}
+							},
+							// 文本位置修正
+							textFixed: {
+								'新疆': [10, 20]
+							},
+							data:[
+								{
+									name:"南海诸岛",value:0,
+									itemStyle:{
+										normal:{opacity:0,label:{show:false}}
+									}
+								},
+								//{name: '巴音郭楞蒙古自治州', selected:false,value:1},
+								{name: '新疆', selected:false,value:1},
+							],
+							nameMap:{
+								'新疆':' '
+							}
+
+						}
+					],
+
+					dataRange: {
+						show: false,
+						min: 0,
+						max: 2500,
+						x: 'left',
+						y: 'bottom',
+						splitList: [
+							{start:1, end:1, label: '新疆', color:'#535353'}
+
+						]
+						//color: ['#535353', '#636363', '#606060', '#575757','#4b4b4b']
+					}
+				};
+/*
+				var ecConfig = require('echarts/config');
+				myChart.on(ecConfig.EVENT.MAP_SELECTED, function (param){
+				    var selected = param.selected;
+				    var str = '当前选择： ';
+				    for (var p in selected) {
+				        if (selected[p]) {
+				            str += p + ' ';
+				        }
+				    }
+				    document.getElementById('wrong-message').innerHTML = str;
+				})
+				*/
+                // 为echarts对象加载数据
+
+                myChart.setOption(option);
+            }
+        );
+    </script>
+</body>
+</body>
+</html>
