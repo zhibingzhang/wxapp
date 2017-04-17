@@ -29,41 +29,88 @@ $(function(){
     }
 
     if(!error.length){
-      console.log('通过')
       $(this).css('pointer-events','none');
-      // window.location.href='result.html';
+      var model = {};
+        model.Name = uname;
+        model.Company = company;
+        model.Position = position;
+        model.Phone = phone;
+        model.Email = email;
+        $.ajax({
+            url: 'http://event.anruichina.com/LandingPage/LandingPage/SubForm',
+            type: 'post',
+            datatype: 'json',
+            data: { 'model': model },
+            success: function (data) {
+                if (data.Status>0)
+                {
+                    alert('注册信息 已经提交！');
+                    $("#uname").val('');
+                    $("#company").val('');
+                    $("#position").val('');
+                    $("#phone").val('');
+                    $("#email").val('');
+                    window.location.href = 'http://event.anruichina.com/LandingPage/result.html';
+                }else
+                {
+                    alert(data.Message);
+                }
+            }
+        });
     }else{
-      console.log(error)
+      for(var i=0,str=''; i<error.length; i++){
+        str+=error[i];
+      }
+      alert(str);
     }
-
   })
-
-  $('.forms input').keyup(function(){
-    console.log($(this).val())
-    if($(this).val() === ''){
-      $(this).next('.error').css('display','none');
-      $(this).next('.error').css('opacity','0');
-    }
-  });
+   $('.result_btn').click(function(){
+      $.ajax({
+            url: "http://event.anruichina.com/LandingPage/Code/SaveCode",
+            datatype: 'json',
+            data: {
+                code:1
+            },
+            success: function(data) {
+                
+            }
+        });
+    })
+  // $('.forms input').focus(function(){
+  //   if($(this).val() === ''){
+  //     $(this).next('.error').css('display','none');
+  //     $(this).next('.error').css('display');
+  //     $(this).next('.error').css('opacity','0');
+  //   }
+  // });
 });
 function inp_error(element,i,error,my_reg){
   if(element.eq(i).val() === ""){
-    error.push(element.eq(i).prev().text()+'不能为空');
-    element.eq(i).next('.error').css('display','block');
-    element.eq(i).next('.error').css('display');
-    element.eq(i).next('.error').css('opacity','1');
-    element.eq(i).next('.error').html(element.eq(i).prev().text()+'不能为空');
+    error.push(element.eq(i).prev().text()+'不能为空\n');
+    // element.eq(i).next('.error').css('display','block');
+    // element.eq(i).next('.error').css('display');
+    // element.eq(i).next('.error').css('opacity','1');
+    // element.eq(i).next('.error').html(element.eq(i).prev().text()+'不能为空');
   }else if(element.eq(i).attr('id') === 'phone'){
     if(!eval(my_reg.regPhone).test(element.eq(i).val())){
-    error.push(element.eq(i).prev().text()+'格式不正确');
+    error.push(element.eq(i).prev().text()+'格式不正确\n');
+    // element.eq(i).next('.error').css('display','block');
+    // element.eq(i).next('.error').css('display');
+    // element.eq(i).next('.error').css('opacity','1');
+    // element.eq(i).next('.error').html(element.eq(i).prev().text()+'格式不正确');
     }
   }else if(element.eq(i).attr('id') === 'email'){
     if(!eval(my_reg.regEmail).test(element.eq(i).val())){
-    error.push(element.eq(i).prev().text()+'格式不正确');
+    error.push(element.eq(i).prev().text()+'格式不正确\n');
+    // element.eq(i).next('.error').css('display','block');
+    // element.eq(i).next('.error').css('display');
+    // element.eq(i).next('.error').css('opacity','1');
+    // element.eq(i).next('.error').html(element.eq(i).prev().text()+'格式不正确');
     }
-  }else{
-    element.eq(i).next('.error').css('display','none');
-    element.eq(i).next('.error').css('display');
-    element.eq(i).next('.error').css('opacity','0');
   }
+  // else{
+  //   element.eq(i).next('.error').css('display','none');
+  //   element.eq(i).next('.error').css('display');
+  //   element.eq(i).next('.error').css('opacity','0');
+  // }
 }

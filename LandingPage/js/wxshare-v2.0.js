@@ -40,10 +40,10 @@ $.ajax({
 wx.ready(function() {
     function getShareData(shareType) {
         return shareData = {
-            title: '甲骨文 SaaS 大学堂',
-            desc: '甲骨文 SaaS 大学堂',
-            link: '',
-            imgUrl: '',
+            title: '注册下载李奇先生精彩演讲PPT',
+            desc: '',
+            link: 'http://event.anruichina.com/LandingPage/index.html',
+            imgUrl: 'http://event.anruichina.com/LandingPage/images/wx.jpg',
             success: function(res) {
                 shareConfirm(shareType);
             },
@@ -65,21 +65,21 @@ wx.ready(function() {
     }
     // 分享成功
     function shareConfirm(type) {
-        // $.ajax({
-        //     url: "http://eventhub04.anruichina.com/o365-puzzles/home/ShareFriend",
-        //     type: 'post',
-        //     datatype: 'json',
-        //     data: {
-        //         shareType: type, url: window.location.href
-        //     },
-        //     success: function(data) {
-        //         console.log(data);
-        //         // config.leftCount = data.Status;
-        //         // if (data.Status > 0) {
-        //         //     location.reload();
-        //         // }
-        //     }
-        // });
+        $.ajax({
+            url: "http://event.anruichina.com/LandingPage/Code/ShareFriend",
+            type: 'post',
+            datatype: 'json',
+            data: {
+                shareType: type, url: window.location.href,record:1
+            },
+            success: function(data) {
+                console.log(data);
+                // config.leftCount = data.Status;
+                // if (data.Status > 0) {
+                //     location.reload();
+                // }
+            }
+        });
     }
     wx.onMenuShareAppMessage(getShareData(1));
     wx.onMenuShareTimeline(getShareData(2));
