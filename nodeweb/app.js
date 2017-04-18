@@ -30,15 +30,48 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.listen(port)
 // 页面路由 index page
 app.get('/',function(req, res){
-	var token = req.body.token || req.query.token || req.headers.cookie||[]
-	console.log(getCookie('uname'))
+	var cookies = req.rawHeaders.Cookie || req.headers.cookie||[]
+	function getCookie(c_name,type)
+	{
+		if(type == 0){
+			if (c_name.length>0) {
+				c_start=c_name.indexOf("uname=")
+				if(c_start!=-1)
+				{ 
+				    c_start=c_start + c_name.split(';')[0].split('=')[0].length+1
+				    c_end=c_name.indexOf(";",c_start)
+				    if (c_end==-1) c_end=c_name.length
+				    return c_name.substring(c_start,c_end)
+				} 
+			}
+			return "(→_→) 你是谁？"
+		}else if(type == 1){
+			if (c_name.length>0) {
+				c_start=c_name.indexOf("email=")
+				if(c_start!=-1)
+				{ 
+				    c_start=c_start + c_name.split(';')[1].split('=')[0].length
+				    c_end=c_name.indexOf(";",c_start)
+				    if (c_end==-1) c_end=c_name.length
+				    return c_name.substring(c_start,c_end)
+				}
+			}
+			return "(→_→) 你邮箱？"
+		}
+
+	}
+	var uname = getCookie(cookies,0)
+	var email = getCookie(cookies,1)
+	console.log(uname)
 	Movie.fetch(function(err, movies){
 		if(err){
 			console.log(err)
 		}
 		res.render('index',{
 			title: 'ChickenBz-首页',
-			movies: movies
+			movies: movies,
+			uname: uname,
+			email: email
 		})
 	})
 })
@@ -58,7 +91,6 @@ app.get('/movie/:id',function(req, res){
 app.get('/admin/movie',function(req, res){
 	var token = req.body.token || req.query.token || req.headers.cookie||[]
 	 // 从body或query或者header中获取token
-	getCookie(uname)
 	jwt.verify(token, secretOrPrivatekdy, function (err, decode) {
         if (err) {  //  时间失效的时候/ 伪造的token          
            res.redirect('/sign_in')
@@ -404,7 +436,10 @@ app.post('/sign_in/new', function(req, res){
 			'state': '200',
 			'message': '',
 			'token': token,
-			'doc': doc.uname
+			'doc': {
+				'uname':doc.uname,
+				'email':doc.email
+			}
 		})
 	})
 })
@@ -470,5 +505,3 @@ function random_num(){
 	} 
 	return Num;
 }
-function getCookie(c_name)
-{

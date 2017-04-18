@@ -160,17 +160,17 @@ $(function(){
             type:'post',
             data: data,
             success: function(data){ 
-            	console.log(data)
             	if(data.state === "404"){
             		$('.error').addClass('show').children('i').html(data.message);
             	}else if(data.state === "200"){
-
+            		console.log(data)
             		if($(".password-state input").is(':checked')){
             			setCookie('mytoken',data.token,3600)
             			setCookie('uname',data.doc,3600)
             			 window.location.href='/';
             		}else{
-            			setCookie('uname',data.doc,3600)
+            			setCookie('uname',data.doc.uname,3600)
+            			setCookie('email',data.doc.email,3600)
             			window.location.href='/';
             		}
             	}
@@ -227,6 +227,21 @@ $(function(){
 	            }
 	        });
 		}
+	})
+	//免登录
+	if(getCookie('uname') !='' && getCookie('uname') != null){
+		$('.article').hide();
+		$('.unames').show();
+	}else{
+		// $('.article').eq(0).show();
+		$('.unames').hide();
+	}
+	// 退出
+	$('.no_uname').click(function(e){
+		e.preventDefault();
+		setCookie('uname','',0);
+		setCookie('email','',0);
+		window.location.href='/';
 	})
 });
 // 设置cookie
