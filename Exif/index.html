@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>exif.js</title>
+	<script type="text/javascript" src="exif-js/exif.js"></script>
+</head>
+<body>
+	<img src="images/1.jpg" id="img1">
+	<script type="text/javascript">
+		var orientation = null;
+		window.onload=getExif;
+		function getExif(){
+			EXIF.getData(document.getElementById('img1'),function(){
+				EXIF.getAllTags(this); 
+				orientation = EXIF.getTag(this, 'ImageWidth')
+			})
+			console.log(orientation);
+		}
+	</script>
+</body>
+</html>

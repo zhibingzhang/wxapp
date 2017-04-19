@@ -230,8 +230,8 @@ $(function(){
 	})
 	//免登录
 	if(getCookie('uname') !='' && getCookie('uname') != null){
-		$('.article').hide();
-		$('.unames').show();
+		$('.article').addClass('hide');
+		$('.unames_pc').addClass('show');
 	}else{
 		// $('.article').eq(0).show();
 		$('.unames').hide();

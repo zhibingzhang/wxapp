@@ -10,9 +10,12 @@ div.navbar.navbar-inverse(role="navigation")
 			a.navbar-brand(href="/")
 				img(src="/images/logo.png")
 			a.article.collapse_md(href="/admin/movie") 登陆
+			div.unames.unames_s
+				a.uname(href="#") 您好，#{uname}
+				a.no_uname(href="#") 退出
 		div.uname_info
 			a.article.article_hide(href="/admin/movie") 登陆
-			div.unames
+			div.unames.unames_pc
 				a.article_hide.uname(href="#") 您好，#{uname}
 				a.no_uname(href="#") 退出
 		div.collapse.navbar-collapse(id="bs-example-navbar-collapse-1")

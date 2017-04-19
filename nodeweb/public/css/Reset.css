@@ -45,3 +45,10 @@ input:focus {
 textarea:focus{
 	outline: none;
 }
+.show{
+	display: block;
+	opacity: 1!important;
+}
+.hide{
+	display: none;
+}
